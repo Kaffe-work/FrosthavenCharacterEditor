@@ -1,0 +1,82 @@
+{
+  "index": "68",
+  "name": "The Face of Torment",
+  "edition": "fh",
+  "complexity": 2,
+  "rewards": {
+    "custom": "\"Aesther Outpost\" quest complete",
+    "calendarSection": [
+      "133.1-2"
+    ]
+  },
+  "monsters": [
+    "chaos-demon",
+    "earth-demon",
+    "flame-demon",
+    "frost-demon",
+    "night-demon",
+    "sun-demon",
+    "tormentor",
+    "wind-demon"
+  ],
+  "lootDeckConfig": {
+    "lumber": 5,
+    "metal": 5,
+    "hide": 5,
+    "random_item": 1
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:2",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        59
+      ],
+      "monster": [
+        {
+          "name": "chaos-demon",
+          "type": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "chaos-demon",
+          "player4": "normal"
+        },
+        {
+          "name": "tormentor",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

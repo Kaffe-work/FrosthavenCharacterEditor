@@ -1,0 +1,239 @@
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--ghs-font-title);
+  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  color: var(--ghs-color-white);
+
+  small {
+    flex-basis: 100%;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-gray);
+
+    img.icon {
+      height: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+      width: auto;
+      margin-left: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+    }
+  }
+}
+
+.container {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .summon-button,
+  .add-summon-button {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--ghs-unit) * 6.5 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 6.5 * var(--ghs-dialog-factor));
+
+
+    &.add-summon-button {
+      position: relative;
+      border: none !important;
+
+      .ghs-svg {
+        width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+      }
+
+      &:hover {
+        .ghs-svg {
+          filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+        }
+      }
+    }
+
+    .image {
+      position: relative;
+      width: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+      height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .summon-number {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        left: calc(var(--ghs-unit) * -0.1 * var(--ghs-dialog-factor));
+        height: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        width: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-white);
+        background-color: var(--ghs-color-darkgray);
+        border-top-left-radius: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        border-bottom-left-radius: calc(var(--ghs-unit) * 4 * var(--ghs-dialog-factor));
+        z-index: 1;
+        opacity: 0.9;
+      }
+    }
+
+    &.active {
+      border: calc(var(--ghs-unit) / 4) var(--ghs-color-white) solid;
+      border-radius: 100%;
+    }
+
+    &:hover {
+      border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+      border-radius: 100%;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.5;
+
+      &:hover {
+        border: none;
+      }
+    }
+
+  }
+
+  .thumbnail {
+    margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+    img {
+      width: calc(var(--ghs-unit) * 6 * var(--ghs-dialog-factor));
+      height: auto;
+    }
+  }
+
+  .color-container {
+
+    display: grid;
+    grid-template-columns: repeat(4, calc(var(--ghs-unit) * 7.5 * var(--ghs-dialog-factor)));
+    row-gap: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+
+
+    .value {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(var(--ghs-unit) * 6.5 * var(--ghs-dialog-factor));
+      width: calc(var(--ghs-unit) * 6.5 * var(--ghs-dialog-factor));
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      color: var(--ghs-color-white);
+      text-shadow: var(--ghs-outline);
+    }
+
+    .number-button {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(var(--ghs-unit) * 6.5 * var(--ghs-dialog-factor));
+      width: calc(var(--ghs-unit) * 6.5 * var(--ghs-dialog-factor));
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      color: var(--ghs-color-gray);
+      text-shadow: var(--ghs-outline);
+
+      &:hover {
+        color: var(--ghs-color-white);
+        border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+        border-radius: 100%;
+      }
+
+      &.disabled {
+        pointer-events: none;
+        color: var(--ghs-color-darkgray);
+
+        &:hover {
+          border: none;
+        }
+      }
+    }
+  }
+
+  .summons {
+
+    display: flex;
+    flex-direction: column;
+    max-height: calc(var(--ghs-unit) * 50 * var(--ghs-dialog-factor));
+
+    .summon {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+
+      label {
+        cursor: pointer;
+        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-gray);
+      }
+
+      &:hover {
+        .summon-button {
+          border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+          border-radius: 100%;
+
+          &.disabled {
+            pointer-events: none !important;
+            border: none;
+          }
+        }
+
+        label {
+          color: var(--ghs-color-white);
+        }
+      }
+
+      input[type="text"] {
+        margin: 0;
+        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+        color: var(--ghs-color-gray);
+        background-color: transparent;
+        border-width: calc(var(--ghs-unit) * 0.1);
+        border-style: solid;
+        border-color: var(--ghs-color-gray);
+        border-radius: calc(var(--ghs-unit) * 1);
+        user-select: auto;
+        -webkit-user-select: auto;
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      }
+
+
+
+      &.disabled {
+        pointer-events: none !important;
+
+        .summon-button {
+          opacity: 0.5;
+        }
+
+        label {
+          color: var(--ghs-color-darkgray);
+        }
+      }
+    }
+  }
+}

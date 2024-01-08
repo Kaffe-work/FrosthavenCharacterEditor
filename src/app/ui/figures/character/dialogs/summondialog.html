@@ -1,0 +1,60 @@
+<div class="summon-dialog">
+  <div class="title">
+    <small>
+      <img class="icon" [src]="character.iconUrl" />
+      {{gameManager.characterManager.characterName(character)}}
+    </small>
+    <span [ghs-label]="'summon'"></span>
+  </div>
+
+  <div class="container">
+    <div class="color-container">
+      <ng-container *ngIf="!fhSummon">
+        <span *ngFor="let color of summonColors" class="summon-button" (click)="selectColor(color)"
+          [ngClass]="{'active' : color == summonColor}">
+          <span class="image">
+            <img src="./assets/images/summons/{{color}}.png">
+          </span>
+        </span>
+      </ng-container>
+      <span *ngFor="let number of [] | ghsRange:8" class="number-button" (click)="pickNumber(number+1)"
+        [ngClass]="{'disabled' : summonNumber == number+1}">
+        <span class="number">{{number+1}}</span>
+      </span>
+    </div>
+    <div class="scroll-container summons">
+      <span *ngFor="let summonData of summonData()" class="summon" (click)="addSummon(summonData)"
+        [ngClass]="{'disabled' : !available(summonData)}">
+        <span class="summon-button">
+          <span class="image">
+            <img *ngIf="summonData.special" src="./assets/images/summons/custom.png">
+            <img *ngIf="!summonData.special" src="./assets/images/summons/{{summonColor}}.png">
+            <span class="summon-number">{{summonNumber}}</span>
+          </span>
+        </span>
+        <label><span [ghs-label]="'data.summon.' + summonData.name"></span> <span *ngIf="showLevel(summonData)">(<span
+              [ghs-label]="'character.summon.level'"></span> {{summonData.level}})</span></label>
+        <ng-container *ngIf="summonData.thumbnail && !summonData.noThumbnail || summonData.thumbnailUrl">
+          <span class="spacer"></span>
+          <span class="thumbnail">
+            <img
+              [src]="summonData.thumbnailUrl ? summonData.thumbnailUrl :  './assets/images/summons/thumbnail/' + summonData.edition + '-' + summonData.name + '.png'" />
+          </span>
+        </ng-container>
+      </span>
+      <span class="summon" *ngIf="!summonFilter">
+        <span class="summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">
+          <span class="image">
+            <img src="./assets/images/summons/{{summonColor}}.png">
+            <span class="summon-number">{{summonNumber}}</span>
+          </span>
+        </span>
+        <input type="text" [value]="summonName" (change)="setSummonName($event)" (keyup)="setSummonName($event)"
+          [ghs-label]="'summon.name'" [ghs-label-attribute]="'placeholder'" />
+        <span class="add-summon-button" (click)="addCustomSummon()" [ngClass]="{'disabled' : customDisabled()}">
+          <img class="ghs-svg" src="./assets/images/plus.svg">
+        </span>
+      </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+{
+  "index": "181.2",
+  "name": "HE-RO-IC-S",
+  "edition": "fh",
+  "conclusion": true,
+  "rewards": {
+    "custom": "If building 88 is built, read %data.section:135.4% now.<br>Otherwise, read %data.section:33.1% now."
+  }
+}

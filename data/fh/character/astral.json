@@ -1,0 +1,279 @@
+{
+  "name": "astral",
+  "characterClass": "orchid",
+  "edition": "fh",
+  "handSize": 11,
+  "traits": [
+    "arcane",
+    "educated",
+    "strong"
+  ],
+  "color": "#6fb54e",
+  "spoiler": true,
+  "stats": [
+    {
+      "level": 1,
+      "health": 8
+    },
+    {
+      "level": 2,
+      "health": 9
+    },
+    {
+      "level": 3,
+      "health": 11
+    },
+    {
+      "level": 4,
+      "health": 12
+    },
+    {
+      "level": 5,
+      "health": 14
+    },
+    {
+      "level": 6,
+      "health": 15
+    },
+    {
+      "level": 7,
+      "health": 17
+    },
+    {
+      "level": 8,
+      "health": 18
+    },
+    {
+      "level": 9,
+      "health": 20
+    }
+  ],
+  "availableSummons": [
+    {
+      "name": "animated-claymore",
+      "cardId": "196",
+      "thumbnail": true,
+      "level": 1,
+      "health": 2,
+      "attack": 3,
+      "movement": 3,
+      "action": {
+        "type": "shield",
+        "value": 1
+      }
+    },
+    {
+      "name": "spiritbound-falchion",
+      "cardId": "211",
+      "thumbnail": true,
+      "level": 8,
+      "health": 6,
+      "attack": 4,
+      "movement": 3,
+      "flying": true,
+      "action": {
+        "type": "shield",
+        "value": 1
+      }
+    }
+  ],
+  "perks": [
+    {
+      "type": "replace",
+      "count": 1,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus2"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1",
+            "effects": [
+              {
+                "type": "element",
+                "value": "air"
+              },
+              {
+                "type": "element",
+                "value": "dark"
+              },
+              {
+                "type": "element",
+                "value": "earth"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "air|earth"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "air|dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "minus1"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0",
+            "effects": [
+              {
+                "type": "elementHalf",
+                "value": "earth|dark"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus2"
+          }
+        }
+      ]
+    },
+    {
+      "type": "replace",
+      "count": 2,
+      "cards": [
+        {
+          "count": 1,
+          "attackModifier": {
+            "type": "plus0"
+          }
+        },
+        {
+          "count": 3,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "custom",
+                "value": "Move one waning element to strong"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "add",
+      "count": 2,
+      "cards": [
+        {
+          "count": 2,
+          "attackModifier": {
+            "type": "plus0",
+            "rolling": true,
+            "effects": [
+              {
+                "type": "custom",
+                "value": "+1 %game.action.attack% for each pair of active %game.action.custom.fh-infusion%"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "%game.custom.perks.ignoreScenario%"
+    },
+    {
+      "type": "custom",
+      "count": 2,
+      "combined": true,
+      "custom": "%game.custom.perks.ignoreNegativeItemFh%.<br>Whenever you become exhausted, keep all your active bonuses in play, with your summons acting on initiative 99 each round"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "Whenever you short rest, you may %game.element.consume.wild% to %game.card.recover% on spent %game.items.slots.onehand% or %game.items.slots.twohand% item"
+    },
+    {
+      "type": "custom",
+      "count": 1,
+      "custom": "Once each scenario, during ordering of initiative, after all ability cards have been revealed, %game.element.wild%"
+    }
+  ],
+  "masteries": [
+    "Have five active %game.action.custom.fh-infusion% bonuses",
+    "Kill at least four enemies, but never attack"
+  ]
+}

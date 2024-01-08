@@ -1,0 +1,147 @@
+{
+  "index": "76",
+  "name": "Apotheosis",
+  "edition": "fh",
+  "complexity": 3,
+  "requirements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
+  "monsters": [
+    "algox-archer",
+    "algox-guard",
+    "fish-king-scenario-76",
+    "lurker-mindsnipper",
+    "piranha-pig"
+  ],
+  "allies": [
+    "fish-king-scenario-76",
+    "piranha-pig"
+  ],
+  "lootDeckConfig": {
+    "money": 9,
+    "metal": 2,
+    "hide": 5,
+    "axenut": 1,
+    "snowthistle": 2,
+    "random_item": 1
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "once": true,
+      "note": "adjacent to each character",
+      "spawns": [
+        {
+          "monster": {
+            "name": "piranha-pig",
+            "type": "normal"
+          },
+          "count": "C"
+        }
+      ]
+    },
+    {
+      "round": "R == 3 || R == 6 || R == 9",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player2": "normal",
+            "player3": "normal"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "algox-guard",
+            "player4": "normal"
+          },
+          "marker": "a",
+          "count": "2"
+        },
+        {
+          "monster": {
+            "name": "algox-archer",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "a"
+        },
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player2": "normal"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "lurker-mindsnipper",
+            "player3": "normal",
+            "player4": "normal"
+          },
+          "marker": "b",
+          "count": "2"
+        }
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "sections": [
+        "105.4"
+      ]
+    },
+    {
+      "round": "R == 12",
+      "sections": [
+        "56.2"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "fish-king-scenario-76",
+          "type": "boss"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "type": "elite"
+        },
+        {
+          "name": "lurker-mindsnipper",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

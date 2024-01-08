@@ -1,0 +1,833 @@
+{
+  "about": {
+    ".": "À propos",
+    "forceUpdate": "Force Update",
+    "ip": "Gloomhaven and all related properties, images and text are owned by {0}.",
+    "license": "Licensed under {0}.",
+    "sourceCode": "Source Code",
+    "support": "Support the dev"
+  },
+  "and": "et",
+  "cancel": "Annuler",
+  "character": {
+    ".": "Personnage",
+    "absent": "Absent",
+    "add": "Ajouter un personnage",
+    "class": {
+      "aesther": "Esther",
+      "f": {
+        "aesther": "Esther",
+        "harrower": "Persécuteur",
+        "human": "Humaine",
+        "inox": "Inox",
+        "lurker": "Fouineur",
+        "orchid": "Orchid",
+        "quatryl": "Quatryl",
+        "savvas": "Savvas",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
+      },
+      "harrower": "Persécuteur",
+      "human": "Humain",
+      "inox": "Inox",
+      "lurker": "Fouineur",
+      "m": {
+        "aesther": "Esther",
+        "harrower": "Persécuteur",
+        "human": "Humain",
+        "inox": "Inox",
+        "lurker": "Fouineur",
+        "orchid": "Orchid",
+        "quatryl": "Quatryl",
+        "savvas": "Savvas",
+        "valrath": "Valrath",
+        "vermling": "Vermling"
+      },
+      "orchid": "Orchid",
+      "quatryl": "Quatryl",
+      "savvas": "Savvas",
+      "valrath": "Valrath",
+      "vermling": "Vermling"
+    },
+    "present": "Présent",
+    "progress": {
+      ".": "Feuille de personnage",
+      "battlegoals": "Objectifs de bataille",
+      "donate": "Faire une donation",
+      "donations": "Donations au Sanctuaire du Grand Chêne: {0}",
+      "export": "Exporter",
+      "gold-notes": "Notes (Or)",
+      "import": "Importer",
+      "items": {
+        ".": "Objets",
+        "wip": "%wip%! Gestion des objets pour %data.edition.{0}% non terminée."
+      },
+      "level": "Niveau",
+      "name": "Nom",
+      "notes": "Notes",
+      "perks": {
+        ".": "Bénéfices",
+        "additional": "{0} et {1}",
+        "card": "carte",
+        "cardLabel": "{0} {2}{1}",
+        "cards": {
+          "1": "%number.1%",
+          "2": "%number.2%",
+          "3": "%number.3%",
+          "4": "%number.4%",
+          "5": "%number.5%",
+          ".": "cartes"
+        },
+        "effects": {
+          "recoverRandomDiscard": "Récupérer %game.card.recover% une carte aléatoire de votre pile de dicards",
+          "refreshItem": "Rafraîchir un objet",
+          "refreshItemFh": "%game.card.recover% un objet",
+          "refreshSpentItem": "Rafraîchir un objet consommé"
+        },
+        "type": {
+          "add": "Ajouter {0}",
+          "remove": "Retirer {0}",
+          "replace": "Remplacer {0} par {1}"
+        },
+        "warning": "Trop de bénéfices sélectionnés !",
+        "wip": "%wip%! Gestion des bénéfices non terminée."
+      },
+      "personalQuest": "Quête personnelle",
+      "retired": "Retraité",
+      "retirements": "Retraites",
+      "title": "{0} {1}",
+      "xp": "XP"
+    },
+    "remove": "Retirer un personnage",
+    "removeAll": "Retirer tout"
+  },
+  "close": "Fermer",
+  "datamanagement": {
+    ".": "Gestion des données",
+    "addEditionDataUrl": "Ajouter une URL de donnée d'édition",
+    "addSpoiler": "Ajouter un spoiler",
+    "editionDataUrls": {
+      ".": "Gérer les données des éditions",
+      "custom": "Les données des éditions supplémentaire",
+      "disable": "Désactiver l'édition",
+      "enable": "Activer l'édition",
+      "remove": "Retrait les données des éditions"
+    },
+    "exportGame": "Exporter la partie vers un fichier",
+    "exportSettings": "Exporter les paramètres vers un fichier",
+    "importGame": "Importer une partie depuis un fichier",
+    "importSettings": "Importer les paramètres depuis un fichier",
+    "removeAllSpoilers": "Tout supprimer",
+    "removeSpoiler": "Retrait le spoiler",
+    "resetGame": "Redémarrer la partie",
+    "resetSettings": "Remettre les paramètres par défaut",
+    "restoreEditionDataUrls": "Remettre par défaut",
+    "spoilers": "Gérer les spoilers"
+  },
+  "edition": {
+    ".": "Choisir l'édition",
+    "all": "Toutes les éditions"
+  },
+  "escort": {
+    ".": "Escorte",
+    "add": "Ajouter une Escorte"
+  },
+  "game": {
+    "action": {
+      "area": "Effets de Zone",
+      "attack": "Attaque",
+      "box": "[Box]",
+      "card": "Carte",
+      "concatenation": "[Concaténation]",
+      "condition": "Condition",
+      "custom": "Custom",
+      "element": "Élément",
+      "elementHalf": "Moitié d'Élément",
+      "fly": "Vol",
+      "grid": "[Grid]",
+      "heal": "Soin",
+      "jump": "Saut",
+      "loot": "Pillage",
+      "monsterType": "Type de Monstre",
+      "move": "Déplacement",
+      "pierce": "Perforation",
+      "pull": "Traction",
+      "push": "Poussée",
+      "range": "Portée",
+      "refreshItem": "Rafraîchir un objet",
+      "retaliate": "Riposte",
+      "shield": "Bouclier",
+      "special": "Spécial",
+      "specialTarget": "Cible spéciale",
+      "summon": "Invoque",
+      "swing": "Swing",
+      "target": "Cible",
+      "targets": "Cibles",
+      "teleport": "Téléporte",
+      "trigger": "Déclenchement"
+    },
+    "affect": "Affecte",
+    "ally": {
+      ".": "Allié",
+      "addEntity": {
+        "boss": "Générer un Boss",
+        "elite": "Générer un allié d'élite",
+        "normal": "Générer un allié normal"
+      }
+    },
+    "attackModifiers": {
+      ".": "Paquet de Modificateur d'Attaque",
+      "effects": {
+        "refreshSpentItem": "Consommé"
+      },
+      "openDialog": "Afficher le paquet de Modificateur d'Attaque",
+      "types": {
+        "bless": "Bénédiction",
+        "curse": "Malédiction",
+        "double": "Double",
+        "invalid": "Invalide",
+        "minus1": "Moins 1",
+        "minus2": "Moins 2",
+        "null": "Nul",
+        "plus0": "Plus 0",
+        "plus1": "Plus 1",
+        "plus2": "Plus 2",
+        "plus3": "Plus 3",
+        "plus4": "Plus 4"
+      }
+    },
+    "card": {
+      "experience": "X expérience",
+      "lost": "Perdue",
+      "persistent": "Bonus persistants",
+      "recover": "Récupérer",
+      "refresh": "Rafraîchir",
+      "round": "Bonus de manche",
+      "slot": "Emplacements d’utilisation",
+      "slotXp": "Emplacements d’utilisation X d'expérience"
+    },
+    "cards": {
+      "confirmReveal": "Cliquez à nouveau pour la révéler !",
+      "coverAll": "Tout masquer",
+      "defaultSort": "Trier",
+      "draw": "Piocher",
+      "drawAnother": "Piocher une autre",
+      "drawExtra": "Piocher à nouveau",
+      "edit": "Éditer",
+      "fullscreen": "Montrer en plein écran",
+      "openDialog": "Montrer toutes les cartes",
+      "removeDrawnDiscards": "Retirer les carte défaussées",
+      "restore": "Restaurer les cartes par défaut",
+      "revealAll": "Tout révéler ?",
+      "revealAllConfirm": "Tout révéler !",
+      "shuffle": "Mélanger"
+    },
+    "condition": {
+      "bane": "Bane",
+      "bless": "Bénédiction",
+      "brittle": "Fragile",
+      "chill": "Frisson",
+      "curse": "Malédiction",
+      "disarm": "Désarmement",
+      "immobilize": "Immobilisation",
+      "impair": "Impair",
+      "infect": "Infection",
+      "invisible": "Invisible",
+      "muddle": "Confusion",
+      "poison": "Empoisonnement",
+      "poison_x": "Poison {0}",
+      "regenerate": "Régénération",
+      "rupture": "Rupture",
+      "strengthen": "Renforcement",
+      "stun": "Étourdissement",
+      "ward": "Ward",
+      "wound": "Blessure",
+      "wound_x": "Blessure {0}"
+    },
+    "custom": {
+      "advantage": "Avantage",
+      "disadvantage": "L'attaquant gagne désavantage",
+      "instead": "À la place de",
+      "math": {
+        "ceil": "(arrondis au supérieur)",
+        "floor": "(arrondis à l'inférieur)"
+      },
+      "ondeath": "Lors de la mort:",
+      "perks": {
+        "addTarget": "Ajouter une cible",
+        "addTargets": "Ajouter {0} cibles",
+        "ignoreNegativeItem": "Ignorer les effets négatifs des objets",
+        "ignoreNegativeScenario": "Ignorer les effets négatifs des scénarios"
+      },
+      "scenarioBook": "Se reporter au livre de scénarios"
+    },
+    "damage": "{0} dégâts",
+    "dead": "Mort",
+    "element": {
+      "air": "Air",
+      "wild": "Tous",
+      "dark": "Obscurité",
+      "earth": "Terre",
+      "fire": "Feu",
+      "ice": "Glace",
+      "light": "Lumière",
+      "state": {
+        "inert": "Inerte",
+        "new": "Fort",
+        "strong": "Fort",
+        "waning": "Faible"
+      }
+    },
+    "enemy": "Ennemi",
+    "exhausted": "Épuisé",
+    "experience": "Expérience",
+    "figure": {
+      "endTurn": "Finir le tour",
+      "error": {
+        "deck": {
+          ".": "Paquet manquant",
+          "hint": "Pas de paquet trouvé pour %{0}% '%data.{0}.{1}%'! Merci de vérifier les données de (Edition: %data.edition.{2}%)."
+        },
+        "monsterType": {
+          ".": "Type de monstre manquant",
+          "hint": "Monstre de type {3} non trouvé pour '%data.{0}.{1}%'! Merci de vérifier les données de (Edition: %data.edition.{2}%)."
+        },
+        "stat": {
+          ".": "Stat manquante",
+          "hint": "Stats de {3} niveau {4} manquante pour %{0}% '%data.{0}.{1}%'! Merci de vérifier les données de (Edition: %data.edition.{2}%)."
+        },
+        "unknown": {
+          ".": "Figurine inconnue",
+          "hint": "Pas de données trouvées pour %{0}% '%data.{0}.{1}%'! Merci de vérifier les données de (Edition: %data.edition.{2}%)."
+        }
+      },
+      "setInitiative": "Définir l'initiative",
+      "startTurn": "Démarrer le tour"
+    },
+    "health": "Points de Vie",
+    "initiative": "Initiative",
+    "level": {
+      ".": "Niveau",
+      "experience": "Bonus d'expérience",
+      "hazardousTerrain": "Dégâts de terrains dangereux",
+      "loot": "Conversion en Or",
+      "trap": "Dégâts de pièges"
+    },
+    "loot": "Pillage",
+    "maxHealth": "Poins de Vie maximum",
+    "solo": "Solo",
+    "specialTarget": {
+      "allies": "%game.target% tous les alliés",
+      "alliesAdjacent": "%game.target% tous les alliés",
+      "alliesAdjacentAffect": "%game.affect% tous les alliés adjacents",
+      "alliesRange": "%game.target% tous les alliés à %game.action.range% {0}",
+      "alliesRangeAffect": "%game.affect% tous les alliés à %game.action.range% {0}",
+      "ally": "%game.target% 1 allié",
+      "allyAdjacent": "%game.target% un allié adjacent",
+      "allyAffect": "%game.affect% tous les alliés",
+      "allyAffectRange": "%game.target% un allié à %game.action.range% {0}",
+      "allyShort": "Allié",
+      "enemies": "%game.target% tous les ennemis",
+      "enemiesAdjacent": "%game.target% tous les ennemis adjacents",
+      "enemiesMovedThrough": "%game.target% tous les ennemis déplacé",
+      "enemiesRange": "%game.target% tous les ennemis à %game.action.range% {0}",
+      "enemiesRangeAffect": "%game.affect% tous les ennemis à %game.action.range% {0}",
+      "enemy": "%game.target% un ennemi",
+      "enemyAdjacent": "%game.target% un ennemi adjacent",
+      "enemyOneAll": "%game.target% un ennemi avec toutes les attaques",
+      "enemyRange": "%game.target% un ennemi à %game.action.range% {0}",
+      "figures": "%game.target% toutes les figurines",
+      "figuresAdjacent": "%game.target% toutes les figures adjacentes",
+      "figuresRange": "%game.target% toutes les figurine à %game.action.range% {0}",
+      "self": "Sur lui-même",
+      "selfAllies": "Sur lui-même et tous les alliés",
+      "selfAlliesAdjacentAffect": "Sur lui-même et tous les alliés adjacents",
+      "selfAlliesAffect": "Sur lui-même et tous les alliés",
+      "selfAlliesRange": "Sur lui-même et tous les alliés à %game.action.range% {0}",
+      "targets": "Toutes les cibles"
+    },
+    "sufferDamage": "{0} subit %game.damage:{1}%",
+    "target": {
+      ".": "Cible",
+      "all": "tous"
+    }
+  },
+  "help": "Aide",
+  "hints": {
+    "active": "Jouez vos tours",
+    "active-full": "Cliquez sur l'image de chaque figurine après qu'elle ait joué son tour",
+    "addCharacters": "%character.add%",
+    "addMonsterEntities": "Utilisez les boutons \"+\" pour générer des monstres.",
+    "addMonsters": "%monster.add%",
+    "draw": "Cliquez sur \"%round.draw%\"",
+    "draw-full": "Choisissez les cartes de capacités des personnages, définissez l'initiative, puis cliquez sur \"%round.draw%\".",
+    "draw-short": "Définissez l'initiative, puis cliquez sur \"%round.draw%\"",
+    "next": "Cliquez sur \"%round.next%\"",
+    "setScenario": "%scenario.set%"
+  },
+  "menu": {
+    "backToMain": "Revenir au %menu.main%",
+    "main": "Menu Principal"
+  },
+  "monster": {
+    ".": "Monstre",
+    "add": "Ajouter un monstre",
+    "addEntity": {
+      "boss": "Générer un Boss",
+      "elite": "Générer un monstre d'élite",
+      "normal": "Générer un monstre normal"
+    },
+    "boss": "Boss",
+    "elite": "Élite",
+    "normal": "Normal",
+    "remove": "Retirer un monstre",
+    "removeAll": "Retirer tout",
+    "showHidden": "Monstres cachés"
+  },
+  "number": {
+    "0": "zéro",
+    "1": "un/e",
+    "2": "deux",
+    "3": "trois",
+    "4": "quatre",
+    "5": "cinq",
+    "6": "six",
+    "7": "sept",
+    "8": "huit",
+    "9": "neuf"
+  },
+  "objective": {
+    ".": "Objectif",
+    "add": "Ajouter un Objectif",
+    "remove": "Retirer un Objectif",
+    "removeAll": "Retirer Tout"
+  },
+  "or": "ou",
+  "party": {
+    ".": "Compagnie",
+    "achievements": "Hauts Faits",
+    "campaign": {
+      ".": "Campagne",
+      "achievements": "Hauts Faits généraux",
+      "donations": "Donations au Sanctuaire du Grand Chêne",
+      "scenarios": {
+        ".": "Scénarios",
+        "addSuccess": "Marquer comme terminé",
+        "edition": "Édition",
+        "finished": "Terminé",
+        "group": "Groupe",
+        "index": "#",
+        "name": "Nom",
+        "removeManual": "Marquer comme non débloqué",
+        "removeSuccess": "Marquer comme non terminé"
+      },
+      "treasures": "Trésors"
+    },
+    "campaignMode": "Mode Campagne",
+    "change": "Changer de compagnie",
+    "export": "Exporter",
+    "import": "Importer",
+    "location": "Lieu",
+    "name": "Nom",
+    "new": "Créer une nouvelle compagnie",
+    "notes": "Notes",
+    "prosperity": "Prosperité",
+    "remove": "Retirer la compagnie",
+    "reputation": "Réputation",
+    "sheet": "Fiche de Compagnie",
+    "shop": {
+      ".": "Modificateur de prix",
+      "none": "Aucun"
+    }
+  },
+  "permissions": {
+    ".": "Permissions",
+    "all": {
+      ".": "Toutes les permissions",
+      "hint": "De nouvelles permissions peuvent être créées ! Ne peut pas être changé par la suite !"
+    },
+    "attackModifiers": {
+      ".": "Paquet de Modificateur d'Attaque",
+      "hint": "Piocher et éditer le paquet de Modificateur d'Attaque"
+    },
+    "characters": {
+      ".": "Tous les personnages",
+      "hint": "Mettre à jour et modifier tous les personnages et les objectifs."
+    },
+    "create": "Créer de nouvelles permissions",
+    "custom": {
+      ".": "Définir de nouvelles permissions",
+      "hint": "Spécifier quelles permissions sont données"
+    },
+    "elements": {
+      ".": "Élements",
+      "hint": "Modifier l'état des éléments"
+    },
+    "hasAll": "Toutes les permissions sont autorisées",
+    "level": {
+      ".": "Niveau",
+      "hint": "Modifier le niveau du scénario"
+    },
+    "monsters": {
+      ".": "Tous les monstres",
+      "hint": "Mettre à jour et modifier tous les monstres."
+    },
+    "password": {
+      ".": "Mot de passe"
+    },
+    "round": {
+      ".": "Round",
+      "hint": "Contrôler les rounds et les tours des figurines"
+    },
+    "save": "Sauvegarder les permissions",
+    "scenario": {
+      ".": "Scénario",
+      "hint": "Modifier les éditions, les scénarios et les sections"
+    }
+  },
+  "round": {
+    "draw": "Piocher",
+    "hint": {
+      "active": "Toutes les figurines en place n'ont pas encore joué. Terminer le round quand-même ?",
+      "confirm": "Confirmer",
+      "confirmFailed": "Finir le scénario en échec",
+      "confirmFinish": "Finir le scénario avec succès",
+      "confirmReset": "Redémarrer le scénario",
+      "confirmTurns": "Confirmer sans terminer les tours!",
+      "continueDraw": "Continuer avec la pioche",
+      "continueNext": "Continuer avec le prochain round",
+      "empty": "Il faut d'abord ajouter des monstres et/ou des personnages.",
+      "failed": "Tous les personnages sont épuisés. Voulez-vous redémarrer le scénario ?",
+      "finish": "Il n'y a plus de monstres. Avez-vous accompli l'objectif du scénario ?",
+      "missingInitiative": "L'initiative des joueurs doit être définie en cliquant sur le portrait du personnage."
+    },
+    "next": "Round suivant"
+  },
+  "scenario": {
+    ".": "Scénario",
+    "blocked": "Bloqué",
+    "cancel": "Annuler le scénario",
+    "custom": "Custom",
+    "finish": {
+      ".": "Terminer le scénario",
+      "failure": "Échec",
+      "reset": "Recommencer",
+      "success": "Victoire"
+    },
+    "manual": {
+      "add": "Débloquer les scénarios",
+      "index": "Numéros de scénario, séparés par une virgule"
+    },
+    "reset": "Recommencer le scénario",
+    "set": "Choisir le scénario",
+    "summary": {
+      ".": "Résumé du scénario",
+      "gold": "Or",
+      "loot": "Pillage",
+      "name": "%character%",
+      "totalGold": "Or total",
+      "totalXp": "Expérience totale",
+      "xp": "Expérience",
+      "xpBonus": "Expérience bonus",
+      "xpGained": "Gain d'expérience"
+    },
+    "title": "Titre"
+  },
+  "section": "Ajouter une section",
+  "server": {
+    "autoconnect": "Se connecter automatiquement",
+    "closed": "Fermé",
+    "closing": "Fermeture",
+    "connect": "Connecter",
+    "connected": "Connecté",
+    "connecting": "Connexion...",
+    "disconnect": "Déconnecter",
+    "disconnected": "Pas de connexion",
+    "menu": {
+      "connect": "Se connecter au serveur",
+      "connected": "Connecté au serveur"
+    },
+    "password": {
+      ".": "Mot de passe",
+      "uuid": "Générer"
+    },
+    "port": "Port",
+    "reconnect": "Reconnecter",
+    "settings": "Synchroniser les paramètres",
+    "undefined": "Connexion non specifiée",
+    "url": "Hébergeur",
+    "wss": {
+      ".": "Securisé",
+      "accept": "Accepter ?"
+    }
+  },
+  "settings": {
+    ".": "Paramètres",
+    "abilityNumbers": "Afficher les numéros des capacités",
+    "abilityReveal": "Révéler les capacités directement",
+    "activeApplyConditions": "Confirmer les conditions applicables",
+    "activeStandees": "Standees actifs",
+    "alwaysAllyAttackModifierDeck": "Paquet de modificateurs d'attaque pour les alliés",
+    "applyConditions": "Application automatique des conditions",
+    "autoscroll": "Défilement automatique",
+    "barsize": {
+      ".": "Taille entête/pied de page",
+      "dec": "Réduire Taille entête/pied de page",
+      "inc": "Augmenter Taille entête/pied de page",
+      "reset": "Taille entête/pied de page par défaut"
+    },
+    "bonusAdjustment": "Level bonuses adjustment",
+    "browserNavigation": "Défaire/Refaire par la navigation",
+    "calc": "Afficher les stats calculées",
+    "calculateStats": "Ajouter les valeurs des stats aux capacités",
+    "debug": {
+      ".": "Paramètres de debug/instruments",
+      "rightClick": "Toujour activer le clic droit"
+    },
+    "disableAnimations": "Désactiver les animations",
+    "disableColumns": "Désactiver affichage en colonnes",
+    "disableStandees": "Désactiver les silhouettes",
+    "dragValues": "Glisser pour modifier Initiative/HP/XP/Loot",
+    "eliteFirst": "Afficher les élites en premier",
+    "expireConditions": "Conditions expirant automatiquement",
+    "fhStyle": "Style Frosthaven",
+    "fontsize": {
+      ".": "Taille police des capacités",
+      "dec": "Réduire Taille police des capacités",
+      "inc": "Augmenter Taille police des capacités",
+      "reset": "Taille police des capacités par défaut"
+    },
+    "fullscreen": "Plein écran",
+    "ge5Player": "Règles pour 5 joueurs et +",
+    "helperDefaults": "Paramètres par défaut",
+    "hideAbsent": "Cacher les figurines absentes",
+    "hideStats": "Cacher les stats",
+    "hints": "Afficher l'aide",
+    "initiativeRequired": "Initiative requise",
+    "levelAdjustment": "Ajuster le niveau du scénario",
+    "levelCalculation": "Niveau de scénario automatique",
+    "locale": {
+      ".": "Langue",
+      "de": "Allemand (Deutsch)",
+      "en": "Anglais (English)",
+      "fr": "Français",
+      "ko": "Coréen (한국어)"
+    },
+    "maxUndo": "Nombre max d'actions à défaire",
+    "moveElements": "Mettre à jour les éléments automatiquement",
+    "randomStandees": "Standees aléatoires",
+    "scenarioNumberInput": "Numéro de scénario Entrée",
+    "scenarioRules": "Les règles du scénario",
+    "theme": {
+      ".": "Thème",
+      "default": "Défaut",
+      "fh": "Frosthaven",
+      "modern": "Moderne (%wip%)"
+    },
+    "zoom": {
+      ".": "Zoom",
+      "in": "Zoomer",
+      "out": "Dézoomer",
+      "reset": "Zoom par défaut"
+    }
+  },
+  "spoiler": {
+    "add": "Ajouter un spoiler",
+    "all": "Révéler tous les spoilers",
+    "placeholder": "???"
+  },
+  "state": {
+    "info": {
+      "addBless": "Bénédiction sur {0}",
+      "addChar": "Ajouter personnage {0}",
+      "addCondition": {
+        "char": "Ajout {1} sur {0}",
+        "monster": "Ajout {3} sur {0} n°{2}",
+        "objective": "{1} {0}",
+        "summon": "Ajout {2} sur '{1}' de {0}"
+      },
+      "addCurse": "Malédiction sur {0}",
+      "addEntityBless": "Bénédiction sur {0} n°{2}",
+      "addEntityCurse": "Malédiction sur {0} n°{2}",
+      "addEntityMarker": "Marqueur {2} sur {0} n° {2}",
+      "addItem": "Ajouter objet Item {1} (%data.edition.{2}%) à {0}",
+      "addManualScenario": "Débloquer scénario #{0} {1} ({2})",
+      "addMonster": "Ajouter monstre {0}",
+      "addNextStandee": "Ajouter {1} {0} silhouette",
+      "addObjective": {
+        ".": "Ajouter objectif",
+        "escort": "Ajouter escorte"
+      },
+      "addParty": "Créer une nouvelle compagnie '{0}'",
+      "addRandomStandee": "Ajouter {1} {0} silhouette aléatoire {2}",
+      "addSection": "Ajouter section #{0} {1} ({2})",
+      "addStandee": "Ajout {0} n°{2} ({1})",
+      "addSummon": "Ajouter invocation '{1}' pour {0}",
+      "addTreasure": "Ajout trésor {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
+      "applyCondition": {
+        "char": "Appliquer {1} to {0}",
+        "monster": "Appliquer {2} to '{1}' de {0}",
+        "objective": "Appliquer {1} to {0}",
+        "summon": "Appliquer {2} to '{1}' de {0}"
+      },
+      "buyItem": "Acheter objet {1} (%data.edition.{2}%) pour {0}",
+      "cancelScenario": "Annuler scénario #{0} {1} ({2})",
+      "changeCustomScenario": "Nom '{0}' pour scénario custom",
+      "changeEntityHp": "PV {3} pour {0} {1} n°{2}",
+      "changeEntityMaxHp": "max. PV {3} pour {0} {1} n°{2}",
+      "changeHP": "PV {1} pour {0}",
+      "changeLoot": "Pillage {1} pour {0}",
+      "changeMaxHP": "Max. PV {1} pour {0}",
+      "changeObjectiveHP": "PV {1} pour objectif {0}",
+      "changeObjectiveId": "ID '{1}' pour {0}",
+      "changeObjectiveMaxHP": "Max. PV {1} pour objectif {0}",
+      "changeParty": "Changer compagnie en '{0}'",
+      "changeSummonAttack": "Attaque {2} pour invocation '{1}' de {0}",
+      "changeSummonHp": "PV {2} pour invocation '{1}' de {0}",
+      "changeSummonMaxHp": "Max. PV {2} pour invocation '{1}' de {0}",
+      "changeSummonMove": "Mouvement {2} pour invocation '{1}' de {0}",
+      "changeSummonRange": "Portée {2} pour invocation '{1}' de {0}",
+      "changeXP": "XP {1} pour {0}",
+      "declineApplyCondition": {
+        "char": "Ne pas appliquer {1} à {0}",
+        "monster": "Ne pas appliquer {2} à '{1}' de {0}",
+        "objective": "Ne pas appliquer {1} à {0}",
+        "summon": "Ne pas appliquer {2} à '{1}' de {0}"
+      },
+      "disableAutomaticLevel": "Désactiver le calcul automatique du niveau",
+      "disabledGe5Player": "Désactiver les règles pour + de 4 joueurs",
+      "disablePartyCampaignMode": "Désactiver le mode campagne",
+      "disableSolo": "Désactiver le calcul du niveau solo",
+      "donate": "Donation de {0} au Sanctuaire du Grand Chêne",
+      "draw": "Piocher",
+      "drawAbility": "Piocher une capacité pour {0}",
+      "enableAutomaticLevel": "Activer le calcul automatique du niveau",
+      "enabledGe5Player": "Activer les règles pour + de 4 joueurs",
+      "enablePartyCampaignMode": "Activer le mode campagne",
+      "enableSolo": "Activer le calcul du niveau solo",
+      "endAllTurns": "Fin de tous les tours",
+      "entityDead": "{0} n°{2} ({1}) mort",
+      "finishScenario": {
+        "failure": "Scénario #{0} {1} ({2}) terminé en échec",
+        "remove": "Retrait scénario #{0} {1} ({2}) succès",
+        "success": "Scénario #{0} {1} ({2}) terminé avec succès"
+      },
+      "importParty": "Importer une compagnie depuis un fichier",
+      "loadGameFromFile": "Charger une partie depuis un fichier",
+      "monsterConsumeElement": "{0} consomme {1}",
+      "monsterInfuseElement": "{0} infuse {1}",
+      "nextRound": "Prochain Round",
+      "removeAbility": "Retrait capacité {1} de {0}",
+      "removeAllChars": "Retrait de tous les personnages",
+      "removeAllMonster": "Retrait de tous les monstres",
+      "removeAllObjectives": "Retrait de tous les objectifs",
+      "removeBless": "Retrait de Bénédiction sur {0}",
+      "removeChar": "Retrait du personnage {0}",
+      "removeCondition": {
+        "char": "Retrait {1} de {0}",
+        "monster": "Retirer {3} à {0} N°{2} ({1})",
+        "objective": "Retrait {1} de {0}",
+        "summon": "Retrait {2} de '{1}' of {0}"
+      },
+      "removeCurse": "Retrait de Malédiction sur {0}",
+      "removeEntityBless": "Retrait de Bénédiction sur {0} n°{2}",
+      "removeEntityCurse": "Retrait de Malédiction sur {0} n°{2}",
+      "removeEntityMarker": "Retrait du marqueur {2} sur {0} n°{1}",
+      "removeItem": "Retrait de l'objet {1} (%data.edition.{2}%) sur {0}",
+      "removeManualScenario": "Retrait du scénario #{0} {1} ({2})",
+      "removeMonster": "Retrait du monstre {0}",
+      "removeObjective": "Retrait de l'objectif {0}",
+      "removeParty": "Retrait de la compagnie '{0}'",
+      "removeScenarioRule": "Retrait la règle de scénario",
+      "removeTreasure": "Retrait trésor {1} '%data.treasures.{0}.{1}%' (%data.edition.{0}%)",
+      "reorder": "Réarranger les figurines",
+      "reorderAbilities": "Réarranger les capacités de {0}",
+      "resetScenario": "Redémarrer le scénario #{0} {1} ({2})",
+      "restoreDefaultAbilities": "Restaurer les capacités pas déaut de {0}",
+      "sellItem": "Vendre objet {1} (%data.edition.{2}%) pour {0}",
+      "serverSync": "Serveur: {0}",
+      "setAbsent": "{0} absent",
+      "setActive": "Démarrer le tour pour {0}",
+      "setAlly": "{0} défini comme allié",
+      "setBG": "Définir les objectifs de bataille de {0} à {1}",
+      "setConditionValue": {
+        "char": "{1} à {2} pour {0}",
+        "monster": "{2} à {3} pour '{1}' de {0}",
+        "objective": "{1} à {2} pour {0}",
+        "summon": "{2} à {3} pour '{1}' de {0}"
+      },
+      "setCustomScenario": "Définir scénario custom",
+      "setDrawExtraAbility": "Définir pioche supplémentaire pour {0}",
+      "setEdition": "Définir édition à {0}",
+      "setEntityActive": "Activer standees {1} pour {0}",
+      "setEntitySummonState": "Définir invocation à '{3}' pour {0} n°{2} ({1})",
+      "setExhausted": "{0} épuisé",
+      "setGold": "Or {1} pour {0}",
+      "setInitiative": "Initiative {1} pour {0}",
+      "setLevel": "Niveau {1} pour {0}",
+      "setNotes": "Notes {1} pour {0}",
+      "setObjectiveExhausted": "Objectif {0} épuisé",
+      "setObjectiveInitiative": "Initiative {1} pour objectif {0}",
+      "setPartyAchievements": "Hauts Faits de la compagnie",
+      "setPartyDonations": "Niveau de donations passé à {0}",
+      "setPartyLocation": "Lieu de la compagnie '{0}'",
+      "setPartyName": "Nom de la compagnie '{0}'",
+      "setPartyNotes": "Notes de la compagnie",
+      "setPartyProsperity": "Prosperité passée à {0}",
+      "setPartyReputation": "Réputation passée à {0}",
+      "setPerk": "Bénéfice {1} to {2} pour {0}",
+      "setPQ": "Quête Personnelle {1} pour {0} ",
+      "setRetired": "{0} retraite {1}",
+      "setRetirements": "{1} Retraites pour {0}",
+      "setScenario": "Scénario #{0} {1} ({2})",
+      "setScenarioLevel": "Niveau de scénario {0}",
+      "setSummonState": "Définir invocation {1} {2} pour {0}",
+      "setTitle": "Titre '{1}' pour {0}",
+      "setXP": "XP {1} pour {0}",
+      "shuffleAbilityDeck": "Mélanger le paquet de capacités de {0}",
+      "summonDead": "Tuer invocation '{1}' de {0}",
+      "unsetAbsent": "{0} présent",
+      "unsetActive": "Finir le tour de {0}",
+      "unsetAlly": "{0} défini comme ennemi",
+      "unsetCustomScenario": "Annuler scénario custom",
+      "unsetDrawExtraAbility": "Annuler pioche supplémentaire pour {0}",
+      "unsetEntityActive": "Désactiver standees {1} pour {0}",
+      "unsetExhausted": "{0} non épuisé",
+      "unsetObjectiveExhausted": "Objectif {0} non épuisé",
+      "unsetTitle": "Retirer titre '{1}' pour {0}",
+      "updateAttackModifierDeck": {
+        "addBless": "Ajout de Bénédiction au paquet de Modificateur d'Attaque de {0}",
+        "addCard": "Ajouter carte {1} au paquet de Modificateur d'Attaque de {0}",
+        "addCardShuffled": "Ajouter une carte mélangée {1} au paquet de Modificateur d'Attaque de {0}",
+        "addCurse": "Ajout de Malédiction au paquet de Modificateur d'Attaque de {0}",
+        "draw": "Piocher dans le paquet de Modificateur d'Attaque de {0}",
+        "removeBless": "Retrait de Bénédiction du paquet de Modificateur d'Attaque de {0}",
+        "removeCard": "Retirer carte {1} du paquet de Modificateur d'Attaque de {0} ",
+        "removeCurse": "Retrait de Malédiction du paquet de Modificateur d'Attaque de {0}",
+        "removeDrawnDiscards": "Retirer les cartes défaussées du paquet de Modificateur d'Attaque de {0}",
+        "reorder": "Réarranger le paquet de Modificateur d'Attaque de {0}",
+        "restoreDefault": "Remise à défaut du paquet de Modificateur d'Attaque de {0}",
+        "shuffle": "Mélanger le paquet de Modificateur d'Attaque de {0}"
+      },
+      "updateBonusAdjustment": "Ajustement du bonus {0}",
+      "updateElement": "Élement {0} passé à '{1}'",
+      "updateLevelAdjustment": "Ajustement du niveau {0}"
+    },
+    "redo": "Refaire",
+    "reset": "Redémarrer",
+    "undo": "Défaire"
+  },
+  "summon": {
+    ".": "Invocation",
+    "addCustom": "Invocation '{0}'",
+    "name": "Nom",
+    "state": {
+      ".": "État",
+      "false": "Inactive",
+      "new": "Nouvelle",
+      "true": "Active"
+    }
+  },
+  "update": "Mettre à jour - Recharger",
+  "wip": "En cours d'implémentation"
+}

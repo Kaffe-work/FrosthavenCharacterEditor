@@ -1,0 +1,116 @@
+{
+  "name": "gloomhavensecretariat",
+  "version": "0.79.4",
+  "license": "AGPL3",
+  "description": "Gloomhaven Secretariat is a Gloomhaven Companion app.",
+  "homepage": "https://gloomhaven-secretariat.de",
+  "author": {
+    "name": "Lurkars",
+    "email": "contact@gloomhaven-secretariat.de",
+    "url": "https://www.champonthis.de"
+  },
+  "repository": "github:Lurkars/gloomhavensecretariat",
+  "bugs": "https://github.com/Lurkars/gloomhavensecretariat/issues",
+  "funding": {
+    "type": "ko-fi",
+    "url": "https://ko-fi.com/lurkars"
+  },
+  "main": "main.js",
+  "watch": {
+    "prestart": {
+      "patterns": [
+        "data"
+      ],
+      "extensions": "json",
+      "runOnChangeOnly": true
+    }
+  },
+  "scripts": {
+    "prepare": "husky install",
+    "prestart": "node ./scripts/build-data.js",
+    "start": "ng serve",
+    "prebuild": "node ./scripts/build-data.js && node ./scripts/pre-build.js",
+    "build": "ng build",
+    "postbuild": "node ./scripts/post-build.js",
+    "pretest": "node ./scripts/build-data.js",
+    "test": "ng test",
+    "watch": "npm-watch",
+    "electron": "npm run build -- --base-href ./ && electron .",
+    "electron:build": "npm run build -- --base-href ./ && electron-builder"
+  },
+  "build": {
+    "appId": "gloomhavensecretariat",
+    "linux": {
+      "target": [
+        "AppImage",
+        "rpm",
+        "deb"
+      ],
+      "publish": [
+        "github"
+      ]
+    },
+    "mac": {
+      "type": "distribution",
+      "target": [
+        "dmg",
+        "pkg"
+      ],
+      "publish": [
+        "github"
+      ]
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico",
+      "publish": [
+        "github"
+      ]
+    },
+    "files": [
+      "main.js",
+      "dist/gloomhavensecretariat"
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^16.2.9",
+    "@angular/cdk": "^16.2.8",
+    "@angular/common": "^16.2.9",
+    "@angular/compiler": "^16.2.9",
+    "@angular/core": "^16.2.9",
+    "@angular/forms": "^16.2.9",
+    "@angular/platform-browser": "^16.2.9",
+    "@angular/platform-browser-dynamic": "^16.2.9",
+    "@angular/router": "^16.2.9",
+    "@angular/service-worker": "^16.2.9",
+    "autocompleter": "^9.1.0",
+    "leaflet": "^1.9.4",
+    "ng-in-viewport": "^16.0.0",
+    "rxjs": "~7.8.1",
+    "tslib": "^2.6.2",
+    "uuid": "^9.0.1",
+    "zone.js": "~0.13.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.2.6",
+    "@angular/cli": "^16.2.6",
+    "@angular/compiler-cli": "^16.2.9",
+    "@types/dom-screen-wake-lock": "1.0.1",
+    "@types/jasmine": "~4.3.6",
+    "@types/leaflet": "^1.9.6",
+    "@types/uuid": "^9.0.5",
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4",
+    "http-server": "^14.1.1",
+    "husky": "^8.0.3",
+    "jasmine-core": "~5.1.1",
+    "karma": "~6.4.2",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.1",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "npm-watch": "^0.11.0",
+    "typescript": "~5.1.6"
+  }
+}

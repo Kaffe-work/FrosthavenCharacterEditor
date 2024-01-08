@@ -1,0 +1,137 @@
+{
+  "index": "57",
+  "name": "Sanctuary of Snow",
+  "edition": "fh",
+  "complexity": 3,
+  "requirements": [
+    {
+      "buildings": [
+        "boat"
+      ]
+    }
+  ],
+  "rewards": {
+    "events": [
+      "winter-outpost:WO-68"
+    ],
+    "morale": 1,
+    "inspiration": 1,
+    "campaignSticker": [
+      "Friend of the Snowspeakers"
+    ],
+    "unlockCharacter": "snowflake",
+    "townGuardAm": [
+      "fh-tg-add-plus50"
+    ]
+  },
+  "monsters": [
+    "render",
+    "wind-demon"
+  ],
+  "objectives": [
+    {
+      "name": "Denpang",
+      "escort": true,
+      "initiative": 40,
+      "marker": "a",
+      "actions": [
+        {
+          "type": "move",
+          "value": 4
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "R == 2",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    },
+    {
+      "round": "R == 10",
+      "start": true,
+      "spawns": [
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "elite",
+            "player4": "elite"
+          },
+          "marker": "b"
+        },
+        {
+          "monster": {
+            "name": "wind-demon",
+            "player2": "normal",
+            "player3": "normal",
+            "player4": "elite"
+          },
+          "marker": "c"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "treasures": [
+        53
+      ],
+      "monster": [
+        {
+          "name": "render",
+          "type": "boss"
+        }
+      ],
+      "objectives": [
+        1
+      ]
+    }
+  ]
+}

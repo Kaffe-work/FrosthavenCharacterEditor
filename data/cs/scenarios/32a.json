@@ -1,0 +1,48 @@
+{
+  "index": "32a",
+  "name": "Confronting the Past A",
+  "edition": "cs",
+  "requirements": [
+    {
+      "party": [
+        "!Take the Money"
+      ]
+    }
+  ],
+  "rewards": {
+    "custom": "Read %data.section:75% <br>Password: Water Hydra"
+  },
+  "monsters": [
+    "living-bones"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "G2a",
+      "initial": true,
+      "monster": [
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "type": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

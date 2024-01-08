@@ -1,0 +1,101 @@
+{
+  "index": "54",
+  "name": "Palace of Ice",
+  "coordinates": {
+    "x": 1236.6999969482422,
+    "y": 470,
+    "width": 178,
+    "height": 184
+  },
+  "edition": "gh",
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.squidface%"
+    ],
+    "events": [
+      "city:59",
+      "road:59"
+    ],
+    "custom": "Immediately retire the Seeker of Xorn. City and Road events instead of normal retirement events for the class"
+  },
+  "monsters": [
+    "cave-bear-scenario-54",
+    "frost-demon",
+    "harrower-infester",
+    "living-spirit"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "G2a",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "cave-bear-scenario-54",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear-scenario-54",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "cave-bear-scenario-54",
+          "player4": "normal"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "N1a",
+      "marker": "1",
+      "treasures": [
+        25
+      ],
+      "monster": [
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "frost-demon",
+          "player2": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "type": "normal"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "harrower-infester",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "living-spirit",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

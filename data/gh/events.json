@@ -1,0 +1,495 @@
+[
+    {
+        "type": "city",
+        "cardId": 1,
+        "options": [
+            {
+                "outcome": true,
+                "return": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "experience",
+                                    "value": 10
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "loseGold",
+                                    "value": 5
+                                },
+                                {
+                                    "type": "loseReputation",
+                                    "value": 1
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "return": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "reputation",
+                                    "value": 1
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "city",
+        "cardId": 2,
+        "options": [
+            {
+                "effects": [
+                    {
+                        "condition": {
+                            "type": "payCollectiveGold",
+                            "value": 10
+                        },
+                        "text": true,
+                        "rewards": [
+                            [
+                                {
+                                    "type": "noEffect"
+                                }
+                            ]
+                        ],
+                        "return": true
+                    },
+                    {
+                        "condition": {
+                            "type": "otherwise"
+                        },
+                        "text": true,
+                        "rewards": [
+                            [
+                                {
+                                    "type": "noEffect"
+                                }
+                            ]
+                        ],
+                        "return": true
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "return": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "noEffect"
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "city",
+        "cardId": 3,
+        "options": [
+            {
+                "effects": [
+                    {
+                        "condition": {
+                            "type": "payCollectiveGold",
+                            "value": 10
+                        },
+                        "text": true,
+                        "rewards": [
+                            [
+                                {
+                                    "type": "collectiveItem",
+                                    "value": "125:1"
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "globalAchievement",
+                                    "value": "Ancient Technology"
+                                }
+                            ]
+                        ],
+                        "remove": true
+                    },
+                    {
+                        "condition": {
+                            "type": "otherwise"
+                        },
+                        "text": true,
+                        "return": true
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "return": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "noEffect"
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "city",
+        "cardId": 4,
+        "options": [
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "noEffect"
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "loseBattleGoal",
+                                    "value": 1
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "reputation",
+                                    "value": 1
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "city",
+        "cardId": 5,
+        "options": [
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "loseBattleGoal",
+                                    "value": 1
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "reputation",
+                                    "value": 1
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "prosperity",
+                                    "value": 1
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "gold",
+                                    "value": 5
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "additionalGold",
+                                    "value": 5,
+                                    "condition": {
+                                        "type": "reputationLT",
+                                        "value": -4
+                                    }
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "city",
+        "cardId": 6,
+        "options": [
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "experience",
+                                    "value": 5
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "prosperity",
+                                    "value": 1
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "randomItemDesign"
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "loseReputation",
+                                    "value": 1,
+                                    "condition": {
+                                        "type": "reputationGT",
+                                        "value": 4
+                                    }
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "city",
+        "cardId": 7,
+        "options": [
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "gold",
+                                    "value": 5
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "loseReputation",
+                                    "value": 1,
+                                    "condition": {
+                                        "type": "reputationGT",
+                                        "value": 9
+                                    }
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "reputation",
+                                    "value": 1,
+                                    "condition": {
+                                        "type": "reputationLT",
+                                        "value": -4
+                                    }
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "reputation",
+                                    "value": 1,
+                                    "condition": {
+                                        "type": "reputationGT",
+                                        "value": 4
+                                    }
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "loseReputation",
+                                    "value": 1,
+                                    "condition": {
+                                        "type": "reputationLT",
+                                        "value": -9
+                                    }
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "city",
+        "cardId": 8,
+        "options": [
+            {
+                "effects": [
+                    {
+                        "condition": {
+                            "type": "payCollectiveGoldConditional",
+                            "value": "20-reputationLT:10|15-reputationGT:9"
+                        },
+                        "text": true,
+                        "rewards": [
+                            [
+                                {
+                                    "type": "scenario",
+                                    "value": "93"
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "partyAchievement",
+                                    "value": "A Map to Treasure"
+                                }
+                            ]
+                        ],
+                        "remove": true
+                    },
+                    {
+                        "condition": {
+                            "type": "otherwise"
+                        },
+                        "text": true,
+                        "return": true,
+                        "rewards": [
+                            [
+                                {
+                                    "type": "noEffect"
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "noEffect"
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "city",
+        "cardId": 9,
+        "options": [
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "gold",
+                                    "value": 10
+                                }
+                            ],
+                            [
+                                {
+                                    "type": "additionalGold",
+                                    "value": 5,
+                                    "condition": {
+                                        "type": "reputationLT",
+                                        "value": -9
+                                    }
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            },
+            {
+                "outcome": true,
+                "remove": true,
+                "effects": [
+                    {
+                        "rewards": [
+                            [
+                                {
+                                    "type": "prosperity",
+                                    "value": 1
+                                }
+                            ]
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

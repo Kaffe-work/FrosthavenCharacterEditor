@@ -1,0 +1,15 @@
+{
+  "conditions": [
+    "stun",
+    "immobilize",
+    "disarm",
+    "wound",
+    "muddle",
+    "poison",
+    "strengthen",
+    "curse",
+    "bless"
+  ],
+  "edition": "jotl",
+  "logoUrl": "./assets/images/logos/jotl.png"
+}

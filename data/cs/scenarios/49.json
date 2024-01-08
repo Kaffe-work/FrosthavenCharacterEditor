@@ -1,0 +1,63 @@
+{
+  "index": "49",
+  "name": "Oak Invasion A",
+  "edition": "cs",
+  "requirements": [
+    {
+      "party": [
+        "Oaks Alliance"
+      ]
+    }
+  ],
+  "rewards": {
+    "custom": "During the next visit to Gloomhaven, donations to the Sanctuary cost 0 gold."
+  },
+  "monsters": [
+    "inox-archer",
+    "inox-guard",
+    "inox-shaman"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "K1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "elite"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "inox-shaman",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

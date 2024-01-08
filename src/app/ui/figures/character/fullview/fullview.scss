@@ -1,0 +1,113 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.container {
+  height: 100%;
+}
+
+.fullview {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .row {
+    margin-top: calc(var(--ghs-unit) * 1);
+    position: relative;
+    display: flex;
+  }
+
+  ghs-character-image {
+    width: calc(var(--ghs-unit) * 15);
+    height: calc(var(--ghs-unit) * 15);
+    border-radius: calc(var(--ghs-unit) * 2);
+  }
+
+  ghs-highlight-conditions {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(var(--ghs-unit) * 15);
+    z-index: 5;
+  }
+
+  ghs-pointer-input.drag-initiative {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--ghs-unit) * 15);
+    height: 100%;
+    z-index: 4;
+
+    &.dragging {
+      left: 0;
+      width: 100%;
+    }
+  }
+
+  .conditions {
+    position: relative;
+    display: flex;
+    margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+
+    .condition {
+      position: relative;
+      display: flex;
+      margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+
+      img {
+        width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+        margin: 0;
+
+        &.stack {
+          margin-left: calc(var(--ghs-unit) * -3 * var(--ghs-text-factor));
+        }
+      }
+
+      .value {
+        font-family: "ghs-title";
+        font-size: calc(var(--ghs-unit) * 1.8 * var(--ghs-text-factor));
+        color: var(--ghs-color-white);
+        position: absolute;
+        top: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        left: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        text-shadow: none;
+        transform: translateX(-50%);        
+      }
+    }
+  }
+
+  .sheet {
+    padding: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+    background-color: var(--ghs-color-white);
+  }
+
+}
+
+.wip {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--ghs-color-red);
+  font-size: calc(var(--ghs-unit) * 4);
+
+  img {
+    filter: var(--ghs-filter-yellow) var(--ghs-filter-shadow);
+    width: calc(var(--ghs-unit) * 4);
+    height: auto;
+    margin-right: calc(var(--ghs-unit) * 1);
+  }
+
+  &:hover {
+    color: var(--ghs-color-black);
+  }
+}

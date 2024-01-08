@@ -1,0 +1,13 @@
+{
+  "edition": "solo",
+  "additional": true,
+  "extensions": [
+    "gh",
+    "fh",
+    "gh-envx",
+    "fc",
+    "cs",
+    "toa",
+    "toa-envv"
+  ]
+}

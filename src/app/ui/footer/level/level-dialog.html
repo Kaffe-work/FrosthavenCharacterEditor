@@ -1,0 +1,73 @@
+<div class="level-dialog"
+  [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.level}">
+  <div class="menu">
+    <label *ngIf="gameManager.game.playerCount < 1">
+      <input type="checkbox" [checked]="gameManager.game.levelCalculation"
+        (change)="setLevelCalculation(!gameManager.game.levelCalculation)">
+      <span [ghs-label]="'settings.levelCalculation'"></span>
+    </label>
+
+    <label *ngIf="gameManager.game.levelCalculation"><span [ghs-label]="'settings.levelAdjustment'"></span>
+      <input type="number" #levelAdjustment [value]="gameManager.game.levelAdjustment" min="-6" max="6" (keyup)="0"
+        (change)="setLevelAdjustment(+levelAdjustment.value)" [size]="levelAdjustment.value.length"
+        [ghs-label]="'settings.levelAdjustment'" [ghs-label-attribute]="'placeholder'"></label>
+
+    <label><span [ghs-label]="'settings.bonusAdjustment'"></span>
+      <input type="number" #bonusAdjustment [value]="gameManager.game.bonusAdjustment" min="-6" max="6" (keyup)="0"
+        (change)="setBonusAdjustment(+bonusAdjustment.value)" [size]="bonusAdjustment.value.length"
+        [ghs-label]="'settings.bonusAdjustment'" [ghs-label-attribute]="'placeholder'"></label>
+
+    <label *ngIf="ge5Player()">
+      <input type="checkbox" [checked]="gameManager.game.ge5Player"
+        (change)="setGe5Player(!gameManager.game.ge5Player)">
+      <span [ghs-label]="'settings.ge5Player'"></span>
+    </label>
+  </div>
+
+  <div class="level-container" [ngClass]="{'disabled' : gameManager.game.levelCalculation}">
+    <span class="item"><img src="./assets/images/level.svg" /></span>
+    <span class="item" *ngFor="let level of levels;"><a class="level"
+        [ngClass]="{'active' : level == gameManager.game.level, 'scenariolevel' : gameManager.game.playerCount < 1 && level == gameManager.levelManager.scenarioLevel()}"
+        (click)="setLevel(level)">{{level}}</a></span>
+    <div class="solo">
+      <label>
+        <input type="checkbox" [checked]="gameManager.game.solo" (change)="setSolo(!gameManager.game.solo)">
+        <span [ghs-label]="'game.solo'"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="values">
+    <div class="loot">
+      <span class="icon"><img class="ghs-svg"
+          [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/loot.svg'">:</span>
+      <span class="value">x{{loot}}</span>
+      <span class="hint"><span [ghs-label]="'game.level.loot'"></span></span>
+    </div>
+    <div class="trap">
+      <span class="icon"><img class="ghs-svg" src="./assets/images/trap.svg">:</span>
+      <span class="value">{{trap}}</span>
+      <span class="hint"><span [ghs-label]="'game.level.trap'"></span></span>
+    </div>
+    <div class="experience">
+      <span class="icon"><img class="ghs-svg" src="./assets/images/experience.svg">:</span>
+      <span class="value">+{{experience}}</span>
+      <span class="hint"><span [ghs-label]="'game.level.experience'"></span></span>
+    </div>
+    <div class="terrain">
+      <span class="icon"><img class="ghs-svg" src="./assets/images/terrain.svg">:</span>
+      <span class="value">{{hazardousTerrain}}</span>
+      <span class="hint"><span [ghs-label]="'game.level.hazardousTerrain'"></span></span>
+    </div>
+  </div>
+
+
+
+  <label class="player-count">
+    <input type="checkbox" [checked]="gameManager.game.playerCount > 0" (change)="togglePlayerCount($event)">
+    <span [ghs-label]="'settings.playerCount'"></span>
+    <input *ngIf="gameManager.game.playerCount > 0" type="number" #playerCount [value]="gameManager.game.playerCount"
+      min="1" (keyup)="0" (change)="setPlayerCount(+playerCount.value)" [size]="playerCount.value.length"
+      [ghs-label]="'settings.playerCount'" [ghs-label-attribute]="'placeholder'">
+  </label>
+</div>

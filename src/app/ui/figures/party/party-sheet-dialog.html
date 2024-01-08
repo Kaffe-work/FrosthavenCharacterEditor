@@ -1,0 +1,755 @@
+<div class="light party-sheet-dialog">
+  <div class="scroll-container"
+    [ngClass]="{'denied' : gameManager.stateManager.permissions && !gameManager.stateManager.permissions.party}">
+    <div class="container" [ngClass]="{'fh-container' : !campaign && fhSheet, 'campaign-container' : campaign}">
+      <div class="sheet" *ngIf="!campaign && !fhSheet" [ngClass]="{'fh-sheet' : fhSheet}">
+        <div class="columns">
+          <div class="column column-left">
+            <div class="row title">
+              <span class="campaign-toggle" (click)="campaign = true">
+                <img src="./assets/images/left.svg"><span [ghs-label]="'party.campaign'"></span>
+              </span>
+              <label class="headline"><span [ghs-label]="'party.sheet'"></span>
+              </label>
+              <select *ngIf="gameManager.game.parties.length > 1 && !gameManager.game.scenario" class="select-party"
+                (change)="selectParty($event)" [ghs-label]="'party.change'" [ghs-label-attribute]="'title'">
+                <option *ngFor="let p of gameManager.game.parties" [selected]="p.id == party.id"
+                  [disabled]="p.id == party.id" value="{{p.id}}">
+                  <span *ngIf="p.name">{{p.name}}</span>
+                  <span *ngIf="!p.name"><span [ghs-label]="'party.campaign'"></span>&nbsp;{{p.id}}</span>
+                </option>
+              </select>
+              <span class="spacer"></span>
+              <span class="map" *ngIf="worldMap" (click)="openMap()">
+                <img src="./assets/images/fullscreen.svg"><span [ghs-label]="'party.campaign.map'"></span>
+              </span>
+            </div>
+            <div class="row name">
+              <label><span [ghs-label]="'party.name'"></span>:</label>
+              <input type="text" [value]="party.name" (change)="setName($event)" [ghs-label]="'party.name'"
+                [ghs-label-attribute]="'placeholder'">
+
+              <ng-container *ngIf="!gameManager.game.scenario">
+                <img *ngIf="gameManager.game.parties.length > 1" class="remove-party" src="./assets/images/minus.svg"
+                  (click)="removeParty()" [ghs-label]="'party.remove'" [ghs-label-attribute]="'title'">
+                <span class="spacer"></span>
+                <img class="new-party" src="./assets/images/plus.svg" (click)="newParty()" [ghs-label]="'party.new'"
+                  [ghs-label-attribute]="'title'">
+              </ng-container>
+
+              <ng-container *ngIf="gameManager.game.scenario">
+                <div class="hint-container new-party-hint">
+                  <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg">
+                  <span class="hint">
+                    <span class="text"><span [ghs-label]="'party.new.hint'"></span></span>
+                  </span>
+                </div>
+              </ng-container>
+            </div>
+            <div class="row location">
+              <label><span [ghs-label]="'party.location'"></span>:</label>
+              <input type="text" [value]="party.location" (change)="setLocation($event)" [ghs-label]="'party.location'"
+                [ghs-label-attribute]="'placeholder'">
+            </div>
+            <div class="row notes">
+              <label><span [ghs-label]="'party.notes'"></span>:</label>
+              <textarea type="text" [value]="party.notes" (change)="setNotes($event)" [ghs-label]="'party.notes'"
+                [ghs-label-attribute]="'placeholder'"></textarea>
+            </div>
+            <div class="row achievements">
+              <label><span [ghs-label]="'party.achievements'"></span>:</label>
+
+              <div class="achievements-container">
+                <div class="list">
+                  <div class="achievement" *ngFor="let achievement of partyAchievementsList; let i = index;">
+                    <span *ngIf="achievement.split(':').length > 0 && achievement.split(':')[1] != '1'">
+                      {{achievement.split(':')[1]}}x&nbsp;
+                    </span>
+                    <span [ghs-label]="'data.partyAchievements.' + achievement.split(':')[0]"></span>
+                    <span class="spacer"></span>
+                    <span class="remove" (click)="removeAchievement(i)">
+                      <img class="ghs-svg" src="./assets/images/close.svg"></span>
+                  </div>
+                </div>
+                <div class="form">
+                  <input type="text" #partyAchievementInput [autocomplete]="partyAchievements" [spoiler]="true"
+                    [emptyLabel]="'party.addPartyAchievement.empty'" [ghs-label]="'party.addPartyAchievement'"
+                    [ghs-label-attribute]="'placeholder'" (keyup.enter)="addAchievement(partyAchievementInput)">
+                  <a class="addScenario" [ghs-label]="'party.addPartyAchievement'" [ghs-label-attribute]="'title'"
+                    (click)="addAchievement(partyAchievementInput)"><img src="./assets/images/plus.svg"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column column-right">
+            <div class="columns">
+              <div class="column reputation">
+                <label><span [ghs-label]="'party.reputation'"></span></label>
+                <div class="grid">
+                  <ng-container *ngFor="let reputation of [] | ghsRange:41">
+                    <span class="value" (click)="setReputation(40 - reputation - 20)"
+                      [ngClass]="{'checked' : party.reputation == 40 - reputation - 20}"></span>
+                    <span class="key">{{40 - reputation - 20 | ghsValueSign}}</span>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="column shop">
+                <label><span [ghs-label]="'party.shop'"></span></label>
+                <div class="table">
+                  <div class="value" *ngFor="let value of [] | ghsRange:11"
+                    [ngClass]="{'active' : priceModifier == -5 + value}">
+                    <span *ngIf="value != 5">{{-5 + value | ghsValueSign}}</span>
+                    <span *ngIf="value == 5"><span [ghs-label]="'party.shop.none'"></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="import-export">
+              <label class="export" (click)="exportParty()" [ghs-label]="'party.export'"
+                [ghs-label-attribute]="'title'">
+                <img src="./assets/images/export.svg">
+                <span><span [ghs-label]="'party.export'"></span></span>
+              </label>
+              <label class="import" [ghs-label]="'party.import'" [ghs-label-attribute]="'title'"
+                (click)="ghsInputFullScreenCheck()">
+                <input type="file" accept="application/json" (change)="importParty($event)" />
+                <img src="./assets/images/import.svg">
+                <span><span [ghs-label]="'party.import'"></span></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FH SHEET -->
+      <div class="sheet fh-sheet" *ngIf="!campaign && fhSheet">
+        <div class="title">
+          <label class="summer" [ngClass]="{'highlight' : summer}"><img src="./assets/images/fh/party/summer.svg">
+            <span [ghs-label]="'party.campaign.sheet.summer'"></span>
+          </label>
+          <label class="headline" (click)="campaign = true">
+            <span [ghs-label]="'party.campaign.sheet'"></span>
+            <span class="management">
+              <img src="./assets/images/left.svg">
+              <span [ghs-label]="'party.campaign.manage'"></span>
+            </span>
+          </label>
+          <label class="winter" [ngClass]="{'highlight' : !summer}"><span
+              [ghs-label]="'party.campaign.sheet.winter'"></span><img src="./assets/images/fh/party/winter.svg"></label>
+        </div>
+
+        <div class="weeks">
+          <div class="week" *ngFor="let week of [] | ghsRange:80; let index = index" ghs-pointer-input
+            [ghs-tooltip]="'party.campaign.sheet.weekSections.hint'" (singleClick)="setWeek(index+1 + 80*calendarSheet)"
+            (doubleClick)="setWeekSection(index+1+ 80*calendarSheet)"
+            [ngClass]="{'checked': party.weeks > index + 80*calendarSheet, 'section': sectionsForWeekFixed(week+ 80*calendarSheet).length > 0 || sectionsForWeek(week+ 80*calendarSheet).length > 0}">
+            <div class="section" *ngFor="let section of sectionsForWeekFixed(week+ 80*calendarSheet)">
+              <img
+                [src]="'./assets/images/' + (hasConclusions(section) ? 'hint.svg' : (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg'))">
+              {{section}}
+            </div>
+            <div class="section manual" *ngFor="let section of sectionsForWeek(week+ 80*calendarSheet)">
+              <img
+                [src]="'./assets/images/' + (hasConclusions(section) ? 'hint.svg' : (isConclusion(section) ? 'scenario/conclusion.svg'  : 'fh/party/section.svg'))">
+              {{section}}
+            </div>
+          </div>
+          <span class="next" *ngIf="party.weeks == (80 + 80*calendarSheet)" (click)="setWeek(party.weeks+1)"><span
+              [ghs-label]="'party.campaign.sheet.nextWeek'"></span> <img src="./assets/images/right.svg"></span>
+        </div>
+
+        <div class="name">
+          <label><span [ghs-label]="'party.campaign.sheet.name'"></span>:</label>
+          <input type="text" [value]="party.name" (change)="setName($event)" [ghs-label]="'party.campaign.sheet.name'"
+            [ghs-label-attribute]="'placeholder'">
+
+          <ng-container *ngIf="!gameManager.game.scenario">
+            <img *ngIf="gameManager.game.parties.length > 1" class="remove-party" src="./assets/images/minus.svg"
+              (click)="removeParty()" [ghs-label]="'party.remove'" [ghs-label-attribute]="'title'">
+            <select *ngIf="gameManager.game.parties.length > 1 && !gameManager.game.scenario" class="select-party"
+              (change)="selectParty($event)" [ghs-label]="'party.change'" [ghs-label-attribute]="'title'">
+              <option *ngFor="let p of gameManager.game.parties" [selected]="p.id == party.id"
+                [disabled]="p.id == party.id" value="{{p.id}}">
+                <span *ngIf="p.name">{{p.name}}</span>
+                <span *ngIf="!p.name"><span [ghs-label]="'party.campaign'"></span>&nbsp;{{p.id}}</span>
+              </option>
+            </select>
+            <img class="new-party" src="./assets/images/plus.svg" (click)="newParty()" [ghs-label]="'party.new'"
+              [ghs-label-attribute]="'title'">
+          </ng-container>
+
+          <ng-container *ngIf="gameManager.game.scenario">
+            <div class="hint-container new-party-hint">
+              <img src="./assets/images/plus.svg" class="hint-trigger ghs-svg">
+              <span class="hint">
+                <span class="text"><span [ghs-label]="'party.new.hint'"></span></span>
+              </span>
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="resources">
+          <div class="header">
+            <label (click)="openResources()"><span [ghs-label]="'party.campaign.sheet.supply'"></span>:</label>
+            <span class="spacer"></span>
+            <div class="move-resources" *ngIf="characters.length > 0">
+              <span class="label"><span [ghs-label]="'character.progress.resources.move'"></span>:</span>
+              <span class="character" (click)="moveResources(character)" *ngFor="let character of characters"><img
+                  [src]="character.iconUrl"></span>
+            </div>
+          </div>
+
+          <div class="resource-table">
+            <div class="materials">
+              <div class="resource lumber">
+                <img src="./assets/images/fh/loot/lumber.svg">
+                <input [value]="party.loot.lumber || 0" type="number" min="0"
+                  (change)="setResource(LootType.lumber, $event)">
+              </div>
+              <div class="resource metal">
+                <img src="./assets/images/fh/loot/metal.svg">
+                <input [value]="party.loot.metal || 0" type="number" min="0"
+                  (change)="setResource(LootType.metal, $event)">
+              </div>
+              <div class="resource hide">
+                <img src="./assets/images/fh/loot/hide.svg">
+                <input [value]="party.loot.hide || 0" type="number" min="0"
+                  (change)="setResource(LootType.hide, $event)">
+              </div>
+            </div>
+
+            <div class="herbs">
+              <div class="resource arrowvine">
+                <img src="./assets/images/fh/loot/arrowvine.svg">
+                <input [value]="party.loot.arrowvine || 0" type="number" min="0"
+                  (change)="setResource(LootType.arrowvine, $event)">
+              </div>
+              <div class="resource axenut">
+                <img src="./assets/images/fh/loot/axenut.svg">
+                <input [value]="party.loot.axenut || 0" type="number" min="0"
+                  (change)="setResource(LootType.axenut, $event)">
+              </div>
+              <div class="resource corpsecap">
+                <img src="./assets/images/fh/loot/corpsecap.svg">
+                <input [value]="party.loot.corpsecap || 0" type="number" min="0"
+                  (change)="setResource(LootType.corpsecap, $event)">
+              </div>
+              <div class="resource flamefruit">
+                <img src="./assets/images/fh/loot/flamefruit.svg">
+                <input [value]="party.loot.flamefruit || 0" type="number" min="0"
+                  (change)="setResource(LootType.flamefruit, $event)">
+              </div>
+              <div class="resource rockroot">
+                <img src="./assets/images/fh/loot/rockroot.svg">
+                <input [value]="party.loot.rockroot || 0" type="number" min="0"
+                  (change)="setResource(LootType.rockroot, $event)">
+              </div>
+              <div class="resource snowthistle">
+                <img src="./assets/images/fh/loot/snowthistle.svg">
+                <input [value]="party.loot.snowthistle || 0" type="number" min="0"
+                  (change)="setResource(LootType.snowthistle, $event)">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="inspiration">
+          <label><span [ghs-label]="'party.campaign.sheet.inspiration'"></span>:</label>
+          <input type="number" [value]="party.inspiration || 0" (change)="setInspiration($event)"
+            [ghs-label]="'party.campaign.sheet.inspiration'" [ghs-label-attribute]="'placeholder'">
+        </div>
+
+        <div class="total-defense">
+          <label><span [ghs-label]="'party.campaign.sheet.totalDefense'"></span>:</label>
+          <input type="number" [value]="party.defense || 0" (change)="setTotalDefense($event)"
+            [ghs-label]="'party.campaign.sheet.totalDefense'" [ghs-label-attribute]="'placeholder'">
+        </div>
+
+        <div class="soldiers">
+          <label><span [ghs-label]="'party.campaign.sheet.soldiers'"></span>:</label>
+          <div class="soldier-table">
+            <div class="line" *ngFor="let level of [] | ghsRange:4">
+              <label>
+                <span class="text">
+                  <span [ghs-label]="'party.campaign.sheet.soldierLevel'"></span>
+                </span>
+                <span>{{level+1}}</span>
+              </label>
+              <div class="soldiers-line">
+                <div class="soldier" *ngFor="let soldier of [] | ghsRange:(level > 0 ? 2 : 4);"
+                  (click)="setSoldiers(soldier + (level > 0 ? 2 + level * 2 : 0) + 1)">
+                  <img src="./assets/images/fh/party/soldier.svg">
+                  <div class="check"
+                    [ngClass]="{'checked' : (soldier + (level > 0 ? 2 + level * 2 : 0)) < party.soldiers}"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="morale">
+          <label><span [ghs-label]="'party.campaign.sheet.morale'"></span></label>
+          <div class="grid morale-grid">
+            <ng-container *ngFor="let morale of [] | ghsRange:21">
+              <span class="value" (click)="setMorale(20 - morale)"
+                [ngClass]="{'checked' : party.morale == (20 - morale)}">
+                <span class="key">{{20 - morale}}</span>
+              </span>
+            </ng-container>
+          </div>
+        </div>
+        <div class="defense">
+          <label><span [ghs-label]="'party.campaign.sheet.defense'"></span></label>
+          <div class="grid defense-grid">
+            <span class="section" [ngClass]="{'highlight' : party.morale > 19}">
+              <img src="./assets/images/fh/party/section.svg">
+              {{gameManager.campaignData().highMorale || ''}}
+              <img *ngIf="party.morale > 19" src="./assets/images/checkmark.svg">
+            </span>
+            <span class="value" [ngClass]="{'highlight' : party.morale > 13}">+15</span>
+            <span class="value" [ngClass]="{'highlight' : party.morale < 14 && party.morale > 10}">+10</span>
+            <span class="value" [ngClass]="{'highlight' : party.morale < 11 && party.morale > 7}">+5</span>
+            <span class="value" [ngClass]="{'highlight' : party.morale < 8 && party.morale > 4}">0</span>
+            <span class="value" [ngClass]="{'highlight' : party.morale < 5 && party.morale > 2}">-5</span>
+            <span class="value" [ngClass]="{'highlight' : party.morale < 3}">-10</span>
+            <span class="section" [ngClass]="{'highlight' : party.morale < 1}"><img
+                src="./assets/images/fh/party/section.svg">
+              {{gameManager.campaignData().lowMorale || ''}}
+              <img *ngIf="party.morale < 1" src="./assets/images/checkmark.svg">
+            </span>
+          </div>
+        </div>
+
+
+        <div class="town-guard-perks">
+          <label><span [ghs-label]="'party.campaign.sheet.townGuardPerks'"></span></label>
+          <div class="town-guard-perks-grid">
+            <ng-container *ngFor="let item of [] | ghsRange:45">
+              <span class="checkmark" *ngIf="item % 3 == 0">
+                <img src="./assets/images/close.svg">:</span>
+              <span class="townguard-perk checkbox" [ngClass]="{'checked' : party.townGuardPerks >= item + 1}"
+                (click)="setTownGuardPerks(item + 1)"></span>
+            </ng-container>
+          </div>
+          <div class="perk-list">
+            <div class="perk" *ngFor="let townGuardPerk of gameManager.campaignData().townGuardPerks">
+              <div class="sections">
+                <div class="section" *ngFor="let section of townGuardPerk.sections"
+                  [ngClass]="{'checked': party.townGuardPerkSections.indexOf(section) != -1, 'disabled' : party.townGuardPerkSections.indexOf(section) == -1 && party.townGuardPerkSections.length >= (party.townGuardPerks / 3 | ghsFloor)}"
+                  ghs-pointer-input (singleClick)="toggleTownGuardPerkSection(section)"
+                  (doubleClick)="toggleTownGuardPerkSection(section, true)">
+                  <img src="./assets/images/fh/party/section.svg"> {{section}}
+                </div>
+              </div>
+              <ghs-perk-label [perk]="townGuardPerk.perk"></ghs-perk-label>
+            </div>
+          </div>
+
+
+          <div class="warning" [ghs-label]="'game.attackModifiers.perks.warning'" [ghs-label-attribute]="'title'"
+            *ngIf="party.townGuardPerkSections.length > (party.townGuardPerks / 3 | ghsFloor)">
+            <img class="ghs-svg" src="./assets/images/warning.svg">
+            <span [ghs-label]="'game.attackModifiers.perks.warning'"></span>
+          </div>
+        </div>
+
+        <div class="campaign-stickers">
+          <form class="header" (submit)="addCampaignSticker(campaignSticker)">
+            <label><span [ghs-label]="'party.campaign.sheet.campaignStickers'"></span></label>
+            <input type="text" #campaignSticker [autocomplete]="campaignStickers"
+              [emptyLabel]="'party.campaign.sheet.campaignStickers.empty'"
+              [ghs-label]="'party.campaign.sheet.campaignStickers'" [ghs-label-attribute]="'placeholder'"
+              (keyup.enter)="addCampaignSticker(campaignSticker)">
+            <img src="./assets/images/plus.svg" (click)="addCampaignSticker(campaignSticker)">
+          </form>
+          <div class="stickers">
+            <div class="sticker" *ngFor="let sticker of party.campaignStickers; let index = index">
+              <span class="text" *ngIf="!campaignStickerImage(sticker,index)">{{sticker}}</span>
+              <img *ngIf="campaignStickerImage(sticker,index)" class="image" [src]="campaignStickerImage(sticker,index)"
+                [title]="sticker">
+              <img class="remove" src="./assets/images/minus.svg" (click)="removeCampaignSticker(sticker)">
+            </div>
+          </div>
+        </div>
+
+        <ghs-party-buildings [party]="party"></ghs-party-buildings>
+
+        <div class="town-guard-deck-container" *ngIf="townGuardDeck && townGuardDeck.cards.length > 0"
+          [ngClass]="{ 'active' : townGuardDeck.active}">
+          <div class="town-guard-deck"
+            [ngClass]="{'collapsed' : !townGuardDeck.active,  'full' : townGuardDeck.active}">
+            <ghs-attackmodifier-deck [deck]="townGuardDeck" [townGuard]="true" (before)="beforeTownGuardDeck($event)"
+              (after)="afterTownGuardDeck($event)"></ghs-attackmodifier-deck>
+
+            <div class="active-toggle" (click)="toggleTownGuardDeck()">
+              <span class="numeration"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <span class="toggle-fh-sheet" *ngIf="!campaign" (click)="fhSheet = !fhSheet; update(false)">
+        <span [ghs-label]="'party.campaign.sheet.' + (fhSheet ? 'disable': 'enable')"></span>
+      </span>
+      <!-- CAMPAIGN -->
+      <div class="campaign" *ngIf="campaign">
+        <div class="row title">
+          <span class="campaign-toggle" (click)="campaign = false">
+            <img src="./assets/images/left.svg"><span [ghs-label]="'party.sheet'"></span>
+          </span>
+          <label class="headline"><span [ghs-label]="'party.campaign'"></span></label>
+          <span class="campaign-mode" (click)="toggleCampaignMode()">
+            <span class="checkbox" [ngClass]="{'checked' : party.campaignMode}"></span>
+            <span [ghs-label]="'party.campaignMode'"></span>
+          </span>
+        </div>
+
+        <div class="row title">
+          <label class="headline"><span [ghs-label]="'party.campaign.scenarios'"></span></label>
+
+          <select (change)="changeEdition($event)">
+            <option [value]="undefined" [selected]="!partyEdition"><span [ghs-label]="'edition.all'"></span>
+            </option>
+            <option *ngFor="let ed of gameManager.editions()" [selected]="ed == partyEdition" [value]="ed">
+              <span [ghs-label]="'data.edition.' + ed"></span>
+            </option>
+          </select>
+        </div>
+
+        <div class="row scenarios">
+          <div class="scenario header legend seperator">
+            <span><span [ghs-label]="'party.campaign.scenarios.index'"></span></span>
+            <span><span [ghs-label]="'party.campaign.scenarios.group'"></span></span>
+            <span><span [ghs-label]="'party.campaign.scenarios.name'"></span></span>
+            <span><span [ghs-label]="'party.campaign.scenarios.finished'"></span></span>
+          </div>
+          <ng-container *ngFor="let edition of scenarioEditions; let index = index;">
+            <div class="scenario seperator" *ngIf="index > 0"></div>
+            <div class="scenario header" *ngIf="scenarioEditions.length > 1">
+              <span class="span"><span [ghs-label]="'data.edition.' + edition"></span></span>
+            </div>
+            <div class="scenario" *ngFor="let scenarioData of scenarios[edition]">
+              <span>
+                <ng-container *ngIf="!scenarioData.solo">
+                  #<span *ngIf="maxScenario(scenarios[edition]) > 2 && scenarioData.index.length < 3">0</span><span
+                    *ngIf="maxScenario(scenarios[edition]) > 1 && scenarioData.index.length < 2">0</span>{{scenarioData.index}}
+                </ng-container>
+                <ng-container *ngIf="scenarioData.solo">
+                  <img class="ghs-svg solo" [src]="characterIcon(scenarioData.solo)" />
+                </ng-container>
+              </span>
+              <span>
+                <span *ngIf="scenarioData.group" [ghs-label]="'data.scenario.group.' + scenarioData.group"></span>
+              </span>
+              <span class="scenario-title"
+                [ngClass]="{'blocked' : scenarioData.isBlocked, 'locked' : !scenarioData.isBlocked && scenarioData.isLocked}"
+                [ghs-tooltip]="scenarioData.isBlocked ? 'scenario.blocked' : (scenarioData.isLocked ? 'scenario.locked'  : '')"
+                [toggable]="false" (click)="scenarioRequirements(scenarioData)">
+                <img *ngIf="scenarioData.isBlocked || scenarioData.isLocked" src="./assets/images/close.svg">
+                <span [ghs-label]="'data.scenario.' + scenarioData.name"></span>
+              </span>
+              <span>
+                <span class="spacer"></span>
+                <a class="toggle-manual" [ghs-label]="'party.campaign.scenarios.removeManual'"
+                  [ghs-label-attribute]="'title'" (click)="removeManual(scenarioData)"
+                  *ngIf="isManual(scenarioData) && countFinished(scenarioData) < 1"><img class="manual"
+                    src="./assets/images/hint.svg"><img class="remove" src="./assets/images/close.svg"></a>
+                <span *ngIf="scenarioData.isLocked" (click)="scenarioRequirements(scenarioData)" class="locked"
+                  [ghs-tooltip]="'scenario.locked'"><img class="ghs-svg" src="./assets/images/warning.svg"></span>
+                <span *ngIf="countFinished(scenarioData)" (click)="scenarioRewards(scenarioData)" class="rewards"
+                  [ghs-tooltip]="'scenario.summary.rewards'"><img class="ghs-svg"
+                    src="./assets/images/scenario/conclusion.svg"></span>
+                <span *ngFor="let success of [] | ghsRange:countFinished(scenarioData)">
+                  <a class="toggle-success" [ghs-label]="'party.campaign.scenarios.removeSuccess'"
+                    [ghs-label-attribute]="'title'" (click)="removeSuccess(scenarioData)"><img class="success"
+                      src="./assets/images/check.svg"><img class="remove" src="./assets/images/close.svg"></a>
+                </span>
+                <span *ngFor="let success of [] | ghsRange:countFinished(scenarioData, true)">
+                  <a class="toggle-success casual" [ghs-label]="'party.campaign.scenarios.removeSuccessCasual'"
+                    [ghs-label-attribute]="'title'" (click)="removeSuccess(scenarioData, true)"><img class="success"
+                      src="./assets/images/check.svg"><img class="remove" src="./assets/images/close.svg"></a>
+                </span>
+                <a class="add-success"
+                  [ghs-label]="scenarioData.isBlocked ? 'scenario.blocked' : (scenarioData.isLocked ? 'scenario.locked' : 'party.campaign.scenarios.addSuccess')"
+                  [ghs-label-attribute]="'title'" ghs-pointer-input (singleClick)="addSuccess(scenarioData)"
+                  (doubleClick)="addSuccess(scenarioData,true)"
+                  [ngClass]="{'disabled' : scenarioData.isBlocked || scenarioData.isLocked}"><img
+                    src="./assets/images/check.svg"></a>
+              </span>
+            </div>
+            <div class="scenario unlock">
+              <input #unlockScenarioIndex [ghs-label]="'party.campaign.scenarios.index'"
+                [ghs-label-attribute]="'placeholder'"
+                (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
+                (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">
+              <input #unlockScenarioGroup [ghs-label]="'party.campaign.scenarios.group'"
+                [ghs-label-attribute]="'placeholder'"
+                (keyup)="unlockScenarioIndex.classList.remove('error'); unlockScenarioGroup.classList.remove('error');"
+                (keyup.enter)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">
+              <a class="addScenario" [ghs-label]="'party.campaign.scenarios.unlock'" [ghs-label-attribute]="'title'"
+                (click)="unlockScenario(unlockScenarioIndex, unlockScenarioGroup, edition)">
+                <span [ghs-label]="'party.campaign.scenarios.unlock'"></span>&nbsp;<img
+                  src="./assets/images/plus.svg"></a>
+            </div>
+            <ng-container *ngIf="conclusions[edition] && conclusions[edition].length > 0">
+              <div class="scenario seperator" *ngIf="index > 0"></div>
+              <div class="scenario header">
+                <span class="span"><span [ghs-label]="'party.campaign.scenarios.conclusions'"></span></span>
+              </div>
+              <div class="scenario" *ngFor="let scenarioData of conclusions[edition]">
+                <span>
+                  #<span *ngIf="maxScenario(conclusions[edition]) > 2 && scenarioData.index.length < 3">0</span><span
+                    *ngIf="maxScenario(conclusions[edition]) > 1 && scenarioData.index.length < 2">0</span>{{scenarioData.index}}
+                </span>
+                <span>
+                  <span *ngIf="scenarioData.group" [ghs-label]="'data.scenario.group.' + scenarioData.group"></span>
+                </span>
+                <span class="scenario-title">
+                  <span *ngIf="scenarioData.named" [ghs-label]="'data.scenario.' + scenarioData.name"></span>
+                  <span *ngIf="scenarioData.parent"
+                    [ghs-label]="'%data.scenarioNumber:' + scenarioData.parent + '%'"></span>
+                </span>
+                <span>
+                  <span class="spacer"></span>
+                  <span (click)="scenarioRewards(scenarioData)" class="rewards"
+                    [ghs-tooltip]="'scenario.summary.rewards'"><img class="ghs-svg"
+                      src="./assets/images/scenario/conclusion.svg"></span>
+                  <a class="toggle-success" [ghs-label]="'party.campaign.scenarios.removeSuccess'"
+                    [ghs-label-attribute]="'title'" (click)="removeConclusion(scenarioData.index, edition)"><img
+                      class="success" src="./assets/images/check.svg"><img class="remove"
+                      src="./assets/images/close.svg"></a>
+                </span>
+              </div>
+            </ng-container>
+            <div class="scenario unlock" *ngIf="fhSheet">
+              <img class="ghs-svg" src="./assets/images/scenario/conclusion.svg"> / <img class="ghs-svg"
+                src="./assets/images/fh/puzzle.svg">
+              <input #unlockConclusionIndex [ghs-label]="'party.campaign.scenarios.index'"
+                [ghs-label-attribute]="'placeholder'" (keyup)="unlockConclusionIndex.classList.remove('error');"
+                (keyup.enter)="selectFinishConclusion(unlockConclusionIndex)">
+              <a class="addScenario" [ghs-label]="'party.campaign.scenarios.addConclusion'"
+                [ghs-label-attribute]="'title'" (click)="selectFinishConclusion(unlockConclusionIndex)">
+                <span [ghs-label]="'party.campaign.scenarios.addConclusion'"></span>&nbsp;<img
+                  src="./assets/images/plus.svg"></a>
+            </div>
+          </ng-container>
+        </div>
+
+        <div class="prosperity" [ngClass]="{'fh' : settingsManager.settings.fhStyle}">
+          <div class="legend" (click)="setProsperity(0)">
+            <div class="level"><span [ghs-label]="'party.prosperity'"></span> <img
+                *ngIf="settingsManager.settings.fhStyle" src="./assets/images/fh/prosperity.svg">:</div>
+            <div class="check" *ngIf="!settingsManager.settings.fhStyle">
+              <span class="checkbox checked disabled"></span><span>:</span>
+            </div>
+          </div>
+          <div class="checklist">
+            <div class="tick"
+              *ngFor="let check of []|ghsRange:(prosperitySteps[prosperitySteps.length-1]+1); let index = index;"
+              [autoscroll]="party.prosperity == index +1 || party.prosperity == 0 && index == 0"
+              [ngClass]="{'large' : prosperitySteps.indexOf(index) != -1}">
+              <div class="level" *ngIf="prosperitySteps.indexOf(index) != -1" (click)="setProsperity(index+1)">
+                {{prosperitySteps.indexOf(index) + 2}}
+              </div>
+              <div class="checkbox" (click)="setProsperity(index+1)"
+                [ngClass]="{'checked': party.prosperity > index, 'highlight' : prosperityHighlightSteps.indexOf(index) != -1}">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row donations" *ngIf="!fhSheet">
+          <label><span [ghs-label]="'party.campaign.donations'"></span>:</label>
+          <div class="checklist">
+            <div class="tick" *ngFor="let check of []|ghsRange:10; let index = index;">
+              <div class="donation">
+                <div class="checkbox" (click)="setDonations(index+1)" [ngClass]="{'checked': party.donations > index}">
+                </div>
+                <img src="./assets/images/coin.png" />
+                +10g
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="achievements" *ngIf="!fhSheet">
+            <label><span [ghs-label]="'party.campaign.achievements'"></span>:</label>
+            <div class="achievements-container">
+              <div class="list">
+                <div class="achievement" *ngFor="let achievement of globalAchievementsList; let i = index;">
+                  <span *ngIf="achievement.split(':').length > 0 && achievement.split(':')[1] != '1'">
+                    {{achievement.split(':')[1]}}x&nbsp;
+                  </span>
+                  <span [ghs-label]="'data.globalAchievements.' + achievement.split(':')[0]"></span>
+                  <span class="spacer"></span>
+                  <span class="remove" (click)="removeGlobalAchievement(i)">
+                    <img class="ghs-svg" src="./assets/images/close.svg"></span>
+                </div>
+              </div>
+              <div class="form">
+                <input type="text" #globalAchievementInput [autocomplete]="globalAchievements"
+                  [emptyLabel]="'party.addGlobalAchievement.empty'" [ghs-label]="'party.addGlobalAchievement'"
+                  [ghs-label-attribute]="'placeholder'" (keyup.enter)="addGlobalAchievement(globalAchievementInput)">
+                <a class="addScenario" [ghs-label]="'party.addGlobalAchievement'" [ghs-label-attribute]="'title'"
+                  (click)="addGlobalAchievement(globalAchievementInput)"><img src="./assets/images/plus.svg"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="items">
+            <label><span [ghs-label]="'party.campaign.items'"></span>:</label>
+
+            <div class="item-add">
+              <input min="1" #itemIndex type="number" value="" (focus)="itemIndex.select()"
+                (keyup)="itemIndex.classList.remove('error');itemIndex.classList.remove('warning');"
+                (keyup.enter)="addItem(itemIndex, itemEdition || '')">
+              <a [ngClass]="{'disabled' : !itemEdition || !itemIndex.value || +itemIndex.value < 1 || hasItem(itemIndex.value,itemEdition)}"
+                (click)="addItem(itemIndex, itemEdition || '')"><img src="./assets/images/plus.svg"></a>
+              <select [(ngModel)]="itemEdition" (change)="update()">
+                <option value="" [selected]="!itemEdition"><span [ghs-label]="'edition.all'"></span>
+                </option>
+                <option *ngFor="let edition of gameManager.editions()" [value]="edition"
+                  [selected]="edition == itemEdition">
+                  <span [ghs-label]="'data.edition.' + edition"></span>
+                </option>
+              </select>
+            </div>
+
+            <div class="item-list">
+              <label class="item" *ngFor="let item of items; let i = index;"
+                [ngClass]="{'edition' : !partyEdition || !itemEdition}">
+                <ng-container *ngIf="item">
+                  <span class="item-index open-item" (click)="openItem(item)">
+                    <img class="icon" [src]="item.slot ? './assets/images/items/slots/' + item.slot +'.svg' : ''">
+                    <span class="index">{{item.id}}</span>
+                  </span>
+                  <span class="separator">:</span>
+                  <span class="checkbox" (click)="removeItem(item)"><img class="check"
+                      src="./assets/images/check.svg"><img class="close" src="./assets/images/close.svg"></span>
+                  <span class="text open-item" (click)="openItem(item)"
+                    [ghs-label]="'data.items.' + item.edition + '-' + item.id"></span>
+                  <span class="count" (click)="incItemCount(item, itemIdentifier[i])">
+                    {{itemIdentifier[i].count > 0 ? itemIdentifier[i].count : '-'}}
+                  </span>
+                  <span class="text edition" *ngIf="!partyEdition || !itemEdition">[<span
+                      [ghs-label]="'data.edition.' + item.edition"></span>]</span>
+                </ng-container>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="treasures">
+            <label class="treasures-title" (click)="treasuresDialog()">
+              <img class="icon" src="./assets/images/scenario/treasure.svg"><span
+                [ghs-label]="'party.campaign.treasures'"></span>:</label>
+
+            <div class="treasure-add">
+              <input min="1" #treasureIndex type="number" value="" (focus)="treasureIndex.select()"
+                (keyup)="treasureIndex.classList.remove('error');treasureIndex.classList.remove('warning');"
+                (keyup.enter)="addTreasure(treasureIndex, treasureEdition)">
+              <a [ngClass]="{'disabled' : !treasureEdition || !treasureIndex.value || +treasureIndex.value < 1 || hasTreasure(treasureIndex.value,treasureEdition)}"
+                (click)="addTreasure(treasureIndex, treasureEdition)"><img src="./assets/images/plus.svg"></a>
+              <select [(ngModel)]="treasureEdition" (change)="update()">
+                <option value="" [selected]="!treasureEdition"><span [ghs-label]="'edition.all'"></span>
+                </option>
+                <option *ngFor="let edition of gameManager.editions()" [value]="edition"
+                  [selected]="edition == treasureEdition">
+                  <span [ghs-label]="'data.edition.' + edition"></span>
+                </option>
+              </select>
+            </div>
+
+            <div class="treasure-list">
+              <label class="treasure" *ngFor="let treasure of treasures()" [ngClass]="{'edition' : !treasureEdition}">
+                <span class="treasure-index">
+                  <img class="icon" src="./assets/images/scenario/treasure.svg">
+                  <span class="index">{{treasure.name}}</span>
+                </span>
+                <span class="separator">:</span>
+                <span class="checkbox" (click)="removeTreasure(treasure)"><img class="check"
+                    src="./assets/images/check.svg"><img class="close" src="./assets/images/close.svg"></span>
+                <span class="text">
+                  <ghs-treasure-label [edition]="treasure.edition" [index]="+treasure.name -1"></ghs-treasure-label>
+                </span>
+                <span></span>
+                <span class="text" *ngIf="!treasureEdition">[<span
+                    [ghs-label]="'data.edition.' + treasure.edition"></span>]</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column">
+            <div class="row">
+              <label><span [ghs-label]="'party.campaign.players'"></span>:</label>
+            </div>
+
+            <div class="row players">
+              <div class="player" *ngFor="let player of party.players; let index = index;">
+                <span class="index">#{{index + 1}}</span>
+                <input type="text" [value]="player" (change)="changePlayer($event, index)">
+                <a class="remove" (click)="removePlayer(index)"><img src="./assets/images/close.svg"></a>
+              </div>
+              <a class="add" (click)="party.players[party.players.length] = ''">
+                <img src="./assets/images/plus.svg">
+                <span [ghs-label]="'party.campaign.players.add'"></span>
+              </a>
+            </div>
+          </div>
+
+          <div class="column" *ngIf="settingsManager.settings.battleGoals">
+            <div class="row battle-goals">
+              <a (click)="battleGoalSetup()"><span [ghs-label]="'game.battleGoals.setup'"></span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="party.retirements && party.retirements.length > 0">
+          <label><span [ghs-label]="'party.campaign.retirements'"></span>:</label>
+        </div>
+
+        <div class="row retirements" *ngIf="party.retirements && party.retirements.length > 0">
+          <div class="list" [ngClass]="{'fh-sheet' : fhSheet}">
+            <div class="character header legend seperator">
+              <span><span [ghs-label]="'party.campaign.retirements.player'"></span></span>
+              <span><span [ghs-label]="'party.campaign.retirements.character'"></span></span>
+              <span><span [ghs-label]="'party.campaign.retirements.class'"></span></span>
+              <span><span [ghs-label]="'party.campaign.retirements.level'"></span></span>
+              <span><span [ghs-label]="'party.campaign.retirements.perks'"></span></span>
+              <span *ngIf="fhSheet"><span [ghs-label]="'party.campaign.retirements.masteries'"></span></span>
+              <span></span>
+            </div>
+            <div class="character" *ngFor="let characterModel of party.retirements">
+              <span>
+                #<input [value]="characterModel.number" type="number" min="1"
+                  (change)="setPlayerNumber(characterModel,$event)" (keyup)="setPlayerNumber(characterModel,$event)">
+              </span>
+              <span>{{characterModel.title}}</span>
+              <span><span [ghs-label]="'data.character.' + characterModel.name"></span></span>
+              <span>{{characterModel.level}}</span>
+              <span>{{characterPerks(characterModel) || '/'}}</span>
+              <span *ngIf="fhSheet">
+                <ng-container *ngIf="characterModel.progress">
+                  <span *ngFor="let mastery of characterModel.progress.masteries">
+                    <img class="success" src="./assets/images/check.svg">
+                  </span>
+                </ng-container>
+              </span>
+              <span class="reactivate" (click)="reactivateCharacter(characterModel)"
+                [ghs-label]="'party.campaign.retirements.reactivate'" [ghs-label-attribute]="'title'">
+                <img class="ghs-svg" src="./assets/images/long-rest.svg">
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

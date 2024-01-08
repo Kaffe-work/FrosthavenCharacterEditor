@@ -1,0 +1,93 @@
+<div class="container">
+  <ghs-header [standalone]="true"></ghs-header>
+
+
+  <div class="character-editor">
+    <h1><span [ghs-label]="'editor.character'"></span> (<span [ghs-label]="'wip'"></span>)</h1>
+    <div class="columns">
+      <div class="input">
+        <div class="character-data">
+          <h2><span [ghs-label]="'editor.character.data'"></span></h2>
+
+          <div class="base-data dialog">
+            <label><span [ghs-label]="'editor.character.data.name'"></span></label>
+            <input [(ngModel)]="characterData.name" [ghs-label]="'editor.character.data.name'" [ghs-label-attribute]="'placeholder'"
+              (change)="characterDataToJson()" (keyup)="characterDataToJson()">
+
+            <label><span [ghs-label]="'edition'"></span></label>
+            <input [(ngModel)]="characterData.edition" [ghs-label]="'edition'" [ghs-label-attribute]="'placeholder'"
+              (change)="characterDataToJson()" (keyup)="characterDataToJson()">
+
+            <label><span [ghs-label]="'editor.character.data.color'"></span></label>
+            <input [(ngModel)]="characterData.color" type="color"
+              [ghs-label]="'editor.character.data.color'" [ghs-label-attribute]="'placeholder'" (change)="characterDataToJson()"
+              (keyup)="characterDataToJson()">
+
+            <label><span [ghs-label]="'editor.character.data.spoiler'"></span></label>
+            <input type="checkbox" [(ngModel)]="characterData.spoiler" (change)="characterDataToJson()">
+
+            <label><span [ghs-label]="'editor.character.data.deck'"></span></label>
+            <input [(ngModel)]="characterData.deck" [ghs-label]="'editor.character.data.deck'" [ghs-label-attribute]="'placeholder'"
+              (change)="characterDataToJson()" (keyup)="characterDataToJson()">
+
+
+            <label><span [ghs-label]="'editor.character.data.class'"></span></label>
+            <select [(ngModel)]="characterData.characterClass" (change)="characterDataToJson()">
+              <option *ngFor="let class of CharacterClasses" [value]="class"
+                [selected]="characterData.characterClass == class"><span [ghs-label]="'character.class.' + class"></span>
+              </option>
+            </select>
+
+            <label><span [ghs-label]="'editor.character.data.hp'"></span></label>
+            <div class="hp-container">
+              <select [(ngModel)]="hpIndex" (change)="changeHpIndex()">
+                <option *ngFor="let index of []| ghsRange:4" [value]="index-1">
+                  <span [ghs-label]="'editor.character.data.hp.' + (index-1)"></span>
+                </option>
+              </select>
+              <div class="hp-grid">
+                <ng-container *ngFor="let stat of characterData.stats">
+                  <span>{{stat.level}}</span>
+                  <input disabled *ngIf="hpIndex != -1" [(ngModel)]="stat.health">
+                  <input type="number" *ngIf="hpIndex == -1" [(ngModel)]="stat.health">
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="output">
+        <h2><span [ghs-label]="'editor.character.data.json'"></span>
+
+          <select (change)="loadCharacterData($event)">
+            <option [value]="-1">&lt;<span [ghs-label]="'editor.character.new'"></span>&gt;</option>
+            <option [value]="index" *ngFor="let cD of gameManager.charactersData(edition); let index = index;"
+              [selected]="cD.edition == characterData.edition && cD.name == characterData.name">
+              <span *ngIf="isSpoiled(cD)" [ghs-label]="'data.character.' + cD.name"></span> {{cD.name}}
+              (<span [ghs-label]="'data.edition.' + cD.edition"></span>)
+              [{{cD.name}}]
+            </option>
+          </select>
+
+          <select [(ngModel)]="edition">
+            <option></option>
+            <option *ngFor="let edition of gameManager.editions(true)" [value]="edition">
+              <span [ghs-label]="'data.edition.' + edition"></span>
+            </option>
+          </select>
+        </h2>
+
+        <div> {{characterError}} </div>
+        <textarea #inputCharacterData></textarea>
+
+        <a class="button" [href]="'data:application/json;charset=utf-8,' + encodeURIComponent(inputCharacterData.value)"
+          [download]="characterData.name + '.json'"><img class="ghs-icon" src="./assets/images/export.svg">
+          <span [ghs-label]="'editor.character.data.json.download'"></span></a>
+      </div>
+    </div>
+
+    <ghs-deck-editor *ngIf="init" [character]="getCharacter()" [standalone]="false" [edition]="edition">
+    </ghs-deck-editor>
+  </div>
+</div>

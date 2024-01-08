@@ -1,0 +1,84 @@
+{
+  "index": "34",
+  "name": "Scorched Summit",
+  "coordinates": {
+    "x": 524.2999877929688,
+    "y": 47,
+    "width": 191,
+    "height": 165
+  },
+  "edition": "gh",
+  "requires": [
+    [
+      "25"
+    ]
+  ],
+  "requirements": [
+    {
+      "global": [
+        "!The Drake Aided"
+      ],
+      "party": [
+        "The Drake's Command"
+      ]
+    }
+  ],
+  "blocks": [
+    "33"
+  ],
+  "rewards": {
+    "globalAchievements": [
+      "The Drake Slain"
+    ],
+    "lostPartyAchievements": [
+      "The Drake's Command"
+    ],
+    "gold": 20,
+    "reputation": 2,
+    "prosperity": 1
+  },
+  "monsters": [
+    "elder-drake",
+    "rending-drake",
+    "spitting-drake"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "L2a",
+      "initial": true,
+      "treasures": [
+        23
+      ],
+      "monster": [
+        {
+          "name": "elder-drake",
+          "type": "boss"
+        },
+        {
+          "name": "rending-drake",
+          "type": "elite"
+        },
+        {
+          "name": "rending-drake",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "type": "normal"
+        },
+        {
+          "name": "spitting-drake",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "spitting-drake",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "index": "21-2",
+  "group": "solo",
+  "name": "Race Against the Clock",
+  "edition": "fh",
+  "parent": "21",
+  "parentSections": [
+    [
+      "21-1"
+    ]
+  ],
+  "marker": "2",
+  "monsters": [
+    "steel-automaton"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 3,
+      "initial": true,
+      "monster": [
+        {
+          "name": "steel-automaton",
+          "type": "elite"
+        }
+      ]
+    }
+  ]
+}

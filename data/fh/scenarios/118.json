@@ -1,0 +1,56 @@
+{
+  "index": "118",
+  "name": "Lurker Necromancy",
+  "edition": "fh",
+  "complexity": 1,
+  "requirements": [
+    {
+      "buildings": [
+        "sled"
+      ]
+    }
+  ],
+  "rewards": {
+    "custom": "Trade all numbered and lettered tokens in for loot cards",
+    "itemBlueprints": [
+      "66"
+    ]
+  },
+  "monsters": [
+    "frozen-corpse",
+    "living-bones"
+  ],
+  "lootDeckConfig": {
+    "money": 8,
+    "lumber": 3,
+    "metal": 3,
+    "hide": 3,
+    "rockroot": 1,
+    "snowthistle": 2
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "frozen-corpse",
+          "type": "elite"
+        },
+        {
+          "name": "frozen-corpse",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "living-bones",
+          "type": "normal"
+        },
+        {
+          "name": "living-bones",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

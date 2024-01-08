@@ -1,0 +1,466 @@
+.attack-modifiers {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  .am-container {
+    position: absolute;
+    width: 40%;
+    padding-top: 26.66%;
+    top: 0;
+    left: 0;
+    transition: filter 1000ms ease-in-out;
+
+    &.disabled {
+      filter: grayscale(0.8);
+    }
+
+    .am {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      cursor: pointer;
+      display: block;
+    }
+  }
+
+  .draw {
+
+    .am {
+      cursor: pointer;
+      background-position: center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-image: url('~/src/assets/images/attackmodifier/am-back.png');
+      border-radius: 5%;
+      transition: filter 2s ease-in-out;
+
+      &.town-guard {
+        background-image: url('~/src/assets/images/attackmodifier/town-guard/back.png');
+      }
+
+      &.disabled {
+        cursor: initial;
+        filter: grayscale(0.8);
+      }
+
+      .number {
+        display: flex;
+        align-items: center;
+        font-family: var(--ghs-font-text);
+        color: var(--ghs-color-gray);
+        text-shadow: var(--ghs-outline);
+        position: absolute;
+        font-size: 2em;
+        line-height: 1em;
+        right: 6%;
+        bottom: 0%;
+        z-index: 500;
+
+        &.has-shuffle {
+          top: 0;
+          bottom: initial;
+        }
+      }
+
+      .shuffle {
+        height: 22%;
+        width: auto;
+        position: absolute;
+        right: 5%;
+        bottom: 5%;
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      }
+
+      .numeration,
+      .character-icon {
+        font-family: "ghs-title";
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        left: 7.5%;
+        top: 67%;
+        z-index: 2;
+        width: 20%;
+        height: 30%;
+        color: var(--ghs-color-white);
+        font-size: 1.6em;
+        line-height: 1.5em;
+        background-position: center;
+        background-size: 100% auto;
+        background-repeat: no-repeat;
+        background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+
+        &.character-icon {
+          align-items: center;
+
+          img {
+            filter: grayscale(100%) brightness(100) contrast(100%);
+            height: 70%;
+            width: auto;
+          }
+        }
+      }
+
+
+      &.open-dialog {
+        cursor: help;
+      }
+    }
+
+    .settings,
+    .fullscreen {
+      cursor: pointer;
+      position: absolute;
+      left: -14%;
+      font-family: "ghs-title";
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      color: var(--ghs-color-white);
+      width: 20%;
+      height: 30%;
+      background-position: center;
+      background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-image: url('~/src/assets/images/attackmodifier/am-character-icon.png');
+      transition: transform 500ms ease-in-out;
+      transform: scale(1.2);
+
+      &.minimize {
+        transform: scale(0);
+      }
+
+      &.vertical {
+        left: initial;
+        right: -14%;
+      }
+
+      &.fullscreen {
+        cursor: zoom-in;
+        top: -9%;
+      }
+
+      &.settings {
+        cursor: help;
+        bottom: -9%;
+
+        &.without-fullscreen {
+          top: 50%;
+          bottom: initial;
+          transform: translateY(-50%);
+        }
+      }
+
+      img {
+        height: 60%;
+        width: auto;
+        align-self: center;
+        filter: var(--ghs-filter-gray) var(--ghs-filter-shadow);
+      }
+
+      &:hover {
+        img {
+          filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+        }
+      }
+    }
+
+    &.denied .am {
+
+      .number,
+      .number *,
+      .fullscreen,
+      .fullscreen *,
+      &.open-dialig {
+        pointer-events: initial;
+      }
+    }
+  }
+
+  .battlegoals-button {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+    width: 20%;
+    left: -20%;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &:hover {
+      opacity: 0.7;
+    }
+
+    img {
+      width: 80%;
+      border-radius: 5%;
+    }
+
+    .check {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-70%, -50%);
+      width: 40%;
+      filter: var(--ghs-filter-green) var(--ghs-filter-outline);
+    }
+  }
+
+  @keyframes attackmodifier-draw {
+    0% {
+      transform: scale(1) translate(-102%, 16.5%);
+    }
+
+    35%,
+    70% {
+      transform: scale(1.1) translate(-51%, 25%);
+    }
+
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
+  }
+
+  @keyframes attackmodifier-draw-bottom {
+    0% {
+      transform: scale(1) translate(-102%, -16.5%);
+    }
+
+    35%,
+    70% {
+      transform: scale(2) translate(-80%, -166.5%);
+    }
+
+    100% {
+      transform: scale(1) translate(0, 0);
+    }
+  }
+
+  @keyframes attackmodifier-last {
+    0% {
+      top: 0;
+      left: 42%;
+      transform: rotate(0);
+    }
+
+    70% {
+      top: 0;
+      left: 42%;
+      transform: rotate(0);
+    }
+
+    100% {
+      top: 16.5%;
+      left: 75%;
+      transform: rotate(25deg);
+    }
+  }
+
+  @keyframes attackmodifier-rolling {
+    0% {
+      transform: translateX(-61.85%) rotate(25deg);
+    }
+
+    70% {
+      transform: translateX(-61.85%) rotate(25deg);
+    }
+
+    100% {
+      transform: rotate(25deg);
+    }
+  }
+
+  @keyframes attackmodifier-active {
+    0% {
+      transform: translateX(-61.85%) rotate(-25deg);
+    }
+
+    70% {
+      transform: translateX(-61.85%) rotate(-25deg);
+    }
+
+    100% {
+      transform: rotate(-25deg);
+    }
+  }
+
+  @keyframes attackmodifier-active-reverse {
+    0% {
+      transform: translateX(61.85%) rotate(-25deg);
+    }
+
+    70% {
+      transform: translateX(61.85%) rotate(-25deg);
+    }
+
+    100% {
+      transform: rotate(-25deg);
+    }
+  }
+
+  .current {
+    position: absolute;
+    top: 0;
+    left: 42%;
+    z-index: 1;
+  }
+
+  .disgarded,
+  .last {
+    position: absolute;
+    top: 16.5%;
+    left: 75%;
+    transform: rotate(25deg);
+    z-index: 0;
+
+    &.last:hover,
+    &.rolling:hover {
+      z-index: 100 !important;
+    }
+
+    &.active:not(.last) {
+      transform: rotate(-25deg);
+    }
+  }
+
+  .disgard-active {
+    filter: grayscale(0.3);
+  }
+
+  &.open-dialog {
+    cursor: help;
+  }
+
+  .disabled {
+
+    filter: grayscale(0.8);
+
+    &:hover {
+      transition: filter 250ms linear, transform 0.8s cubic-bezier(0.75, 0, 0.85, 1), top 0.5s linear, left 0.5s linear;
+      filter: grayscale(15%);
+    }
+  }
+
+
+  &.drawing {
+
+    .draw,
+    ghs-attackmodifier {
+      cursor: wait !important;
+    }
+
+    .current {
+      cursor: wait !important;
+      animation: attackmodifier-draw 1800ms ease-in-out;
+      animation-iteration-count: 1;
+
+      &.bottom {
+        animation: attackmodifier-draw-bottom 1800ms ease-in-out;
+      }
+
+    }
+
+    .last {
+      cursor: wait !important;
+      animation: attackmodifier-last 1800ms ease-in-out;
+      animation-iteration-count: 1;
+    }
+
+    .animate.rolling {
+      cursor: wait !important;
+      animation: attackmodifier-rolling 1800ms ease-in-out;
+      animation-iteration-count: 1;
+    }
+
+    .animate.active {
+      cursor: wait !important;
+      animation: attackmodifier-active 1800ms ease-in-out;
+      animation-iteration-count: 1;
+    }
+
+    .animate-reverse.active {
+      cursor: wait !important;
+      animation: attackmodifier-active-reverse 1800ms ease-in-out;
+      animation-iteration-count: 1;
+    }
+  }
+}
+
+.vertical {
+
+  .am-container {
+    top: 0;
+    left: 0;
+    width: 60%;
+    padding-top: 40%
+  }
+
+  .current {
+    top: 0;
+    position: absolute;
+    transform: translateY(110%);
+    z-index: 1;
+  }
+
+  .disgarded,
+  .last {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    transform: translateY(130%) rotate(25deg);
+    z-index: 0;
+  }
+
+  .battlegoals-button {
+    width: 27%;
+    left: 72%;
+    top: 12%;
+  }
+
+  @keyframes attackmodifier-draw-vertical {
+    0% {
+      transform: scale(1);
+    }
+
+    35%,
+    70% {
+      transform: scale(1.1) translate(15%, 125%);
+    }
+
+    100% {
+      transform: scale(1) translateY(110%);
+    }
+  }
+
+  @keyframes attackmodifier-last-vertical {
+    0% {
+      left: 0;
+      transform: translateY(110%) rotate(0);
+    }
+
+    70% {
+      left: 0;
+      transform: translateY(110%) rotate(0);
+    }
+
+    100% {
+      left: 45%;
+      transform: translateY(130%) rotate(25deg);
+    }
+  }
+
+  &.drawing {
+
+    .current {
+      animation: attackmodifier-draw-vertical 1000ms ease-in-out;
+    }
+
+    .last {
+      animation: attackmodifier-last-vertical 1000ms ease-in-out;
+    }
+  }
+}

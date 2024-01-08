@@ -1,0 +1,44 @@
+{
+  "edition": {
+    "toa": "Trail Of Ashes <%wip%(!)>"
+  },
+  "monster": {
+    "active-mechanism": "Active Mechanism",
+    "active-mechanism-extra": "Active Mechanism Extra Deck",
+    "conqueror": "Conqueror",
+    "enraged-vanquisher": "Enraged Vanquisher",
+    "enraged-vanquisher-2": "Enraged Vanquisher 2",
+    "glacier-demon": "Glacier Demon",
+    "harrower-bugflute": "Harrower Bugflute",
+    "harrower-bugflute-immortal": "Harrower Bugflute (Immune)",
+    "harrower-bugflute-immortal-2": "Harrower Bugflute (Immune)",
+    "inferno-demon": "Inferno Demon",
+    "inox-guard-ally": "Inox Guard (Ally)",
+    "lootbot": "Lootbot",
+    "okeda": "Okeda, the Unsouled",
+    "reaver": "Reaver",
+    "ritualist": "Ritualist",
+    "savvas-acolyte": "Savvas Acolyte",
+    "shardrender": "Shardrender",
+    "smoke-spirit": "Smoke Spirit",
+    "talo": "Talo",
+    "tendril-of-corruption": "Tendril of Corruption",
+    "valrath-vanquisher": "Valrath Vanquisher",
+    "valrath-vanquisher-2": "Valrath Vanquisher 2",
+    "vermling-scavenger": "Vermling Scavenger",
+    "volt-demon": "Volt Demon"
+  },
+  "deck": {
+    "scavenger": "Scavenger"
+  },
+  "personalQuest": {
+    "641": "Grave Robber",
+    "642": "Stand as One",
+    "643": "False Dichotomies",
+    "644": "Shared Suffering",
+    "645": "Speed is King",
+    "646": "Resourceful",
+    "647": "Close to Nature",
+    "648": "In Good Time"
+  }
+}

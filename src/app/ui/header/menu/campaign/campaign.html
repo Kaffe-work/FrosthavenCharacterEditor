@@ -1,0 +1,133 @@
+<div class="menu-container two-column sheets">
+
+    <div class="line span" [ngClass]="{'disabled' : !gameManager.game.edition}">
+        <label>
+            <input type="checkbox" [checked]="!gameManager.game.edition" (change)="setEdition()">
+            &lt;<span [ghs-label]="'edition.all'"></span>&gt;
+        </label>
+    </div>
+    <div class="line" *ngFor="let edition of gameManager.editions()">
+        <label [ngClass]="{'disabled' : gameManager.game.edition == edition}">
+            <input type="checkbox" [checked]="gameManager.game.edition == edition" (change)="setEdition(edition)">
+            <span [ghs-label]="'data.edition.' + edition"></span>
+        </label>
+    </div>
+    <div class="line separator ">
+        <label>
+            <input type="checkbox" [checked]="gameManager.game.party.campaignMode" (change)="toggleCampaignMode()">
+            <span [ghs-label]="'party.campaignMode'"></span>
+        </label>
+    </div>
+
+    <div class="line title span"
+        *ngIf="settingsManager.settings.partySheet || settingsManager.settings.characterSheet || settingsManager.settings.characterItems">
+        <label><span [ghs-label]="'campaign'"></span></label>
+    </div>
+
+    <div class="line span" *ngIf="settingsManager.settings.partySheet">
+        <a (click)="openPartySheet()" [ghs-label]="'campaign.party'"></a>
+    </div>
+
+    <div class="line span" *ngIf="settingsManager.settings.partySheet">
+        <a (click)="openCampaignSheet()" [ghs-label]="'campaign.sheet'"></a>
+    </div>
+
+    <div class="line" *ngIf="worldMap">
+        <a (click)="openMap()" [ghs-label]="'campaign.map'"></a>
+    </div>
+
+    <div class="line span" *ngIf="settingsManager.settings.characterSheet || settingsManager.settings.characterItems">
+        <a (click)="openItems()" [ghs-label]="'campaign.items'"></a>
+    </div>
+
+    <div class="line" *ngIf="settingsManager.settings.battleGoals">
+        <a (click)="openBattleGoalsSetup()" [ghs-label]="'campaign.battleGoals'"></a>
+    </div>
+
+    <div class="line title span" *ngIf="characters.length > 0 && settingsManager.settings.characterSheet">
+        <label><span [ghs-label]="'campaign.character'"></span></label>
+    </div>
+
+    <ng-container *ngIf="settingsManager.settings.characterSheet">
+        <div class="line" *ngFor="let character of characters">
+            <a (click)="openCharacterSheet(character);">
+                <img class="icon" [src]="character.iconUrl" />
+                <span>{{gameManager.characterManager.characterName(character, true)}}</span>
+                <span class="edition" *ngIf="gameManager.getEdition(character)">&nbsp;
+                    <span>[</span>
+                    <span [ghs-label]="'data.edition.' + gameManager.getEdition(character)"></span>
+                    <span>]</span>
+                </span>
+            </a>
+        </div>
+    </ng-container>
+
+    <div class="line title span">
+        <label><span [ghs-label]="'edition.conditions'"></span></label>
+    </div>
+    <div class="line">
+        <div class="conditions">
+            <span class="item" *ngFor="let condition of conditions">
+                <span class="condition" (click)="toggleCondition(condition.name)"
+                    [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
+                    [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
+                    [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
+                    <img
+                        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="line">
+        <div class="conditions">
+            <span class="item" *ngFor="let condition of amConditions">
+                <span class="condition" (click)="toggleCondition(condition.name)"
+                    [ghs-tooltip]="'game.condition.' + condition.name +'.hint'" [originX]="'center'"
+                    [overlayX]="'center'" [originY]="'top'" [overlayY]="'bottom'"
+                    [ngClass]="{'disabled' : editionConditions.indexOf(condition.name) != -1, 'active' : editionConditions.indexOf(condition.name) == -1 && gameManager.game.conditions.indexOf(condition.name) != -1 }">
+                    <img
+                        [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + condition.name + '.svg'" />
+
+                </span>
+            </span>
+        </div>
+    </div>
+
+    <div class="line title span">
+        <div class="hint-container">
+            <label>
+                <span [ghs-label]="'campaign.campaignManagement'"></span>
+            </label>
+            <ng-container *ngIf="gameManager.game.scenario">
+                <img src="./assets/images/hint.svg" class="hint-trigger ghs-svg">
+                <span class="hint">
+                    <span class="text" [ghs-label]="'campaign.campaignManagement.hint'"></span>
+                </span>
+            </ng-container>
+        </div>
+    </div>
+    <div class="line" *ngFor="let party of gameManager.game.parties">
+        <label *ngIf="gameManager.game.party != party"
+            [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario}">
+            <input type="checkbox" [checked]="gameManager.game.party == party" (change)="changeParty(party)">
+            <span *ngIf="party.name">{{party.name}}</span>
+            <span *ngIf="!party.name"><span [ghs-label]="'party.campaign'"></span>&nbsp;{{party.id}}</span>
+        </label>
+        <label *ngIf="gameManager.game.party == party">
+            <input type="checkbox" checked="true" disabled="disabled">
+            <input type="text" [value]="party.name" (change)="setName($event)"
+                [ghs-label]="'campaign.campaignManagement.name'" [ghs-label-args]="['' + party.id]"
+                [ghs-label-attribute]="'placeholder'">
+        </label>
+        <span class="spacer"></span>
+        <a class="remove" (click)="removeParty(party)" (mouseleave)="cancelRemoveParty()"
+            [ngClass]="{'disabled' :  gameManager.game.parties.length == 1 || gameManager.game.scenario, 'confirm': confirmPartyDelete == party.id}"></a>
+    </div>
+
+    <div class="line span">
+        <a (click)="addParty()" [ghs-label]="'campaign.campaignManagement.add'"
+            [ngClass]="{'disabled' : gameManager.game.scenario}"></a>
+    </div>
+
+</div>

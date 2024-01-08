@@ -1,0 +1,41 @@
+<span class="feedback-dialog">
+    <a (click)="form = 'issue'" [ngClass]="{'active' : form == 'issue'}"><span
+            [ghs-label]="'tools.feedback.reportIssue'"></span></a>
+
+    <div class="form issue-form" *ngIf="form == 'issue'">
+        <label><span [ghs-label]="'tools.feedback.reportIssue.type'"></span></label>
+        <select #issueType>
+            <option value="abilityCard"><span [ghs-label]="'tools.feedback.reportIssue.type.abilityCard'"></span></option>
+            <option value="monsterStat"><span [ghs-label]="'tools.feedback.reportIssue.type.monsterStat'"></span></option>
+            <option value="characterStat"><span [ghs-label]="'tools.feedback.reportIssue.type.characterStat'"></span>
+            </option>
+            <option value="artwork"><span [ghs-label]="'tools.feedback.reportIssue.type.artwork'"></span></option>
+            <option value="software"><span [ghs-label]="'tools.feedback.reportIssue.type.software'"></span></option>
+            <option value="feedback"><span [ghs-label]="'tools.feedback.reportIssue.type.feedback'"></span></option>
+        </select>
+
+        <p class="hint" [ghs-label]="'tools.feedback.reportIssue.type.' + issueType.value + '.hint'"></p>
+        <p class="hint" [ghs-label]="'tools.feedback.reportIssue.specify'"></p>
+
+        <label [ghs-label]="'tools.feedback.reportIssue.text'"></label>
+        <textarea #issuerText></textarea>
+        <p class="hint">Please write in English or German / Bitte in Englisch oder Deutsch verfassen!</p>
+
+        <div class="buttons">
+            <a class="button" (click)="downloadDataDump()"><span
+                    [ghs-label]="'tools.feedback.reportIssue.download'"></span></a>
+
+            <a class="button" [ngClass]="{'disabled' : !issuerText.value}"
+                [href]="issueMail(issueType.value, issuerText.value)">
+                <span [ghs-label]="'tools.feedback.reportIssue.send'"></span>
+            </a>
+        </div>
+    </div>
+
+    <!--
+    <a *ngIf="form == 'issue'" (click)="form = 'scenario'"><span [ghs-label]="'tools.feedback.submitScenario'"></span></a>
+    -->
+
+    <a href="https://github.com/Lurkars/gloomhavensecretariat/issues/new/choose" target="_blank"><span
+            [ghs-label]="'tools.feedback.githubIssue'"></span></a>
+</span>

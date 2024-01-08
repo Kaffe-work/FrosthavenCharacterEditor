@@ -1,0 +1,93 @@
+{
+  "index": "127",
+  "name": "Guarded Nursery",
+  "edition": "fc",
+  "parent": "107",
+  "monsters": [
+    "vermling-scout",
+    "vermling-shaman"
+  ],
+  "rules": [
+    {
+      "round": "R == 1",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "vermling-scout"
+          },
+          "type": "transfer",
+          "value": "vermling-scout-scenario-107"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "vermling-shaman"
+          },
+          "type": "transfer",
+          "value": "vermling-shaman-scenario-107"
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "vermling-scout-scenario-107"
+          },
+          "type": "transfer",
+          "value": "vermling-scout"
+        },
+        {
+          "identifier": {
+            "type": "monster",
+            "name": "vermling-shaman-scenario-107"
+          },
+          "type": "transfer",
+          "value": "vermling-shaman"
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 4,
+      "ref": "A3b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player2": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "vermling-scout",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "vermling-shaman",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

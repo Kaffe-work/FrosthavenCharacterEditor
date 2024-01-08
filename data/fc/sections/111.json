@@ -1,0 +1,19 @@
+{
+  "index": "111",
+  "edition": "fc",
+  "parent": "108",
+  "parentSections": [
+    [
+      "37"
+    ]
+  ],
+  "conclusion": true,
+  "rewards": {
+    "partyAchievements": [
+      "Diamara's Aid"
+    ],
+    "items": [
+      "161:2"
+    ]
+  }
+}

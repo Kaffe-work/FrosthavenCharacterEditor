@@ -1,0 +1,1050 @@
+.attack-modifierdeck-container,
+.loot-cards-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+
+  .scroll-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  ghs-attackmodifier-deck {
+    position: absolute;
+    display: flex;
+    top: calc(var(--ghs-unit) * 1.5 / var(--ghs-text-factor));
+    left: calc(var(--ghs-unit) * 21.5);
+    width: calc(var(--ghs-unit) * 37.5 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
+    z-index: 5;
+  }
+
+  &.active,
+  &.loot-cards-container {
+    visibility: visible;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.permanent.active {
+    position: relative;
+    width: calc(var(--ghs-unit) * 98);
+    height: calc(var(--ghs-unit) * 13 * var(--ghs-text-factor));
+
+    .scroll-container {
+      height: calc(var(--ghs-unit) * 17 * var(--ghs-text-factor));
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    ghs-attackmodifier-deck {
+      top: calc(var(--ghs-unit) * 2 * var(--ghs-text-factor));
+      left: calc(var(--ghs-unit) * 17);
+    }
+  }
+
+
+  .loot-cards {
+    position: absolute;
+    display: flex;
+    top: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+    left: calc(var(--ghs-unit) * 21.5);
+    z-index: 3;
+
+    .loot-card {
+      position: relative;
+      width: calc(var(--ghs-unit) * (13 * 2 / 3) * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 13 * var(--ghs-text-factor));
+      margin-right: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+
+      ghs-loot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: block;
+      }
+    }
+  }
+
+  .attack-modifierdeck-close,
+  .loot-cards-close {
+    display: inline-block;
+    position: relative;
+    cursor: zoom-out;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.summons-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  transition: max-height 2s ease-out;
+  max-height: 100%;
+  min-width: calc(var(--ghs-unit) * 7);
+  max-width: calc(var(--ghs-unit) * 96);
+
+  &.empty {
+    max-height: 0;
+  }
+
+
+  .spacer {
+    flex: none;
+    width: calc(var(--ghs-unit) * 10.5);
+    height: 100%;
+  }
+
+  .entities-menu {
+    cursor: pointer;
+    position: relative;
+    display: block;
+    width: auto;
+    height: calc(var(--ghs-unit) * 6);
+    margin-right: calc(var(--ghs-unit) * 1);
+
+    img.icon {
+      height: 100%;
+      width: auto;
+      filter: var(--ghs-filter-shadow);
+    }
+
+    img.menu {
+      position: absolute;
+      top: 50%;
+      left: calc(var(--ghs-unit) * -4);
+      transform: translateY(-50%);
+      opacity: 0.5;
+      width: calc(var(--ghs-unit) * 3.7 * var(--ghs-text-factor));
+      height: auto;
+      filter: var(--ghs-filter-darkgray);
+      opacity: 0.5;
+    }
+
+    &:not(.empty) {
+      opacity: 1;
+      transform: translate(0%, 0%);
+    }
+
+    &.empty {
+      opacity: 0;
+      max-width: 0;
+      height: 0;
+      transform: translate(0%, 100%);
+    }
+
+    &.disabled {
+      cursor: initial;
+      pointer-events: none;
+
+      img.menu {
+        display: none;
+      }
+    }
+
+    &:hover {
+      img.icon {
+        opacity: 0.5;
+      }
+
+      img.menu {
+        opacity: 1;
+      }
+    }
+  }
+
+  .summons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: calc(var(--ghs-unit) * 77.5);
+  }
+
+  &.off {
+    .icon {
+      filter: grayscale(100%);
+    }
+  }
+}
+
+.character {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: calc(var(--ghs-unit) * 98);
+  height: calc(var(--ghs-unit) * 14);
+  background-color: var(--ghs-character-color);
+  background-image: url('~/src/assets/images/character/char-mat.png'), url('~/src/assets/images/character/char-mat.png');
+  background-blend-mode: multiply, overlay;
+  background-size: 100% 100%;
+  display: flex;
+  --ghs-character-color: #000;
+  border-radius: calc(var(--ghs-unit) * 0.5);
+  filter: var(--ghs-filter-outline);
+  transition: background-color 150ms ease-in-out, background-image 150ms ease-in-out, background-blend-mode 150ms ease-in-out;
+
+  &.dimmed {
+    background-color: var(--ghs-color-gray);
+    background-image: url('~/src/assets/images/character/char-mat.png');
+    background-blend-mode: multiply;
+
+    ghs-character-image,
+    ghs-character-initiative,
+    .title,
+    .conditions,
+    .attack-modifier-button,
+    .loot-cards-button,
+    .experience,
+    .loot,
+    .battlegoals-button,
+    .items-button,
+    .icon-container,
+    .summon-dialog,
+    .stats .column,
+    .hand-size,
+    .character-level,
+    .character-traits,
+    .character-sheet-button {
+      filter: grayscale(0.15);
+      opacity: 0.5;
+    }
+  }
+
+  ghs-character-image {
+    position: relative;
+    width: calc(var(--ghs-unit) * 9.5);
+    height: calc(var(--ghs-unit) * 9.5);
+    margin: calc(var(--ghs-unit) * 2.1) calc(var(--ghs-unit) * 3.4);
+    left: calc(var(--ghs-unit) * 2.4);
+  }
+
+  ghs-character-initiative,
+  ghs-character-image {
+    z-index: 2;
+  }
+
+
+  .drag-initiative {
+    position: absolute;
+    top: calc(var(--ghs-unit) * 2.1);
+    left: calc(var(--ghs-unit) * 6);
+    width: calc(var(--ghs-unit) * 9.5);
+    height: calc(var(--ghs-unit) * 9.5);
+    z-index: 4;
+
+    &.dragging {
+      left: 0 !important;
+      width: 100% !important;
+    }
+  }
+
+  ghs-highlight-conditions {
+    position: absolute;
+    left: calc(var(--ghs-unit) * 6);
+    top: 50%;
+    transform: translateY(-50%);
+    width: calc(var(--ghs-unit) * 9.5);
+    z-index: 5;
+  }
+
+  .entity-menu-container {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .stats {
+    height: 100%;
+    display: flex;
+    flex-basis: 100%;
+    cursor: pointer;
+    margin-left: calc(var(--ghs-unit) * 1);
+
+    .column {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      z-index: 2;
+
+      &.col-1 {
+        max-width: calc(var(--ghs-unit) * 10);
+        overflow: visible;
+      }
+
+      &.col-2 {
+        width: calc(var(--ghs-unit) * 8.5);
+      }
+    }
+
+    .title-bar {
+      display: flex;
+      align-items: center;
+      z-index: 2;
+
+      ghs-entity-index-key {
+        margin-left: calc(var(--ghs-unit) * 1);
+      }
+    }
+
+    .title {
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--ghs-unit) * 3.5);
+      color: var(--ghs-color-white);
+      text-shadow: var(--ghs-outline);
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(var(--ghs-unit) * 5.5);
+        margin-left: calc(var(--ghs-unit) * -1.1);
+        margin-right: calc(var(--ghs-unit) * 0.5);
+
+        img {
+          height: 100%;
+          width: auto;
+        }
+      }
+
+      img.exhausted {
+        margin-left: calc(var(--ghs-unit) * 1);
+        height: calc(var(--ghs-unit) * 4);
+        width: auto;
+        filter: var(--ghs-filter-white) var(--ghs-filter-shadow);
+      }
+    }
+
+    .token-container {
+      display: flex;
+      align-items: center;
+      color: var(--ghs-color-white);
+      font-family: var(--ghs-font-text);
+      margin-left: calc(var(--ghs-unit) * 0.5);
+
+      .token {
+        font-size: calc(var(--ghs-unit) * 2.7);
+        margin: 0 calc(var(--ghs-unit) * 0.1);
+
+        &.placeholder {
+          margin-top: calc(var(--ghs-unit) * -0.5);
+        }
+      }
+    }
+
+    .status-bar {
+      display: flex;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .health {
+      position: relative;
+      display: flex;
+      align-items: center;
+      font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+      color: var(--ghs-color-white);
+      text-shadow: var(--ghs-outline);
+      width: calc(var(--ghs-unit) * 11 * var(--ghs-text-factor));
+
+      img {
+        margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 3 * var(--ghs-text-factor));
+        width: auto;
+      }
+
+      .value-overlay {
+        font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+        width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 4.5 * var(--ghs-text-factor));
+        z-index: 1000;
+      }
+    }
+
+    .markers {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      max-height: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
+      padding: 0 calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+
+      .marker {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+        background-color: var(--ghs-color-darkgray);
+        border-radius: 100%;
+        height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+        margin-right: calc(var(--ghs-unit) * -1 * var(--ghs-text-factor));
+        border-width: calc(var(--ghs-unit) * 0.4);
+        border-style: solid;
+        border-color: var(--ghs-color-gray);
+
+        img {
+          width: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
+          height: calc(var(--ghs-unit) * 2.7 * var(--ghs-text-factor));
+        }
+      }
+    }
+
+
+    .conditions {
+      position: relative;
+      display: flex;
+
+      .condition {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: calc(var(--ghs-unit) * -0.5 * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+        overflow: visible;
+
+        img {
+          width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+          height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+          margin: 0;
+
+          &.stack {
+            margin-left: calc(var(--ghs-unit) * -2 * var(--ghs-text-factor));
+          }
+        }
+
+        &.condition-overlay {
+          position: absolute;
+          width: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+          height: calc(var(--ghs-unit) * 3.8 * var(--ghs-text-factor));
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          z-index: 2;
+        }
+
+        .value {
+          font-family: var(--ghs-font-title);
+          font-size: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+          line-height: calc(var(--ghs-unit) * 1.5 * var(--ghs-text-factor));
+          color: var(--ghs-color-white);
+          position: absolute;
+          top: calc(var(--ghs-unit) * 2.1 * var(--ghs-text-factor));
+          left: 50%;
+          text-shadow: none;
+          transform: translateX(-50%);
+        }
+
+        &:hover {
+          transform: scale(2);
+          transform-origin: center center;
+          z-index: 999;
+        }
+      }
+    }
+
+    .attack-modifier-draw {
+      position: relative;
+      z-index: 999;
+      width: 0;
+      height: 0;
+      top: 50%;
+      left: calc(var(--ghs-unit) * -3);
+      overflow: visible;
+
+      ghs-attackmodifier-draw {
+        position: absolute;
+        width: 0;
+        height: 0;
+      }
+
+      &.drawing ghs-attackmodifier-draw {
+        width: calc(var(--ghs-unit) * 18);
+        height: calc(var(--ghs-unit) * 12);
+      }
+    }
+
+    .battlegoals-button,
+    .items-button,
+    .attack-modifier-button,
+    .loot-cards-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      align-self: center;
+      z-index: 1;
+
+      img {
+        width: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor) * var(--ghs-text-factor));
+        height: auto;
+        margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+      }
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &.disabled {
+        pointer-events: none;
+      }
+
+      &.loot-cards-button .badge {
+        position: absolute;
+        bottom: calc(var(--ghs-unit) * -1.5 * var(--ghs-text-factor));
+        right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        font-family: var(--ghs-font-title);
+        font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+        color: var(--ghs-color-white);
+      }
+
+      &.battlegoals-button,
+      &.items-button {
+        img {
+          width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+          border-radius: calc(var(--ghs-unit) * 0.3 * var(--ghs-text-factor));
+        }
+
+        .check {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-70%, -50%);
+          width: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+          filter: var(--ghs-filter-green) var(--ghs-filter-outline);
+        }
+      }
+    }
+
+    .experience,
+    .loot {
+      display: flex;
+      align-items: center;
+      font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-text-factor));
+      filter: var(--ghs-filter-shadow);
+
+      img {
+        height: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+        margin-left: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+      }
+
+      &.experience {
+        color: var(--ghs-color-blue);
+        margin-bottom: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      }
+
+      &.loot {
+        color: var(--ghs-color-yellow);
+        margin-top: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+      }
+    }
+
+  }
+
+  &.absent {
+    cursor: initial;
+    opacity: 0.6;
+
+    .stats {
+      cursor: initial;
+    }
+  }
+
+  .absent-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--ghs-unit) * 82);
+    height: calc(var(--ghs-unit) * 14);
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .summon-dialog {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-text-factor));
+  }
+
+  .summon-dialog-button {
+    position: relative;
+    display: flex;
+    width: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+    height: calc(var(--ghs-unit) * 5 * var(--ghs-text-factor));
+    cursor: pointer;
+    font-size: calc(var(--ghs-unit) * 10 * var(--ghs-text-factor));
+    color: var(--ghs-color-gray);
+    filter: var(--ghs-filter-gray);
+    stroke: var(--ghs-color-black);
+    stroke-width: calc(var(--ghs-unit) * 1.5);
+
+    &:hover {
+      color: var(--ghs-color-white);
+      filter: var(--ghs-filter-white);
+    }
+  }
+
+  ghs-figure-errors {
+    position: absolute;
+    left: calc(var(--ghs-unit) * 14.5);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 99;
+  }
+
+  .character-sheet-button {
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+    width: calc(var(--ghs-unit) * 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: calc(var(--ghs-unit) * 4);
+
+    &.hand-size-margin {
+      margin-left: calc(var(--ghs-unit) * 0.5);
+    }
+
+    img {
+      height: calc(var(--ghs-unit) * 8);
+      width: auto;
+      filter: var(--ghs-filter-shadow);
+    }
+  }
+
+  .hand-size {
+    position: absolute;
+    right: calc(var(--ghs-unit) * 14);
+    top: calc(var(--ghs-unit) * 4);
+    width: calc(var(--ghs-unit) * 4.2);
+    height: calc(var(--ghs-unit) * 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 2.4);
+    padding-right: calc(var(--ghs-unit) * 0.4);
+    z-index: 1;
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: var(--ghs-character-color);
+      mask-image: url('~/src/assets/images/character/hand-size-mask.svg');
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+      filter: brightness(1.6);
+      z-index: -1;
+    }
+  }
+
+  .character-level {
+    position: absolute;
+    right: calc(var(--ghs-unit) * 13.3);
+    top: calc(var(--ghs-unit) * 10);
+    width: calc(var(--ghs-unit) * 4.2);
+    height: calc(var(--ghs-unit) * 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ghs-font-text);
+    font-size: calc(var(--ghs-unit) * 2.4);
+    padding-right: calc(var(--ghs-unit) * 0.4);
+    z-index: 1;
+
+    &:after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: calc(var(--ghs-unit) * -0.5);
+      bottom: 0;
+      right: 0;
+      background-color: var(--ghs-character-color);
+      mask-image: url('~/src/assets/images/level.svg');
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+      z-index: -1;
+    }
+  }
+
+  .character-traits {
+    position: absolute;
+    left: calc(var(--ghs-unit) * 24.5);
+    top: calc(var(--ghs-unit) * 0.5);
+    width: calc(var(--ghs-unit) * 33);
+    height: calc(var(--ghs-unit) * 2.64);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--ghs-character-color);
+      mask-image: url('~/src/assets/images/fh/character/traits/outer-mask.svg');
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+      z-index: 0;
+    }
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--ghs-character-color);
+      mask-image: url('~/src/assets/images/fh/character/traits/inner-mask.svg');
+      mask-size: 100%;
+      mask-repeat: no-repeat;
+      filter: brightness(0.5);
+      z-index: 1;
+    }
+
+    .trait,
+    .divider {
+      font-family: var(--ghs-font-title);
+      font-size: calc(var(--ghs-unit) * 1.5);
+      color: var(--ghs-character-color);
+      z-index: 2;
+    }
+
+    .icon {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(var(--ghs-unit) * 1.8);
+      height: calc(var(--ghs-unit) * 1.8);
+      left: 0;
+      top: 50%;
+      transform: translate(0%, -45%) rotate(45deg);
+      border: calc(var(--ghs-unit) * 0.2) solid var(--ghs-character-color);
+      z-index: 2;
+
+      .ghs-svg {
+        height: 110%;
+        width: auto;
+        filter: var(--ghs-filter-white);
+        transform: rotate(-45deg);
+        z-index: 1;
+      }
+
+      &::before {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--ghs-character-color);
+        z-index: 0;
+        filter: brightness(0.5);
+      }
+    }
+  }
+
+  .title,
+  .conditions,
+  .experience,
+  .loot,
+  .icon-container,
+  .attack-modifier-button,
+  .character-sheet-button,
+  &::before {
+    transition: filter 150ms ease-in-out;
+  }
+
+  &.off {
+    background-color: var(--ghs-color-gray);
+    background-image: url('~/src/assets/images/character/char-mat.png');
+    background-blend-mode: multiply;
+
+    .title,
+    .experience,
+    .loot,
+    .icon-container,
+    .attack-modifier-button,
+    .loot-cards-button,
+    .character-sheet-button,
+    .battlegoals-button,
+    .items-button,
+    .summon-dialog,
+    .hand-size,
+    .character-level,
+    .character-traits,
+    &::before {
+      filter: grayscale(1) !important;
+    }
+  }
+
+  &.denied {
+
+    .character-sheet-button,
+    .character-sheet-button *,
+    .attack-modifier-button,
+    .attack-modifierdeck-close,
+    .loot-cards-button,
+    .loot-cards-close,
+    .drag-initiative {
+      pointer-events: initial;
+    }
+  }
+
+  &.fh {
+    .stats {
+      .character-level {
+        &:after {
+          top: calc(var(--ghs-unit) * -0.5);
+        }
+      }
+    }
+  }
+
+  &.compact {
+    height: calc(var(--ghs-unit) * 10.25);
+    background-image: url('~/src/assets/images/character/char-mat_compact.png');
+
+    ghs-character-image,
+    .initiative {
+      display: none;
+    }
+
+    .drag-initiative {
+      position: absolute;
+      top: calc(var(--ghs-unit) * 2.5);
+      left: calc(var(--ghs-unit) * 6.5);
+      width: calc(var(--ghs-unit) * 5);
+      height: calc(var(--ghs-unit) * 5);
+    }
+
+    .attack-modifierdeck-container ghs-attackmodifier-deck {
+      top: calc(var(--ghs-unit) * 1 / var(--ghs-text-factor));
+      left: calc(var(--ghs-unit) * 13);
+      width: calc(var(--ghs-unit) * 30 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 8 * var(--ghs-text-factor));
+    }
+
+    .loot-cards {
+      top: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+      left: calc(var(--ghs-unit) * 8);
+
+      .loot-card {
+        position: relative;
+        width: calc(var(--ghs-unit) * (9 * 2 / 3) * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 9 * var(--ghs-text-factor));
+      }
+    }
+
+    .stats {
+
+      margin-left: calc(var(--ghs-unit) * 7);
+
+      .column {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        .title {
+
+          .icon {
+            margin-top: calc(var(--ghs-unit) * 0.5);
+            margin-left: calc(var(--ghs-unit) * -0.5);
+
+            img {
+              height: calc(var(--ghs-unit) * 4.5);
+            }
+          }
+        }
+
+        &.col-2 {
+          width: calc(var(--ghs-unit) * 12);
+          margin-right: calc(var(--ghs-unit) * 7);
+        }
+
+        .experience {
+          margin-bottom: 0;
+          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        }
+
+        .loot {
+          margin-top: 0;
+          margin-right: calc(var(--ghs-unit) * 0.5 * var(--ghs-text-factor));
+        }
+      }
+
+      .attack-modifier-draw {
+        ghs-attackmodifier-draw {
+          width: calc(var(--ghs-unit) * 13.5);
+          height: calc(var(--ghs-unit) * 9);
+        }
+      }
+    }
+
+    .hand-size {
+      top: calc(var(--ghs-unit) * 2.7);
+      right: calc(var(--ghs-unit) * 1.2);
+    }
+
+    .character-level {
+      top: calc(var(--ghs-unit) * 6.3);
+      right: calc(var(--ghs-unit) * 1);
+    }
+
+    .character-traits {
+      left: calc(var(--ghs-unit) * 11);
+    }
+
+    .character-sheet-button {
+      display: none;
+    }
+
+  }
+
+  &.modern {
+    height: calc(var(--ghs-unit) * 16);
+    border-top-left-radius: calc(var(--ghs-unit) * 13);
+    border-top-right-radius: calc(var(--ghs-unit) * 12);
+    border-bottom-right-radius: calc(var(--ghs-unit) * 12);
+    background-image: url('~/src/assets/images/modern/character/char-mat_modern.png');
+    background-blend-mode: hard-light;
+    filter: none;
+    overflow: hidden;
+
+    &.dimmed {
+      background-image: url('~/src/assets/images/modern/character/char-mat_modern.png');
+    }
+
+    ghs-character-image,
+    .drag-initiative {
+      top: 0;
+      left: 0;
+      width: calc(var(--ghs-unit) * 16);
+      height: calc(var(--ghs-unit) * 16);
+      margin: 0;
+    }
+
+    .character-sheet-button {
+      img {
+        filter: grayscale(1) brightness(0.3);
+      }
+    }
+
+    .stats {
+      margin-left: calc(var(--ghs-unit) * 2.5);
+
+
+      .title-bar {
+        margin-top: calc(var(--ghs-unit) * -2.7 / var(--ghs-text-factor));
+
+        .title {
+          .icon {
+            height: calc(var(--ghs-unit) * 4.5);
+            filter: grayscale(1) brightness(0.3);
+            margin-left: calc(var(--ghs-unit) * -0.5);
+          }
+        }
+      }
+
+      .health {
+        font-size: calc(var(--ghs-unit) * 4 * var(--ghs-text-factor));
+
+        img {
+          height: calc(var(--ghs-unit) * 3.5 * var(--ghs-text-factor));
+        }
+      }
+
+      .status-bar {
+        margin-top: calc(var(--ghs-unit) * 3.5);
+      }
+
+      .battlegoals-button,
+      .items-button,
+      .attack-modifier-button,
+      .loot-cards-button {
+        margin-top: calc(var(--ghs-unit) * 5.5);
+      }
+
+      .summon-dialog-button {
+        margin-top: calc(var(--ghs-unit) * 6);
+      }
+
+      .hand-size {
+        margin-top: calc(var(--ghs-unit) * 6.5);
+      }
+
+      .character-level {
+        right: calc(var(--ghs-unit) * 13.9);
+        top: 0;
+
+        &:after {
+          top: calc(var(--ghs-unit) * -0.5);
+        }
+      }
+
+      .character-traits {
+        left: calc(var(--ghs-unit) * 18);
+        top: initial;
+        bottom: 0;
+
+        &::before {
+          transform: rotate(180deg);
+        }
+
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .attack-modifierdeck-container ghs-attackmodifier-deck {
+      top: calc(var(--ghs-unit) * 3 / var(--ghs-text-factor) / var(--ghs-text-factor));
+    }
+
+    .loot-cards {
+      top: calc(var(--ghs-unit) * 0.5 / var(--ghs-text-factor) / var(--ghs-text-factor));
+
+      .loot-card {
+        position: relative;
+        width: calc(var(--ghs-unit) * (15 * 2 / 3) * var(--ghs-text-factor));
+        height: calc(var(--ghs-unit) * 15 * var(--ghs-text-factor));
+      }
+    }
+  }
+}

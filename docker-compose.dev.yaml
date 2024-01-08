@@ -1,0 +1,11 @@
+# running a client DEV enviroment on port 4200
+version: "3.8"
+services:
+  ghs-client-dev:
+    image: node:lts-alpine
+    working_dir: /usr/src/gloomhavensecretariat
+    volumes:
+      - ./:/usr/src/gloomhavensecretariat
+    ports:
+      - "4200:4200"
+    command: sh -c  "npm install && npm run start -- --host 0.0.0.0"

@@ -1,0 +1,83 @@
+<div class="entity-border"
+  [ngClass]="{'dead' : entity.dead, 'off' : !entity.dormant && entity.off, 'dormant' : entity.dormant, 'revealed' : !entity.dormant && entity.revealed && settingsManager.settings.scenarioRooms, 'active' : !entity.dormant &&  entity.active && settingsManager.settings.activeStandees, 'active-focus': !entity.dormant && entity.active && settingsManager.settings.activeStandees && !figure.active, 'denied' : gameManager.isMonster(figure) && !gameManager.stateManager.monsterPermissions[figure.name + '|' + figure.edition] || (gameManager.isObjective(figure) || gameManager.isObjectiveContainer(figure)) && gameManager.stateManager.permissions && !gameManager.stateManager.permissions.characters ||  gameManager.isCharacter(figure) && !gameManager.stateManager.characterPermissions[figure.name + '|' + figure.edition], 'action-hint-border' : actionHints.length > 0 && (actionHints.length % 2) == 1 && activeConditions.length ==  0 && entity.summon == SummonState.false,  'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}"
+  [entityAnimation]="entity.dead">
+  <div class="entity" [ngClass]="entity.type">
+    <div #standee class="standee">
+      <div class="background-image-container">
+        <div class="background-image"
+          [style.background-image]="figure.noThumbnail || settingsManager.settings.disableArtwork ? '': 'url(' + gameManager.monsterManager.monsterThumbnail(figure) + ')'">
+        </div>
+      </div>
+      <span class="number" [ngClass]="{'highlight' : entity.number < 1 && !settingsManager.settings.disableAnimations}">
+        <span class="value">{{entity.number < 0 ? '?' : entity.number}}</span>
+      </span>
+      <span class="health" [ghs-label]="'game.health'"
+        [ghs-label-attribute]="'title'">{{EntityValueFunction(entity.maxHealth) > 0 ? ((entity.health + health) | ghsMinZero) : '-'}}
+        <span class="value-overlay" [value-sign]="health" [hideEmpty]="true" [container]="true"></span>
+      </span>
+    </div>
+
+    <div class="conditions actions">
+      <span *ngFor="let actionHint of actionHints; let i = index;" class="condition-container"
+        [ngClass]="{'center' : (actionHints.length % 2) == 1 && i == actionHints.length - 1}">
+        <span class="condition">
+          <img
+            [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/' + actionHint.type +'.svg'" />
+          <span class="value">{{actionHint.value}}</span>
+          <span class="range" *ngIf="actionHint.range">
+            <img [src]="'./assets/images/' + (settingsManager.settings.fhStyle ? 'fh/' : '') +  'action/range.svg'" />
+            <span class="value">{{actionHint.range}}</span>
+          </span>
+        </span>
+      </span>
+    </div>
+
+
+    <div class="markers">
+      <span *ngIf="marker" class="placeholder placeholder-marker"
+        [ghs-label]="'%game.mapMarker.' + marker + '%'"></span>
+      <span class="marker" *ngFor="let marker of entity.markers;">
+        <img src="./assets/images/character/icons/{{marker}}.svg" />
+      </span>
+    </div>
+
+    <ghs-highlight-conditions [entity]="entity" [figure]="figure"></ghs-highlight-conditions>
+
+    <div class="conditions">
+      <span class="condition-container" *ngFor="let entityCondition of activeConditions; let index = index;"
+        [ngClass]="{'center' : entity.summon == SummonState.false && ((activeConditions).length % 2) == 1 && (activeConditions).length == index + 1, 'expired' : entityCondition.expired}">
+        <span class="condition" ghs-pointer-input (doubleClick)="removeCondition(entityCondition)">
+          <img
+            [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'"
+            [style.z-index]="index * 10 + entityCondition.value" />
+          <ng-container *ngIf="entityCondition.types.indexOf(ConditionType.stack) != -1">
+            <img class="stack" *ngFor="let i of [] | ghsRange:(entityCondition.value - 1)"
+              [style.z-index]="index * 10 + entityCondition.value - i - 1"
+              [src]="'./assets/images' + (settingsManager.settings.fhStyle ? '/fh' : '') + '/condition/' + entityCondition.name + '.svg'" />
+          </ng-container>
+          <span class="value" [style.z-index]="index * 10 + entityCondition.value +1"
+            *ngIf="entityCondition.types.indexOf(ConditionType.value) != -1 && entityCondition.types.indexOf(ConditionType.stack) == -1">{{entityCondition.value}}</span>
+          <span *ngIf="entity.immunities.indexOf(entityCondition.name) != -1"
+            class="condition immunity condition-overlay"
+            [style.z-index]="index * 10 + entityCondition.value + 2"></span>
+          <span *ngIf="entityCondition.permanent" class="condition permanent condition-overlay"
+            [style.z-index]="index * 10 + entityCondition.value + 3"></span>
+        </span>
+      </span>
+      <span *ngIf="entity.summon && entity.summon != SummonState.false" class="summon-container"
+        [ngClass]="{'center' : (entity.entityConditions.length % 2) == 0}">
+        <span class="summon"
+          [ngClass]="{'active' : entity.summon == SummonState.true, 'new' : entity.summon == SummonState.new}">
+          <img src="./assets/images/summons/{{figure.summonColor}}.png">
+        </span>
+      </span>
+    </div>
+    <ghs-healthbar [entity]="entity" [diff]="health"></ghs-healthbar>
+    <ghs-entity-index-key [entity]="entity"></ghs-entity-index-key>
+  </div>
+
+  <ghs-pointer-input class="drag-hp" (dragMove)="dragHpMove($event)" (dragEnd)="dragHpEnd($event)"
+    (dragCancel)="dragHpCancel($event)" (singleClick)="openEntityMenu($event)" (doubleClick)="doubleClick($event)"
+    [relative]="true" [screenWidth]="true">
+  </ghs-pointer-input>
+</div>

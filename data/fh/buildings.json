@@ -1,0 +1,1755 @@
+[
+    {
+        "id": "05",
+        "name": "mining-camp",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 4,
+            "metal": 2,
+            "hide": 1,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 3,
+                "lumber": 6,
+                "metal": 3,
+                "hide": 2
+            },
+            {
+                "prosperity": 5,
+                "lumber": 8,
+                "metal": 5,
+                "hide": 2
+            },
+            {
+                "prosperity": 7,
+                "lumber": 10,
+                "metal": 6,
+                "hide": 3
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            }
+        ],
+        "effectsNormal": [
+            "Collectively buy up to 1 %game.resource.metal% for 2 gold",
+            "Collectively buy up to 2 %game.resource.metal% for 2 gold",
+            "Collectively buy up to 3 %game.resource.metal% for 2 gold",
+            "Collectively buy up to 4 %game.resource.metal% for 2 gold"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1,
+                "section": "49.2"
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "id": "12",
+        "name": "hunting-lodge",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 4,
+            "metal": 1,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 3,
+                "lumber": 6,
+                "metal": 2,
+                "hide": 3
+            },
+            {
+                "prosperity": 5,
+                "lumber": 8,
+                "metal": 2,
+                "hide": 5
+            },
+            {
+                "prosperity": 7,
+                "lumber": 10,
+                "metal": 3,
+                "hide": 6
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 0,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 2
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 2
+            }
+        ],
+        "effectsNormal": [
+            "Collectively buy up to 1 %game.resource.hide% for 2 gold",
+            "Collectively buy up to 2 %game.resource.hide% for 2 gold",
+            "Collectively buy up to 3 %game.resource.hide% for 2 gold",
+            "Collectively buy up to 4 %game.resource.hide% for 2 gold"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "172.3"
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "id": "17",
+        "name": "logging-camp",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 2,
+            "metal": 3,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 3,
+                "lumber": 4,
+                "metal": 5,
+                "hide": 2
+            },
+            {
+                "prosperity": 5,
+                "lumber": 6,
+                "metal": 6,
+                "hide": 3
+            },
+            {
+                "prosperity": 7,
+                "lumber": 8,
+                "metal": 8,
+                "hide": 3
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            }
+        ],
+        "effectsNormal": [
+            "Collectively buy up to 1 %game.resource.lumber% for 2 gold",
+            "Collectively buy up to 2 %game.resource.lumber% for 2 gold",
+            "Collectively buy up to 3 %game.resource.lumber% for 2 gold",
+            "Collectively buy up to 4 %game.resource.lumber% for 2 gold"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "id": "21",
+        "name": "inn",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 4,
+            "metal": 4,
+            "hide": 4,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 5,
+                "metal": 5,
+                "hide": 5
+            },
+            {
+                "prosperity": 5,
+                "lumber": 6,
+                "metal": 6,
+                "hide": 6
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "effectsNormal": [
+            "Collectively buy up to 1 material resource for 2 gold",
+            "Collectively buy up to 2 different material resource for 2 gold each",
+            "Collectively buy up to 3 different material resource for 2 gold each"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "151.2"
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ]
+    },
+    {
+        "id": "24",
+        "name": "garden",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 3,
+            "metal": 0,
+            "hide": 0,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 2,
+                "lumber": 4,
+                "metal": 2,
+                "hide": 2
+            },
+            {
+                "prosperity": 5,
+                "lumber": 3,
+                "metal": 3,
+                "hide": 3
+            },
+            {
+                "prosperity": 7,
+                "lumber": 6,
+                "metal": 3,
+                "hide": 3
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 0,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 1,
+                "hide": 1
+            }
+        ],
+        "effectsNormal": [
+            "Plant herbs, rotate this card 180°, then stop - Gain 1 herb from each planted plot, then rotate this card 180° then stop",
+            "Plant herbs, rotate this card 180°, then stop - Gain 1 herb from each planted plot, then rotate this card 180° then stop",
+            "Gain 1 collective herb from each planted plot, then plant herbs",
+            "Gain 1 collective herb from each planted plot, then plant herbs"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "78.4"
+            },
+            {
+                "prosperity": 1,
+                "plots": 1
+            },
+            {
+                "prosperity": 1,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "plots": 1
+            }
+        ]
+    },
+    {
+        "id": "34",
+        "name": "craftsman",
+        "costs": {
+            "prosperity": 0,
+            "lumber": 0,
+            "metal": 0,
+            "hide": 0,
+            "gold": 0
+        },
+        "upgrades": [
+            {
+                "prosperity": 1,
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "prosperity": 2,
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            },
+            {
+                "prosperity": 3,
+                "lumber": 4,
+                "metal": 3,
+                "hide": 2
+            },
+            {
+                "prosperity": 4,
+                "lumber": 5,
+                "metal": 3,
+                "hide": 3
+            },
+            {
+                "prosperity": 5,
+                "lumber": 6,
+                "metal": 4,
+                "hide": 3
+            },
+            {
+                "prosperity": 6,
+                "lumber": 7,
+                "metal": 4,
+                "hide": 4
+            },
+            {
+                "prosperity": 7,
+                "lumber": 8,
+                "metal": 5,
+                "hide": 3
+            },
+            {
+                "prosperity": 8,
+                "lumber": 9,
+                "metal": 5,
+                "hide": 5
+            }
+        ],
+        "repair": [
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "effectWrecked": [
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items"
+        ],
+        "interactionsAvailable": [
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items",
+            "Craft items"
+        ],
+        "interactionsUnavailable": [
+            "Lose 1 collective %game.resource.hide%",
+            "Lose 1 collective %game.resource.hide%",
+            "Lose 1 collective %game.resource.hide%",
+            "Lose 2 collective %game.resource.hide%",
+            "Lose 2 collective %game.resource.hide%",
+            "Lose 2 collective %game.resource.hide%",
+            "Lose 3 collective %game.resource.hide%",
+            "Lose 3 collective %game.resource.hide%",
+            "Lose 3 collective %game.resource.hide%"
+        ],
+        "rewards": [
+            {
+                "items": "1-10"
+            },
+            {
+                "prosperity": 1,
+                "items": "11-15"
+            },
+            {
+                "prosperity": 1,
+                "items": "16-20"
+            },
+            {
+                "prosperity": 1,
+                "items": "21-25"
+            },
+            {
+                "prosperity": 1,
+                "items": "26-30"
+            },
+            {
+                "prosperity": 1,
+                "items": "31-35"
+            },
+            {
+                "prosperity": 1,
+                "items": "36-40",
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "items": "41-45",
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "items": "46-50"
+            }
+        ]
+    },
+    {
+        "id": "35",
+        "name": "alchemist",
+        "costs": {
+            "prosperity": 0,
+            "lumber": 0,
+            "metal": 0,
+            "hide": 0,
+            "gold": 0
+        },
+        "upgrades": [
+            {
+                "prosperity": 1,
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "prosperity": 4,
+                "lumber": 4,
+                "metal": 4,
+                "hide": 2
+            }
+        ],
+        "repair": [
+            2,
+            2,
+            3
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 1,
+                "hide": 1
+            }
+        ],
+        "effectWrecked": [
+            "Characters cannot use potions",
+            "Characters cannot use potions",
+            "Characters cannot use potions"
+        ],
+        "interactionsAvailable": [
+            "Brew 2-herb potions",
+            "Brew and distill 2-herb potions",
+            "Brew and distill 2- and 3-herb potions"
+        ],
+        "interactionsUnavailable": [
+            "Brew potions",
+            "Brew and distill potions",
+            "Brew and distill potions"
+        ],
+        "rewards": [
+            {},
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1,
+                "section": "183.5"
+            }
+        ]
+    },
+    {
+        "id": "37",
+        "name": "trading-post",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 2,
+            "metal": 2,
+            "hide": 1,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 3,
+                "lumber": 3,
+                "metal": 3,
+                "hide": 2
+            },
+            {
+                "prosperity": 5,
+                "lumber": 4,
+                "metal": 3,
+                "hide": 3
+            },
+            {
+                "prosperity": 7,
+                "lumber": 5,
+                "metal": 4,
+                "hide": 4
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            }
+        ],
+        "effectWrecked": [
+            "Lose 5 collective gold",
+            "Lose 10 collective gold",
+            "Lose 15 collective gold",
+            "Lose 20 collective gold"
+        ],
+        "interactionsAvailable": [
+            "Buy up to one item",
+            "Buy up to two items",
+            "Buy up to three items",
+            "Buy up to four items"
+        ],
+        "interactionsUnavailable": [
+            "Buy items",
+            "Buy items",
+            "Buy items",
+            "Buy items"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "25.2"
+            },
+            {
+                "prosperity": 1,
+                "section": "12.4"
+            },
+            {
+                "prosperity": 1,
+                "section": "38.3",
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "section": "196.2"
+            }
+        ]
+    },
+    {
+        "id": "39",
+        "name": "jeweler",
+        "costs": {
+            "prosperity": 4,
+            "lumber": 3,
+            "metal": 2,
+            "hide": 4,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 6,
+                "lumber": 3,
+                "metal": 6,
+                "hide": 3
+            },
+            {
+                "prosperity": 8,
+                "lumber": 2,
+                "metal": 10,
+                "hide": 3
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 1,
+                "metal": 3,
+                "hide": 1
+            },
+            {
+                "lumber": 1,
+                "metal": 4,
+                "hide": 1
+            }
+        ],
+        "effectWrecked": [
+            "Damage any one building",
+            "Damage any one building",
+            "Damage any one building"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "31.3"
+            },
+            {
+                "prosperity": 1,
+                "items": "160-163",
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "items": "164-167"
+            }
+        ]
+    },
+    {
+        "id": "42",
+        "name": "temple",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 4,
+            "metal": 2,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 3,
+                "metal": 6,
+                "hide": 3
+            },
+            {
+                "prosperity": 7,
+                "lumber": 4,
+                "metal": 10,
+                "hide": 4
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 1
+            }
+        ],
+        "effectsNormal": [
+            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2",
+            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2",
+            "Each character may lose 5 gold to start the next scenario with %game.condition.bless%x2"
+        ],
+        "effectWrecked": [
+            "Each character starts the next scenario with %game.condition.curse%",
+            "Each character starts the next scenario with %game.condition.curse%",
+            "Each character starts the next scenario with %game.condition.curse%"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "192.5"
+            },
+            {
+                "prosperity": 3,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 5
+            }
+        ]
+    },
+    {
+        "id": "44",
+        "name": "enhancer",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 3,
+            "metal": 4,
+            "hide": 0,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 3,
+                "lumber": 4,
+                "metal": 5,
+                "hide": 0
+            },
+            {
+                "prosperity": 5,
+                "lumber": 4,
+                "metal": 4,
+                "hide": 4
+            },
+            {
+                "prosperity": 7,
+                "lumber": 5,
+                "metal": 6,
+                "hide": 6
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "effectsNormal": [
+            "",
+            "Reduce all enhancement costs by 10 gold",
+            "Reduce all enhancement costs by 10 gold and level penalties by 10 gold per level",
+            "Reduce all enhancement costs by 10 gold, level penalties by 10 gold per level, and repeat penalties by 25 gold per enhancement"
+        ],
+        "effectWrecked": [
+            "Each character starts the next scenario with %game.condition.disarm%",
+            "Each character starts the next scenario with %game.condition.disarm%",
+            "Each character starts the next scenario with %game.condition.disarm%"
+        ],
+        "interactionsAvailable": [
+            "Buy enhancements",
+            "Buy enhancements",
+            "Buy enhancements",
+            "Buy enhancements"
+        ],
+        "interactionsUnavailable": [
+            "Buy enhancements",
+            "Buy enhancements",
+            "Buy enhancements",
+            "Buy enhancements"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "193.1"
+            },
+            {
+                "prosperity": 1,
+                "section": "157.2"
+            },
+            {
+                "prosperity": 1,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1,
+                "section": "56.3"
+            }
+        ]
+    },
+    {
+        "id": "65",
+        "name": "metal-depot",
+        "costs": {
+            "prosperity": 3,
+            "lumber": 2,
+            "metal": 6,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 7,
+                "lumber": 5,
+                "metal": 5,
+                "hide": 5
+            }
+        ],
+        "repair": [
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 1,
+                "metal": 3,
+                "hide": 1
+            }
+        ],
+        "effectsNormal": [
+            "Collectively sell up to 1 %game.resource.metal% for 5 gold",
+            "Collectively sell up to 2 %game.resource.metal% for 5 gold each"
+        ],
+        "effectWrecked": [
+            "Lose 2 collective %game.resource.metal%",
+            "Lose 2 collective %game.resource.metal%"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "193.4"
+            },
+            {
+                "prosperity": 2
+            }
+        ]
+    },
+    {
+        "id": "67",
+        "name": "lumber-depot",
+        "costs": {
+            "prosperity": 3,
+            "lumber": 6,
+            "metal": 2,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 7,
+                "lumber": 5,
+                "metal": 5,
+                "hide": 5
+            }
+        ],
+        "repair": [
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 1,
+                "hide": 1
+            }
+        ],
+        "effectsNormal": [
+            "Collectively sell up to 1 %game.resource.lumber% for 5 gold",
+            "Collectively sell up to 2 %game.resource.lumber% for 5 gold each"
+        ],
+        "effectWrecked": [
+            "Lose 2 collective %game.resource.lumber%",
+            "Lose 2 collective %game.resource.lumber%"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "144.3"
+            },
+            {
+                "prosperity": 2
+            }
+        ]
+    },
+    {
+        "id": "72",
+        "name": "hide-depot",
+        "costs": {
+            "prosperity": 3,
+            "lumber": 2,
+            "metal": 2,
+            "hide": 6,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 7,
+                "lumber": 5,
+                "metal": 5,
+                "hide": 5
+            }
+        ],
+        "repair": [
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 2
+            },
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 3
+            }
+        ],
+        "effectsNormal": [
+            "Collectively sell up to 1 %game.resource.hide% for 5 gold",
+            "Collectively sell up to 2 %game.resource.hide% for 5 gold each"
+        ],
+        "effectWrecked": [
+            "Lose 2 collective %game.resource.hide%",
+            "Lose 2 collective %game.resource.hide%"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "173.1"
+            },
+            {
+                "prosperity": 2
+            }
+        ]
+    },
+    {
+        "id": "74",
+        "name": "tavern",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 2,
+            "metal": 2,
+            "hide": 1,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 4,
+                "metal": 3,
+                "hide": 2
+            },
+            {
+                "prosperity": 6,
+                "lumber": 6,
+                "metal": 4,
+                "hide": 2
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "effectWrecked": [
+            "Lose 1 morale",
+            "Lose 1 morale",
+            "Lose 1 morale"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "160.2"
+            },
+            {
+                "prosperity": 1,
+                "section": "35.3"
+            },
+            {
+                "prosperity": 1,
+                "section": "113.1"
+            }
+        ]
+    },
+    {
+        "id": "81",
+        "name": "hall-of-revelry",
+        "costs": {
+            "prosperity": 5,
+            "lumber": 6,
+            "metal": 6,
+            "hide": 6,
+            "gold": 10
+        },
+        "upgrades": [],
+        "manualUpgrades": 1,
+        "repair": [
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "effectsNormal": [
+            "When the trials deck is complete, read %data.section:187.1",
+            "Access to Tholos' Favors"
+        ],
+        "effectWrecked": [
+            "Lose 1 morale",
+            "Lose 1 morale"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "178.2"
+            },
+            {
+                "prosperity": 1
+            }
+        ]
+    },
+    {
+        "id": "83",
+        "name": "library",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 3,
+            "metal": 2,
+            "hide": 0,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 4,
+                "metal": 4,
+                "hide": 1
+            },
+            {
+                "prosperity": 6,
+                "lumber": 2,
+                "metal": 5,
+                "hide": 5
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "effectWrecked": [
+            "Lose 1 inspiration",
+            "Lose 1 inspiration",
+            "Lose 1 inspiration"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "190.3"
+            },
+            {
+                "prosperity": 1,
+                "section": "116.3"
+            },
+            {
+                "prosperity": 1,
+                "section": "89.2"
+            }
+        ]
+    },
+    {
+        "id": "84",
+        "name": "workshop",
+        "costs": {
+            "prosperity": 0,
+            "lumber": 0,
+            "metal": 0,
+            "hide": 0,
+            "gold": 0
+        },
+        "upgrades": [],
+        "repair": [
+            2
+        ],
+        "effectWrecked": [
+            "Lose 1 collective %game.resource.lumber%"
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            }
+        ]
+    },
+    {
+        "name": "boat",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 4,
+            "metal": 1,
+            "hide": 2,
+            "gold": 0
+        },
+        "requires": "workshop",
+        "rewards": [
+            {
+                "section": "139.2"
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "name": "sled",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 3,
+            "metal": 2,
+            "hide": 1,
+            "gold": 0
+        },
+        "requires": "workshop",
+        "rewards": [
+            {
+                "section": "169.2"
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "name": "climbing-gear",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 1,
+            "metal": 3,
+            "hide": 2,
+            "gold": 0
+        },
+        "requires": "workshop",
+        "rewards": [
+            {
+                "section": "161.1"
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "id": "85",
+        "name": "carpenter",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 4,
+            "metal": 3,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 5,
+                "lumber": 6,
+                "metal": 5,
+                "hide": 4
+            }
+        ],
+        "repair": [
+            2,
+            3
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "effectsNormal": [
+            "Reduce all construction costs by 1 material resource",
+            "Reduce all construction costs by 1 material resource and the extra construction cost by 1 morale"
+        ],
+        "effectWrecked": [
+            "Lose any 1 collective resource",
+            "Lose any 1 collective resource"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "7.3"
+            },
+            {
+                "prosperity": 1
+            }
+        ]
+    },
+    {
+        "id": "88",
+        "name": "stables",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 6,
+            "metal": 2,
+            "hide": 2,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 4,
+                "metal": 5,
+                "hide": 5
+            },
+            {
+                "prosperity": 6,
+                "lumber": 6,
+                "metal": 7,
+                "hide": 6
+            },
+            {
+                "prosperity": 8,
+                "lumber": 8,
+                "metal": 8,
+                "hide": 8
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 3,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 3,
+                "metal": 1,
+                "hide": 1
+            },
+            {
+                "lumber": 3,
+                "metal": 2,
+                "hide": 2
+            },
+            {
+                "lumber": 3,
+                "metal": 3,
+                "hide": 3
+            }
+        ],
+        "effectsNormal": [
+            "Bring one pet into each scenario.<br><i>Capacity:</i> 4",
+            "Bring one pet into each scenario.<br><i>Capacity:</i> 8",
+            "Bring two pets into each scenario.<br><i>Capacity:</i> 8",
+            "Bring two pets into each scenario.<br><i>Capacity:</i> 12"
+        ],
+        "effectWrecked": [
+            "Characters cannot use pets",
+            "Characters cannot use pets",
+            "Characters cannot use pets",
+            "Characters cannot use pets"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "3.1"
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1,
+                "loseMorale": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ]
+    },
+    {
+        "id": "90",
+        "name": "town-hall",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 2,
+            "metal": 2,
+            "hide": 1,
+            "gold": 10
+        },
+        "upgrades": [
+            {
+                "prosperity": 4,
+                "lumber": 3,
+                "metal": 3,
+                "hide": 3
+            },
+            {
+                "prosperity": 6,
+                "lumber": 4,
+                "metal": 5,
+                "hide": 4
+            }
+        ],
+        "repair": [
+            2,
+            3,
+            4
+        ],
+        "rebuild": [
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 0
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 2,
+                "metal": 2,
+                "hide": 2
+            }
+        ],
+        "effectsNormal": [
+            "Draw one challenge and keep up to one. When the challenge deck is complete, read %data.section:190.1%",
+            "Draw two challenges and keep up to one. When the challenge deck is complete, read %data.section:190.1%",
+            "Draw three challenges and keep up to two. When the challenge deck is complete, read %data.section:190.1%"
+        ],
+        "effectWrecked": [
+            "Cannot complete challenges",
+            "Cannot complete challenges",
+            "Cannot complete challenges"
+        ],
+        "rewards": [
+            {
+                "prosperity": 1,
+                "section": "189.1"
+            },
+            {
+                "prosperity": 1
+            },
+            {
+                "prosperity": 1
+            }
+        ]
+    },
+    {
+        "id": "98",
+        "name": "barracks",
+        "costs": {
+            "prosperity": 0,
+            "lumber": 0,
+            "metal": 0,
+            "hide": 0,
+            "gold": 0
+        },
+        "upgrades": [],
+        "manualUpgrades": 3,
+        "repair": [
+            2,
+            2,
+            3,
+            3
+        ],
+        "rebuild": [
+            {
+                "lumber": 1,
+                "metal": 1,
+                "hide": 0
+            },
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 1,
+                "metal": 2,
+                "hide": 1
+            },
+            {
+                "lumber": 1,
+                "metal": 3,
+                "hide": 1
+            }
+        ],
+        "effectsNormal": [
+            "Collectively train up to 1 soldier for 3 gold and 1 material resource<br><br><i>Capacity:</i> 4<br><i>Effect:</i> advantage and -5 %game.action.attack%",
+            "Collectively train up to 1 soldier for 3 gold and 1 material resource<br><br><i>Capacity:</i> 6<br><i>Effect:</i> advantage and -15 %game.action.attack%",
+            "Collectively train up to 2 soldiers for 3 gold and 1 material resource<br><br><i>Capacity:</i> 8<br><i>Effect:</i> advantage and -25 %game.action.attack%",
+            "Collectively train up to 2 soldiers for 3 gold and 1 material resource<br><br><i>Capacity:</i> 10<br><i>Effect:</i> advantage and -35 %game.action.attack%"
+        ],
+        "effectWrecked": [
+            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
+            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
+            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers.",
+            "Disadvantage on all attack event resolutions.<br>Cannot use soldiers."
+        ],
+        "rewards": [
+            {
+                "soldiers": 4
+            },
+            {
+                "prosperity": 1,
+                "soldiers": 2
+            },
+            {
+                "prosperity": 1,
+                "soldiers": 2
+            },
+            {
+                "prosperity": 1,
+                "soldiers": 2
+            }
+        ]
+    },
+    {
+        "name": "wall-j",
+        "costs": {
+            "prosperity": 1,
+            "lumber": 4,
+            "gold": 10
+        },
+        "rewards": [
+            {
+                "defense": 5
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "name": "wall-k",
+        "costs": {
+            "prosperity": 2,
+            "lumber": 3,
+            "metal": 2,
+            "hide": 2,
+            "gold": 10
+        },
+        "rewards": [
+            {
+                "defense": 5
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "name": "wall-l",
+        "costs": {
+            "prosperity": 3,
+            "lumber": 5,
+            "metal": 2,
+            "hide": 1,
+            "gold": 10
+        },
+        "rewards": [
+            {
+                "defense": 5
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "name": "wall-m",
+        "costs": {
+            "prosperity": 4,
+            "lumber": 4,
+            "metal": 3,
+            "hide": 3,
+            "gold": 10
+        },
+        "rewards": [
+            {
+                "defense": 5
+            }
+        ],
+        "prosperityUnlock": true
+    },
+    {
+        "name": "wall-n",
+        "costs": {
+            "prosperity": 6,
+            "lumber": 6,
+            "metal": 3,
+            "hide": 2,
+            "gold": 10
+        },
+        "rewards": [
+            {
+                "defense": 5
+            }
+        ],
+        "prosperityUnlock": true
+    }
+]

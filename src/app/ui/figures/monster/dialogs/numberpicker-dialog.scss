@@ -1,0 +1,171 @@
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--ghs-font-title);
+  font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+  color: var(--ghs-color-white);
+
+  .monster {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-gray);
+
+    .standee {
+      position: relative;
+      display: flex;
+      margin-right: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      margin-bottom: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+      width: calc(var(--ghs-unit) * 7 * var(--ghs-text-factor));
+      height: calc(var(--ghs-unit) * 7.8 * var(--ghs-text-factor));
+
+      .background-image-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top-left-radius: 25%;
+        border-top-right-radius: 25%;
+        border-bottom-left-radius: 5%;
+        border-bottom-right-radius: 5%;
+        border: solid calc(var(--ghs-unit) * 0.1 * var(--ghs-dialog-factor)) var(--ghs-color-gray);
+        overflow: hidden;
+        z-index: 0;
+
+        .background-image {
+          position: absolute;
+          top: -8%;
+          left: 0;
+          width: 100%;
+          height: 150%;
+          background-color: var(--ghs-color-darkgray);
+          background-size: calc(var(--ghs-unit) * 9.5 * var(--ghs-text-factor)) AUTO;
+          background-repeat: no-repeat;
+          background-position: top center;
+          filter: brightness(70%);
+        }
+      }
+    }
+  }
+
+  .elite {
+    color: var(--ghs-color-yellow);
+  }
+
+  .boss {
+    color: var(--ghs-color-red);
+  }
+}
+
+.number-container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-items: center;
+  align-items: center;
+  gap: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+  &.extended {
+    grid-template-columns: repeat(5, auto);
+  }
+
+  &.small {
+    grid-template-columns: repeat(3, auto);
+  }
+
+  .number-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+    cursor: pointer;
+    font-family: var(--ghs-font-title);
+    font-size: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    color: var(--ghs-color-white);
+    text-shadow: var(--ghs-outline);
+
+    &.elite {
+      color: var(--ghs-color-yellow);
+    }
+
+    &.boss {
+      color: var(--ghs-color-red);
+    }
+
+    &:hover {
+      border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+      border-radius: 100%;
+    }
+
+    &.existing {
+      color: var(--ghs-color-darkgray);
+    }
+
+    &.disabled {
+      pointer-events: none;
+    }
+  }
+
+  .summon-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+    width: calc(var(--ghs-unit) * 7 * var(--ghs-dialog-factor));
+
+    img.summon {
+      height: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+      width: calc(var(--ghs-unit) * 3 * var(--ghs-dialog-factor));
+    }
+
+    &:hover {
+      border: calc(var(--ghs-unit) / 5) var(--ghs-color-gray) solid;
+      border-radius: 100%;
+    }
+
+    &.active {
+      border: calc(var(--ghs-unit) / 5) var(--ghs-color-white) solid;
+      border-radius: 100%;
+    }
+  }
+}
+
+.change-type {
+  display: flex;
+  justify-content: center;
+  font-family: var(--ghs-font-normal);
+  font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+  a {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+.cancel {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--ghs-font-normal);
+  font-size: calc(var(--ghs-unit) * 2.5 * var(--ghs-dialog-factor));
+  margin-top: calc(var(--ghs-unit) * 1 * var(--ghs-dialog-factor));
+
+  a {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

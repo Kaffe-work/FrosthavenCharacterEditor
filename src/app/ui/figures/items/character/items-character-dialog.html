@@ -1,0 +1,20 @@
+<div class="items-dialog"
+    [ngClass]="{'fh': settingsManager.settings.theme == 'fh', 'modern': settingsManager.settings.theme == 'modern'}">
+    <div class="scroll-container">
+        <div class="header">
+            <span class="title" [ghs-label]="'game.items.character'"
+                [ghs-label-args]="[character.name, gameManager.characterManager.characterName(character)]"></span>
+
+            <a (click)="openShop()" class="shop" [ghs-label]="'game.items.character.shop'"></a>
+        </div>
+
+        <div class="item-list" *ngIf="items.length == 0">
+            <div class="empty"><span [ghs-label]="'game.items.empty'"></span></div>
+        </div>
+
+        <div class="item-list" *ngIf="items.length > 0">
+            <ghs-character-item *ngFor="let itemData of items" [character]="character" [item]="itemData" [setup]="setup"
+                [ngClass]="{'spent' : !setup && countFlag(itemData,ItemFlags.spent)}"></ghs-character-item>
+        </div>
+    </div>
+</div>

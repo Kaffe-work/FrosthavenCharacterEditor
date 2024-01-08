@@ -1,0 +1,37 @@
+{
+  "index": "55",
+  "name": "Foggy Ticket",
+  "coordinates": {
+    "x": 656,
+    "y": 980,
+    "width": 176,
+    "height": 157
+  },
+  "edition": "gh",
+  "unlocks": [
+    "56"
+  ],
+  "links": [
+    "56"
+  ],
+  "rewards": {
+    "collectiveGold": 10
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "minus1:3",
+          "scenarioEffect": true
+        }
+      ]
+    }
+  ]
+}

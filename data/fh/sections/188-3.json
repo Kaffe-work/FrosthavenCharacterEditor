@@ -1,0 +1,13 @@
+{
+  "index": "188.3",
+  "name": "5 episodes overcome",
+  "edition": "fh",
+  "parent": "107",
+  "conclusion": true,
+  "rewards": {
+    "items": [
+      "214"
+    ],
+    "custom": "Gain any 5 collective material resources"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "index": "107",
+  "name": "Mechanical Genius",
+  "edition": "fc",
+  "requirements": [
+    {
+      "global": [
+        "Knowledge is Power:2"
+      ]
+    }
+  ],
+  "rewards": {
+    "experience": 5
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "N1b",
+      "initial": true
+    }
+  ]
+}

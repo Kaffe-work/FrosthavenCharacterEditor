@@ -1,0 +1,80 @@
+.items-dialog {
+    position: relative;
+
+    .scroll-container {
+        overflow-x: hidden;
+        max-height: calc(90vh - var(--ghs-unit) * 6);
+    }
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .title {
+            font-family: var(--ghs-font-title);
+            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-white);
+        }
+
+        .shop {
+            cursor: pointer;
+            font-family: var(--ghs-font-normal);
+            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-white);
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .item-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: calc(var(--ghs-unit) * 2 * var(--ghs-dialog-factor));
+        min-height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
+
+        .empty {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--ghs-font-text);
+            font-size: calc(var(--ghs-unit) * 3.5 * var(--ghs-dialog-factor));
+            color: var(--ghs-color-yellow);
+        }
+
+        ghs-character-item {
+            position: relative;
+            margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor));
+            width: calc(var(--ghs-unit) * 27 * var(--ghs-dialog-factor));
+            height: calc(var(--ghs-unit) * 40.5 * var(--ghs-dialog-factor));
+            transition: all 500ms ease-in-out;
+
+            &.spent {
+                transform: rotate(90deg);
+                margin: calc(var(--ghs-unit) * 0.5 * var(--ghs-dialog-factor)) calc(var(--ghs-unit) * 7.25 * var(--ghs-dialog-factor));
+            }
+        }
+
+        @media (max-width: 600px),
+        (orientation: portrait) {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &.fh {
+        .menu {
+            background-image: url('~src/assets/images/fh/dialog_background_fh.png');
+        }
+    }
+
+    &.modern {
+        .menu {
+            background-image: url('~src/assets/images/modern/dialog_background_modern.png');
+        }
+    }
+}

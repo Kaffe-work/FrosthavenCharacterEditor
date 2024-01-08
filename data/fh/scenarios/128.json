@@ -1,0 +1,127 @@
+{
+  "index": "128",
+  "name": "A Tall Drunken Tale",
+  "edition": "fh",
+  "complexity": 3,
+  "monsters": [
+    "abael-scout",
+    "lurker-wavethrower-scenario-128",
+    "steel-automaton-scenario-128"
+  ],
+  "lootDeckConfig": {
+    "money": 2,
+    "lumber": 3,
+    "metal": 1,
+    "hide": 8,
+    "snowthistle": 1,
+    "arrowvine": 1,
+    "flamefruit": 2
+  },
+  "rules": [
+    {
+      "round": "R == 1",
+      "start": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "amAdd",
+          "value": "curse:2",
+          "scenarioEffect": true
+        },
+        {
+          "identifier": {
+            "type": "character",
+            "name": ".*"
+          },
+          "type": "gainCondition",
+          "value": "muddle",
+          "scenarioEffect": true
+        }
+      ]
+    },
+    {
+      "round": "R == 2",
+      "start": true,
+      "sections": [
+        "170.1"
+      ]
+    },
+    {
+      "round": "R == 3",
+      "start": true,
+      "sections": [
+        "152.2"
+      ]
+    },
+    {
+      "round": "R == 4",
+      "start": true,
+      "sections": [
+        "176.3"
+      ]
+    },
+    {
+      "round": "R == 6",
+      "start": true,
+      "sections": [
+        "139.1"
+      ]
+    },
+    {
+      "round": "R == 8",
+      "start": true,
+      "sections": [
+        "132.4"
+      ]
+    },
+    {
+      "round": "R == 9",
+      "finish": "won"
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "type": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "player3": "elite",
+          "player4": "normal"
+        },
+        {
+          "name": "abael-scout",
+          "player4": "normal"
+        },
+        {
+          "name": "lurker-wavethrower-scenario-128",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-wavethrower-scenario-128",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "steel-automaton-scenario-128",
+          "type": "normal"
+        },
+        {
+          "name": "steel-automaton-scenario-128",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

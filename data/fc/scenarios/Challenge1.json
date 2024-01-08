@@ -1,0 +1,93 @@
+{
+  "index": "1",
+  "group": "Challenge",
+  "name": "Tower to the Stars",
+  "edition": "fc",
+  "rewards": {
+    "partyAchievements": [
+      "Beauty in Freedom"
+    ],
+    "gold": 15,
+    "battleGoals": 1,
+    "custom": "All characters may add one new card of their class to their active card pool. The card selected must have a level equal or less then the character's level minus 2."
+  },
+  "monsters": [
+    "ancient-artillery",
+    "city-archer",
+    "city-guard",
+    "hound"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "N1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "ancient-artillery",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "ancient-artillery",
+          "player4": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player2": "normal",
+          "player3": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player3": "normal"
+        },
+        {
+          "name": "city-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "city-archer",
+          "player4": "elite"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "type": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "city-guard",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player2": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "hound",
+          "player3": "normal",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

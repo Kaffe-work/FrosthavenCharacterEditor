@@ -1,0 +1,69 @@
+{
+  "index": "2",
+  "name": "Algox Scouting",
+  "edition": "fh",
+  "complexity": 1,
+  "unlocks": [
+    "4B"
+  ],
+  "blocks": [
+    "3",
+    "4A"
+  ],
+  "forcedLinks": [
+    "4B"
+  ],
+  "rewards": {
+    "battleGoals": 1,
+    "custom": "Place map overlay sticker W on map in location W (M7)."
+  },
+  "monsters": [
+    "algox-archer",
+    "algox-guard"
+  ],
+  "allies": [
+    "algox-priest"
+  ],
+  "lootDeckConfig": {
+    "money": 4,
+    "lumber": 4,
+    "metal": 4,
+    "hide": 4,
+    "rockroot": 1,
+    "arrowvine": 2,
+    "random_item": 1
+  },
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "11-A",
+      "initial": true,
+      "monster": [
+        {
+          "name": "algox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "algox-archer",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "type": "elite"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "algox-guard",
+          "player3": "normal",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}

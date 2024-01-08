@@ -1,0 +1,92 @@
+{
+  "index": "34",
+  "name": "Great Oak Rescue",
+  "edition": "cs",
+  "rewards": {
+    "envelopes": [
+      "%data.characterIcon.target%"
+    ],
+    "reputation": 2,
+    "custom": "All characters add one %game.condition.bless% card to their attack modifier deck for the next scenario"
+  },
+  "monsters": [
+    "inox-archer",
+    "inox-guard"
+  ],
+  "objectives": [
+    {
+      "name": "Sacred Monk",
+      "escort": true,
+      "health": "C+L+2",
+      "marker": "a",
+      "actions": [
+        {
+          "type": "custom",
+          "value": "At the end of every odd round:",
+          "subActions": [
+            {
+              "type": "condition",
+              "value": "bless",
+              "subActions": [
+                {
+                  "type": "specialTarget",
+                  "value": "alliesAdjacentAffect",
+                  "small": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "L1b",
+      "initial": true,
+      "monster": [
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "type": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-archer",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "type": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "inox-guard",
+          "player4": "elite"
+        }
+      ],
+      "objectives": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+.character-sheet-dialog {
+  position: relative;
+  background-color: var(--ghs-color-white);
+
+  ghs-character-sheet {
+    display: block;
+  }
+}

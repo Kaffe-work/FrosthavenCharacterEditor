@@ -1,0 +1,27 @@
+{
+  "index": "34",
+  "name": "Top of the Spire",
+  "edition": "fh",
+  "complexity": 2,
+  "rewards": {
+    "campaignSticker": [
+      "Coral Shard"
+    ]
+  },
+  "monsters": [
+    "chaos-spark",
+    "lord-of-chaos"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lord-of-chaos",
+          "type": "boss"
+        }
+      ]
+    }
+  ]
+}

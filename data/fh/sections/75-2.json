@@ -1,0 +1,171 @@
+{
+  "index": "75.2",
+  "name": "Skyhall",
+  "edition": "fh",
+  "parent": "19",
+  "monsters": [],
+  "objectives": [
+    {
+      "name": "Altar 1",
+      "health": "Cx(L+2)"
+    },
+    {
+      "name": "Altar 2",
+      "health": "Cx(L+2)"
+    },
+    {
+      "name": "Altar 3",
+      "health": "Cx(L+2)"
+    },
+    {
+      "name": "Altar 4",
+      "health": "Cx(L+2)"
+    },
+    {
+      "name": "Altar 5",
+      "health": "Cx(L+2)"
+    },
+    {
+      "name": "Dark Fog",
+      "health": "Cx(L+2)",
+      "initiative": 1,
+      "escort": true,
+      "tags": [
+        "Dark Fog"
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 1"
+          },
+          "type": "dead"
+        }
+      ],
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 6,
+            "name": "Dark Fog"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 2"
+          },
+          "type": "dead"
+        }
+      ],
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 6,
+            "name": "Dark Fog"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 3"
+          },
+          "type": "dead"
+        }
+      ],
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 6,
+            "name": "Dark Fog"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 4"
+          },
+          "type": "dead"
+        }
+      ],
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 6,
+            "name": "Dark Fog"
+          }
+        }
+      ]
+    },
+    {
+      "round": "true",
+      "always": true,
+      "once": true,
+      "figures": [
+        {
+          "identifier": {
+            "type": "objective",
+            "edition": "objective",
+            "name": "Altar 5"
+          },
+          "type": "dead"
+        }
+      ],
+      "objectiveSpawns": [
+        {
+          "objective": {
+            "index": 6,
+            "name": "Dark Fog"
+          }
+        }
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "16-B",
+      "initial": true,
+      "monster": [],
+      "objectives": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "index": "67",
+  "name": "Arcane Library",
+  "coordinates": {
+    "x": 231.0999755859375,
+    "y": 1518,
+    "width": 193,
+    "height": 164
+  },
+  "edition": "gh",
+  "random": true,
+  "rewards": {
+    "globalAchievements": [
+      "Ancient Technology"
+    ],
+    "items": [
+      "132"
+    ]
+  },
+  "monsters": [
+    "arcane-golem:+1",
+    "cave-bear",
+    "forest-imp"
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "ref": "L3a",
+      "initial": true,
+      "rooms": [
+        2
+      ],
+      "monster": [
+        {
+          "name": "cave-bear",
+          "type": "normal"
+        },
+        {
+          "name": "cave-bear",
+          "player2": "normal",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "type": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player2": "normal",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "elite",
+          "player4": "elite"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "elite"
+        }
+      ]
+    },
+    {
+      "roomNumber": 2,
+      "ref": "A2a",
+      "marker": "1",
+      "rooms": [
+        3
+      ]
+    },
+    {
+      "roomNumber": 3,
+      "ref": "M1a",
+      "marker": "2",
+      "treasures": [
+        14
+      ],
+      "monster": [
+        {
+          "name": "arcane-golem:+1",
+          "type": "boss"
+        },
+        {
+          "name": "forest-imp",
+          "player3": "normal",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        },
+        {
+          "name": "forest-imp",
+          "player4": "normal"
+        }
+      ]
+    }
+  ]
+}

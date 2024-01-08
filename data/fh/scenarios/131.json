@@ -1,0 +1,69 @@
+{
+  "index": "131",
+  "name": "The Dancing Iceberg",
+  "edition": "fh",
+  "complexity": 3,
+  "rewards": {
+    "experience": 10,
+    "items": [
+      "237"
+    ]
+  },
+  "monsters": [
+    "lurker-mindsnipper",
+    "lurker-soldier"
+  ],
+  "rules": [
+    {
+      "round": "R == 3",
+      "start": true,
+      "sections": [
+        "120.2"
+      ]
+    },
+    {
+      "round": "R == 5",
+      "start": true,
+      "sections": [
+        "181.5"
+      ]
+    },
+    {
+      "round": "R == 7",
+      "start": true,
+      "sections": [
+        "185.1"
+      ]
+    },
+    {
+      "round": "R == 9",
+      "start": true,
+      "sections": [
+        "194.2"
+      ]
+    }
+  ],
+  "rooms": [
+    {
+      "roomNumber": 1,
+      "initial": true,
+      "monster": [
+        {
+          "name": "lurker-mindsnipper",
+          "player2": "elite",
+          "player3": "normal",
+          "player4": "elite"
+        },
+        {
+          "name": "lurker-soldier",
+          "type": "normal"
+        },
+        {
+          "name": "lurker-soldier",
+          "player3": "elite",
+          "player4": "elite"
+        }
+      ]
+    }
+  ]
+}
