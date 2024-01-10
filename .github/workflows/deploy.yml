@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # change to your desired branch name
+      - master # change to your desired branch name
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
