@@ -3,7 +3,7 @@
   "version": "0.79.4",
   "license": "AGPL3",
   "description": "Gloomhaven Secretariat is a Gloomhaven Companion app.",
-  "homepage": "https://gloomhaven-secretariat.de",
+  "homepage": "https://kaffe-work.github.io/FrosthavenCharacterEditor/",
   "author": {
     "name": "Lurkars",
     "email": "contact@gloomhaven-secretariat.de",
@@ -39,7 +39,7 @@
     "electron:build": "npm run build -- --base-href ./ && electron-builder"
   },
   "build": {
-    "appId": "gloomhavensecretariat",
+    "appId": "frosthavenCardEditor",
     "linux": {
       "target": [
         "AppImage",
@@ -69,7 +69,7 @@
     },
     "files": [
       "main.js",
-      "dist/gloomhavensecretariat"
+      "dist/frosthavenCardEditor"
     ]
   },
   "private": true,
