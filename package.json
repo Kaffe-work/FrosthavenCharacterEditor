@@ -69,7 +69,7 @@
     },
     "files": [
       "main.js",
-      "docs/gloomhavensecretariat"
+      "dist/gloomhavensecretariat"
     ]
   },
   "private": true,
