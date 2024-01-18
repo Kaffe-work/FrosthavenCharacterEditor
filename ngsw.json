@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1705588364538,
+  "timestamp": 1705589776572,
   "appData": {
     "version": "@APP_VERSION@"
   },
@@ -16,7 +16,7 @@
       "urls": [
         "/FrosthavenCharacterEditor/favicon.ico",
         "/FrosthavenCharacterEditor/index.html",
-        "/FrosthavenCharacterEditor/main.1b2cba5149386f5e.js",
+        "/FrosthavenCharacterEditor/main.1b83855548fd30ce.js",
         "/FrosthavenCharacterEditor/manifest.webmanifest",
         "/FrosthavenCharacterEditor/polyfills.bed2a72d06ede870.js",
         "/FrosthavenCharacterEditor/runtime.c63e010387befb5b.js",
@@ -2637,7 +2637,7 @@
     "/FrosthavenCharacterEditor/dialog_background_modern.c233015926c13e5e.png": "d88f26855ed8cba71b091fbd320a8070a4f14b21",
     "/FrosthavenCharacterEditor/dialog_border.4550c5ca437b2e25.png": "d79c695e9bade26f75faf51b62c5e907f37f2411",
     "/FrosthavenCharacterEditor/dialog_border_fh.349828dc9d019997.png": "288bd2651bab4b4dbea7a74426f21b3baa0e71a2",
-    "/FrosthavenCharacterEditor/favicon.ico": "36b674d5fd1a1c05d223e9bddb186420f15a83b6",
+    "/FrosthavenCharacterEditor/favicon.ico": "01eb47f0aa6755cdba1446ec92dd6263985fb332",
     "/FrosthavenCharacterEditor/fh-character-ability-front-back.181e3861d3d22f9d.png": "a78bbc74885f2d17ff57b216f3c017f42500f4e2",
     "/FrosthavenCharacterEditor/fh-character-ability-front-baseaction.59625ad5cf4bd498.png": "c9aa2505501c7874b12e51489845be87628b6cb8",
     "/FrosthavenCharacterEditor/fh-character-ability-front-border.c6e9d93b7a53b6a2.png": "bb127aa9c0d0220e50e44113f05c089a0634867a",
@@ -2654,7 +2654,7 @@
     "/FrosthavenCharacterEditor/icon.5a11343c46ebf913.png": "53e79fd7b007e043eefe1e474f511ff2654a8ae1",
     "/FrosthavenCharacterEditor/immune.3638b2264dfc0cf4.svg": "683fda2b898292506e4a8f0984c5057c0e877509",
     "/FrosthavenCharacterEditor/immunity.2c2a1b1e8e23eb3e.svg": "60914c0e82b23869afd19360b84b1ab7303710c0",
-    "/FrosthavenCharacterEditor/index.html": "ee9123fda331628ef86e8bfc13a5931901cde1f1",
+    "/FrosthavenCharacterEditor/index.html": "0d30dfdb04ff15e6ab37967b008506542ae9c47c",
     "/FrosthavenCharacterEditor/initiative.d33d37bdaab1730c.svg": "b3a888feabc32f4c369d39f67edfc89bb48207ee",
     "/FrosthavenCharacterEditor/inner-mask.7b27f8298c6d95ee.svg": "41c137c5329578c1f0ccd7f4bf9c3209286599a7",
     "/FrosthavenCharacterEditor/item-back-fh.e293bb7bd25a2ea5.png": "6887a5deedb532c38ab40bde42a8b2c01121ca5f",
@@ -2675,7 +2675,7 @@
     "/FrosthavenCharacterEditor/layers.ef6db8722c2c3f9a.png": "c9e7528e491a39232ba24a2706c6c739d6fb0f06",
     "/FrosthavenCharacterEditor/level.574dcc5cbd05120b.svg": "e86dc57eeb530e2e8890cde702077d2567a69f06",
     "/FrosthavenCharacterEditor/loot-back.b3962872f80142fe.png": "a10c9bcc106f820ba1ce8e9a9a9cc47fdbc734d1",
-    "/FrosthavenCharacterEditor/main.1b2cba5149386f5e.js": "b3712b2fc9c3845e3bfc5a9782ac4c47e0b26189",
+    "/FrosthavenCharacterEditor/main.1b83855548fd30ce.js": "394eeee4925fc16c3dd05d0a5a52a6296587b062",
     "/FrosthavenCharacterEditor/majallab.00c7b4c865792c45.ttf": "cd2e9e61aca39d2b987b66e4c2a0a3ea13c3be48",
     "/FrosthavenCharacterEditor/majallab.4ef31693f35ab4df.woff": "5f4a605494c5e4adbe49e3b23bfdcf1f7f8a92b6",
     "/FrosthavenCharacterEditor/majallab.6df8bd4f01608dc7.svg": "9ddae911825314b46156a939f5e64c9bdc576c50",
