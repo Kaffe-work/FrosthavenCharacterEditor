@@ -36,7 +36,9 @@
     "test": "ng test",
     "watch": "npm-watch",
     "electron": "npm run build -- --base-href ./ && electron .",
-    "electron:build": "npm run build -- --base-href ./ && electron-builder"
+    "electron:build": "npm run build -- --base-href ./ && electron-builder",
+    "deploy": "ng build --prod --base-href /FrosthavenCharacterEditor/ && npx angular-cli-ghpages --dir=dist/frosthavenCardEditor"
+
   },
   "build": {
     "appId": "frosthavenCardEditor",
