@@ -37,7 +37,8 @@
     "watch": "npm-watch",
     "electron": "npm run build -- --base-href ./ && electron .",
     "electron:build": "npm run build -- --base-href ./ && electron-builder",
-    "deploy": "ng build --prod --base-href /FrosthavenCharacterEditor/ && npx angular-cli-ghpages --dir=dist/frosthavenCardEditor"
+    "deploy": "ng build --configuration=production --base-href /FrosthavenCharacterEditor/ && npx angular-cli-ghpages --dir=docs"
+
 
   },
   "build": {
